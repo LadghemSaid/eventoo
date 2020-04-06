@@ -29,5 +29,5 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
-webpack.config.js
-./webpack.config.js
+
+
