@@ -5,14 +5,9 @@ App\Entity\User:
     password: <encodePassword(@user_1, 'admin')>
     roles: [ROLE_ADMIN]
   user_2:
-    username: 'writer'
-    email: 'writer@writer.fr'
-    password: <encodePassword(@user_2, 'writer')>
-    roles: [ROLE_WRITER]
-  user_3:
     username: 'user'
     email: 'user@user.fr'
-    password: <encodePassword(@user_3, 'user')>
+    password: <encodePassword(@user_2, 'user')>
     roles: []
 
 App\Entity\Categorie:
@@ -25,10 +20,33 @@ App\Entity\Tag:
     name: <fr_FR:word()>
     slug: <fr_FR:slug()>
 
+App\Entity\Events:
+  events_{1..20}:
+    title: <fr_FR:catchPhrase()> <current()>
+    description: <fr_FR:slug()>
+    thumbnail: <fr_FR:randomElement(['img1.jpg','img3.jpg','img2.jpg'])>
+    published: 'true'
+    startDate: <dateTimeBetween('+1 days', '+10 days')>
+    endDate: <dateTimeBetween('+ 10 days', '+1 years')>
+    price: <fr_FR:numberBetween(40,50)>
+    ticketAvailable: <fr_FR:numberBetween(400,1500)>
+    location: <fr_FR:address()>
+    duration: <fr_FR:numberBetween(1,5)>
+
+App\Entity\Video:
+  video_{1..20}:
+    title: <fr_FR:catchPhrase()> <current()>
+    text: '<iframe width="560" height="315" src="https://www.youtube.com/embed/YTcL1ldg-nU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    published: 'true'
+    categorie: '3x @categorie*'
+
+
+
 App\Entity\Article:
-  article_{1..10}:
+  article_{1..20}:
     title: <fr_FR:catchPhrase()> <current()>
     image: 'img2.jpg'
+    imgAlternate: 'Image alternative'
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
     description: <fr_FR:catchPhrase()> <current()>
@@ -38,14 +56,35 @@ App\Entity\Article:
     favorite: <boolean(50)>
     updatedAt: <dateTime()>
 
-  comment_{60..90}:
+App\Entity\Faq:
+  faq_{1..20}:
+    questionTitle: <fr_FR:catchPhrase()> <current()>
+    questionAnswer: <fr_FR:catchPhrase()> <current()>
+    published: 'true'
+
+App\Entity\Comment:
+  comment_{0..20}:
+    text_comment: <fr_FR:text(100)>
+    createdAt: <dateTime()>
+    approved: <boolean(50)>
+    email: <email()>
+    username: <username()>
+    events: '@events_*'
+
+
+  comment_{20..40}:
+    text_comment: <fr_FR:text(100)>
+    createdAt: <dateTime()>
+    approved: <boolean(50)>
+    email: <email()>
+    username: <username()>
+    video: '@video_*'
+
+
+  comment_{40..60}:
     text_comment: <fr_FR:text(100)>
     createdAt: <dateTime()>
     approved: <boolean(50)>
     email: <email()>
     username: <username()>
     article: '@article_*'
-
-
-
-

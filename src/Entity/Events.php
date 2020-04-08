@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,10 +38,7 @@ class Events
      */
     private $published;
 
-    /**
-     * @ORM\Column(type="dateinterval", nullable=true)
-     */
-    private $date;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -60,6 +59,26 @@ class Events
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $duration;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $startDate;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $endDate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="events", orphanRemoval=true)
+     */
+    private $comments;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -114,17 +133,6 @@ class Events
         return $this;
     }
 
-    public function getDate(): ?\DateInterval
-    {
-        return $this->date;
-    }
-
-    public function setDate(?\DateInterval $date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
 
     public function getPrice(): ?string
     {
@@ -170,6 +178,61 @@ class Events
     public function setDuration(?string $duration): self
     {
         $this->duration = $duration;
+
+        return $this;
+    }
+
+    public function getStartDate(): ?\DateTimeInterface
+    {
+        return $this->startDate;
+    }
+
+    public function setStartDate(?\DateTimeInterface $startDate): self
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate(?\DateTimeInterface $endDate): self
+    {
+        $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setEvents($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
+            // set the owning side to null (unless already changed)
+            if ($comment->getEvents() === $this) {
+                $comment->setEvents(null);
+            }
+        }
 
         return $this;
     }

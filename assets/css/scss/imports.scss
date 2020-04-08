@@ -1,11 +1,10 @@
 
 // Fichier imports.scsss
-@import 'helpers/reset.scss';
-
-
-
+//@import 'helpers/reset.scss';
 @import 'helpers/utils/breakpoints';
 @import 'helpers/utils/variables';
+
+
 @import 'helpers/utils/main';
 @import 'helpers/utils/text/textalign';
 @import 'helpers/utils/text/textdecoration';
@@ -21,13 +20,13 @@
 @import 'helpers/utils/positions-display/absolute';
 @import 'helpers/utils/positions-display/flex';
 @import 'helpers/utils/positions-display/grid';
-
+/*
 @import 'helpers/utils/placeholder/animate';
 @import 'helpers/utils/placeholder/box-shadows';
 @import 'helpers/utils/colors/bg';
 @import 'helpers/utils/display/display';
 @import 'helpers/utils/cards/cards';
-
+*/
 
 //components
 @import 'components/buttons/buttons.scss';

@@ -33,17 +33,6 @@ class IndexController extends AbstractController
 
 
 
-    /**
-     * @Route("/about", name="about")
-     */
-    public function showAbout()
-    {
-        return $this->render('/about/about.html.twig', [
-            "current_menu" => "about"
-        ]);
-    }
-
-
     # get success response from recaptcha and return it to controller
     function captchaverify($recaptcha)
     {

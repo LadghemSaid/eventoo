@@ -55,6 +55,18 @@ class Comment
      */
     private $username;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Events", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $events;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Video", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $video;
+
 
 
     public function __construct()
@@ -141,6 +153,30 @@ class Comment
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getEvents(): ?Events
+    {
+        return $this->events;
+    }
+
+    public function setEvents(?Events $events): self
+    {
+        $this->events = $events;
+
+        return $this;
+    }
+
+    public function getVideo(): ?Video
+    {
+        return $this->video;
+    }
+
+    public function setVideo(?Video $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }

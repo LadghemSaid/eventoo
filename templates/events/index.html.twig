@@ -39,65 +39,36 @@
     <div class="img-banner">
         <img src="{{ asset('pho/banner-blog.jpg') }}" alt="Bannière blog" class="banner">
         <div class="text">
-            <h1>Notre aide</h1>
+            <h1>Evenements</h1>
             <p>Découvrez l'aide que l'on vous apporte.</p>
         </div>
     </div>
+    <div class="row">
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1>On peut vous renseigner sur les sujets suivants :</h1>
-        </div>
-        <div class="row">
+        {% for event in events %}
 
-            {% for article in articles %}
+            <div class="col-sm-4 event-item">
+                <a href="{{ path('event.show',{'slug':event.slug}) }}">
+                    <img class="d-block lazyload "
+                         src="{{ asset("img/low_res.jpg") }}"
+                         data-src="{{ app_path_articles_images }}{{ event.image }}"
+                         alt="{{ event.imgAlternate }}"
+                    />
+                </a>
 
-                <div class="col-sm-4 article-item">
-                    <a href="{{ path('article.show',{'slug':article.slug}) }}">
-                        <img class="d-block lazyload "
-                             src="{{ asset("img/low_res.jpg") }}"
-                             data-src="{{ app_path_articles_images }}{{ article.image }}"
-                             alt="{{ article.imgAlternate }}"
-                        />
-                    </a>
+                <a href="{{ path('event.show',{'slug':article.slug}) }}">
+                    <h2> {{ event.title|striptags|length >20 ? event.title|striptags|slice(0, 50) ~ '...' : event.title|striptags }} </h2>
+                </a>
+                <p class="p-date" data-date="{{ event.updatedAt| date('U') }}"></p>
+                <p class="p-description">{{ event.description|striptags|length > 100 ? event.description|striptags|slice(0, 100) ~ '...' : event.description|striptags }}</p>
+                <a href="{{ path('event.show',{'slug':event.slug}) }}" class="more">Voir plus</a>
+            </div>
 
-                    <a href="{{ path('article.show',{'slug':article.slug}) }}">
-                        <h2> {{ article.title|striptags|length >20 ? article.title|striptags|slice(0, 50) ~ '...' : article.title|striptags }} </h2>
-                    </a>
-                    <p class="p-date" data-date="{{ article.updatedAt| date('U') }}"></p>
-                    <p class="p-description">{{ article.description|striptags|length > 100 ? article.description|striptags|slice(0, 100) ~ '...' : article.description|striptags }}</p>
-                    <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more">Voir plus</a>
-                </div>
-
-
-
-            {% endfor %}
-            {% if articles|length == 0 %}
-                <div class="fullHeight">
-                    <p>Les articles seront bientot en ligne :)</p>
-                </div>
-            {% endif %}
-        </div>
-
+        {% endfor %}
+        {% if events|length == 0 %}
+            <div class="fullHeight">
+                <p>Il n'y a aucun event pour l'instant :)</p>
+            </div>
+        {% endif %}
     </div>
-
-
 {% endblock %}
-
-
-  {% block javascripts %}
-      <script>
-
-          document.addEventListener("DOMContentLoaded", function (event) {
-              $(function () {
-
-                  moment.locale('fr');
-                  $(".p-date").map((x, i) => {
-                      i.innerText = moment.unix(i.dataset.date).local().fromNow();
-                  });
-              });
-          });
-
-
-      </script>
-  {% endblock %}

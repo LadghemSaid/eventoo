@@ -28,10 +28,15 @@ class Categorie
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Video", mappedBy="categorie")
+     */
+    private $videos;
+
 
     public function __construct()
     {
-
+        $this->videos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -66,5 +71,33 @@ class Categorie
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection|Video[]
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->addCategorie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): self
+    {
+        if ($this->videos->contains($video)) {
+            $this->videos->removeElement($video);
+            $video->removeCategorie($this);
+        }
+
+        return $this;
     }
 }
