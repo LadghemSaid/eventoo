@@ -28,6 +28,16 @@ class Tag
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Events", mappedBy="tag")
+     */
+    private $events;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
+
 
 
 
@@ -65,5 +75,32 @@ class Tag
         return $this->name;
     }
 
+    /**
+     * @return Collection|Events[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Events $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->addTag($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Events $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            $event->removeTag($this);
+        }
+
+        return $this;
+    }
 
 }

@@ -1,0 +1,51 @@
+easy_admin:
+  entities:
+    Events:
+      templates:
+        # Twig namespace template syntax
+        paginator: '@App/Default/fragments/_paginator.html.twig'
+      class: App\Entity\Events
+      show:
+        fields:
+          - {property: 'title', type_options: { block_name: 'custom_title' } }
+          - {property: 'description' }
+          - {property: 'slug' }
+          - {property: 'text' }
+          - {property: 'thumbnail', type: 'image', base_path: '%app.path.events_images%' }
+          - {property: 'imgAlternate' }
+          - {property: 'price',type: 'money', type_options: { currency: 'EUR' }  }
+          - {property: 'ticketAvailable' }
+          - {property: 'location' }
+          - {property: 'startDate' }
+          - {property: 'endDate' }
+          - {property: 'duration' }
+          - {property: 'tag' }
+          - {property: 'published' }
+          - {property: 'favorite' }
+      list:
+        fields:
+          - 'title'
+          - 'slug'
+          - {property: 'thumbnail', type: 'image', base_path: '%app.path.events_images%' }
+          - 'published'
+      form:
+        fields:
+          - {property: 'title' , type_options: { required: true } }
+          - {property: 'description' }
+          - {property: 'slug', type_options: { required: false }  }
+          - {property: 'imageFile', type: 'vich_image', type_options: {}  }
+          - {property: 'imgAlternate' }
+          - {property: 'text',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'advanced_config',required: true } }
+          - {property: 'price',type: 'money', type_options: { currency: 'EUR' }  }
+          - {property: 'ticketAvailable' }
+          - {property: 'location' }
+          - {property: 'startDate' }
+          - {property: 'endDate' }
+          - {property: 'duration' }
+          - {property: 'tag' }
+          - {property: 'allowComment',  type: 'choice', type_options: { multiple: true, choices: { 'Afficher les commentaires': 'allowComment', 'Valider les commentaires automatiquement': 'commentValidatingAuto', 'Pas commentaire': 'noComment' } } }
+          - {property: 'published' }
+          - {property: 'favorite' }
+        actions:
+          - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

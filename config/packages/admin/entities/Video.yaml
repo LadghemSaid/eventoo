@@ -1,0 +1,29 @@
+easy_admin:
+  entities:
+    Video:
+      class: App\Entity\Video
+      show:
+        fields:
+          - {property: 'title' }
+          - {property: 'text' }
+          - {property: 'categorie' }
+          - {property: 'published' }
+          - {property: 'favorite' }
+      list:
+        fields:
+          - 'title'
+          - 'text'
+          - 'categorie'
+          - 'published'
+          - 'favorite'
+      form:
+        fields:
+            - {property: 'title' }
+            - {property: 'text' }
+            - {property: 'categorie' }
+            - {property: 'published' }
+            - {property: 'allowComment',  type: 'choice', type_options: { multiple: true, choices: { 'Afficher les commentaires': 'allowComment', 'Valider les commentaires automatiquement': 'commentValidatingAuto', 'Pas commentaire': 'noComment' } } }
+            - {property: 'favorite' }
+        actions:
+          - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

@@ -1,2 +1,16 @@
 easy_admin:
-  site_name: "<a href='%kernel.project_dir%'><em style='font-size:2em'>PopWeb</em></a> Administration"
+  site_name: "<a href='%kernel.project_dir%'><em style='font-size:2em'>Eventoo</em></a> Administration"
+  design:
+
+    form_theme:
+      - '@EasyAdmin/form/bootstrap_4.html.twig'
+      # the following Twig template can be located anywhere in the application.
+      # it can also be added to the twig.form_themes option to use it in the
+      # entire application, not only the backend
+      - 'admin/form.html.twig'
+
+    assets:
+      css:
+        - 'bundles/app/css/custom_admin.css'
+      js:
+        - 'bundles/app/js/custom_admin.js'

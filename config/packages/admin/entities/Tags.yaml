@@ -6,7 +6,7 @@ easy_admin:
         fields:
           - 'name'
           - 'slug'
-          - 'projects'
+          - {property: 'events'}
       form:
         fields:
           - {property: 'name'}

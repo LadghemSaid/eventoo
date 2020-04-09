@@ -1,0 +1,24 @@
+easy_admin:
+  entities:
+    Faq:
+      class: App\Entity\Faq
+      show:
+        fields:
+          - {property: 'questionTitle' }
+          - {property: 'questionAnswer' }
+          - {property: 'published' }
+
+      list:
+        fields:
+          - 'questionTitle'
+          - 'questionAnswer'
+          - 'published'
+      form:
+        fields:
+          - {property: 'questionTitle',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'simple_config',required: true } }
+          - {property: 'questionAnswer',type: 'FOS\CKEditorBundle\Form\Type\CKEditorType', type_options: { config_name: 'simple_config',required: true } }
+
+          - {property: 'published' }
+        actions:
+          - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+          - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

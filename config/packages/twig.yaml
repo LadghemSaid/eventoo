@@ -5,8 +5,10 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
+        #Disponnible dans les view sous les params ex:{app_path_articles_images}
         app_path_articles_images: '%env(string:UPLOAD_PATH_ARTICLES)%'
         app_path_default_images: '%env(string:UPLOAD_PATH_DEFAULT)%'
+        app_path_events_images: '%env(string:UPLOAD_PATH_EVENTS)%'
 
         site_name: 'Nomdesite'
         site_mail: 'Nomdesite@domain.fr'

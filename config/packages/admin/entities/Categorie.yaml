@@ -6,7 +6,8 @@ easy_admin:
         fields:
           - 'name'
           - 'slug'
-          - 'projects'
+          - {property: 'videos'}
+          - {property: 'articles'}
       form:
           fields:
             - {property: 'name'}

@@ -39,11 +39,6 @@ class Article
 
 
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="articles")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $categorie;
 
     /**
      * @ORM\Column(type="boolean")
@@ -101,12 +96,18 @@ class Article
      */
     private $imgAlternate;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Categorie", inversedBy="articles")
+     */
+    private $categorie;
+
 
 
     public function __construct()
     {
         $this->tags = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->categorie = new ArrayCollection();
     }
 
 
@@ -200,17 +201,7 @@ class Article
         return $this->title;
     }
 
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(?Categorie $categorie): self
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
+   
 
     public function getPublished(): ?bool
     {
@@ -249,6 +240,9 @@ class Article
 
         return $this;
     }
+
+
+    
 
     /**
      * @return mixed
@@ -333,6 +327,32 @@ class Article
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Categorie[]
+     */
+    public function getCategorie(): Collection
+    {
+        return $this->categorie;
+    }
+
+    public function addCategorie(Categorie $categorie): self
+    {
+        if (!$this->categorie->contains($categorie)) {
+            $this->categorie[] = $categorie;
+        }
+
+        return $this;
+    }
+
+    public function removeCategorie(Categorie $categorie): self
+    {
+        if ($this->categorie->contains($categorie)) {
+            $this->categorie->removeElement($categorie);
+        }
 
         return $this;
     }

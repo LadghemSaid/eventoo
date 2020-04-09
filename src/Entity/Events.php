@@ -5,8 +5,13 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
+ * @Vich\Uploadable
  * @ORM\Entity(repositoryClass="App\Repository\EventsRepository")
  */
 class Events
@@ -24,9 +29,24 @@ class Events
     private $title;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imgAlternate;
+
+    /**
+     * @ORM\Column(type="string")
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -34,10 +54,27 @@ class Events
     private $thumbnail;
 
     /**
+     * @Vich\UploadableField(mapping="events_images", fileNameProperty="thumbnail")
+     * @Assert\Image(mimeTypes={"image/png", "image/jpeg", "image/jpg", "image/gif"})
+     * @var File
+     */
+    private $imageFile;
+
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $published;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $favorite;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $allowComment = [];
 
 
     /**
@@ -75,9 +112,39 @@ class Events
      */
     private $comments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="events")
+     */
+    private $tag;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->categorie = new ArrayCollection();
+        $this->tag = new ArrayCollection();
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
     }
 
     public function getId(): ?int
@@ -236,4 +303,131 @@ class Events
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text): void
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug): void
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFavorite()
+    {
+        return $this->favorite;
+    }
+
+    /**
+     * @param mixed $favorite
+     */
+    public function setFavorite($favorite): void
+    {
+        $this->favorite = $favorite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllowComment()
+    {
+        return $this->allowComment;
+    }
+
+    /**
+     * @param mixed $allowComment
+     */
+    public function setAllowComment($allowComment): void
+    {
+        $this->allowComment = $allowComment;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImgAlternate()
+    {
+        return $this->imgAlternate;
+    }
+
+    /**
+     * @param mixed $imgAlternate
+     */
+    public function setImgAlternate($imgAlternate): void
+    {
+        $this->imgAlternate = $imgAlternate;
+    }
+
+    /**
+     * @return Collection|Tag[]
+     */
+    public function getTag(): Collection
+    {
+        return $this->tag;
+    }
+
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tag->contains($tag)) {
+            $this->tag[] = $tag;
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        if ($this->tag->contains($tag)) {
+            $this->tag->removeElement($tag);
+        }
+
+        return $this;
+    }
+
+
 }

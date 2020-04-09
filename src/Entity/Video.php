@@ -29,6 +29,16 @@ class Video
     private $text;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $favorite;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $allowComment = [];
+
+    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Categorie", inversedBy="videos")
      */
     private $categorie;
@@ -143,6 +153,35 @@ class Video
                 $comment->setVideo(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFavorite()
+    {
+        return $this->favorite;
+    }
+
+    /**
+     * @param mixed $favorite
+     */
+    public function setFavorite($favorite): void
+    {
+        $this->favorite = $favorite;
+    }
+
+
+    public function getAllowComment(): ?array
+    {
+        return $this->allowComment;
+    }
+
+    public function setAllowComment(?array $allowComment): self
+    {
+        $this->allowComment = $allowComment;
 
         return $this;
     }

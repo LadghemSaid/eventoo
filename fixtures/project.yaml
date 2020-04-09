@@ -24,20 +24,29 @@ App\Entity\Events:
   events_{1..20}:
     title: <fr_FR:catchPhrase()> <current()>
     description: <fr_FR:slug()>
+    text: <fr_FR:text(200)>
+    slug: <fr_FR:slug()>
     thumbnail: <fr_FR:randomElement(['img1.jpg','img3.jpg','img2.jpg'])>
+    imgAlternate: 'Image alternative'
     published: 'true'
     startDate: <dateTimeBetween('+1 days', '+10 days')>
     endDate: <dateTimeBetween('+ 10 days', '+1 years')>
     price: <fr_FR:numberBetween(40,50)>
     ticketAvailable: <fr_FR:numberBetween(400,1500)>
+    allowComment: ['allowComment','']
     location: <fr_FR:address()>
     duration: <fr_FR:numberBetween(1,5)>
+    favorite: 'true'
+    tag: '3x @tag*'
+
+
 
 App\Entity\Video:
   video_{1..20}:
     title: <fr_FR:catchPhrase()> <current()>
     text: '<iframe width="560" height="315" src="https://www.youtube.com/embed/YTcL1ldg-nU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
     published: 'true'
+    favorite: 'true'
     categorie: '3x @categorie*'
 
 
@@ -49,6 +58,7 @@ App\Entity\Article:
     imgAlternate: 'Image alternative'
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
+    categorie: '3x @categorie*'
     description: <fr_FR:catchPhrase()> <current()>
     published: 'true'
     allowComment: ['allowComment','']
