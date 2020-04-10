@@ -20,14 +20,16 @@ class IndexController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(Request $request)
+    public function index(Request $request,ArticleRepository $articleRepository, EventsRepository $eventsRepository)
     {
 
 
 
         //dd($treeLastProjects);
         return $this->render('index.html.twig', [
-
+            "current_menu" => "index",
+            "articles" => $articles,
+            "events" => $events
         ]);
     }
 

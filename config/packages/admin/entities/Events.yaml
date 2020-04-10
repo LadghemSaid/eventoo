@@ -14,7 +14,7 @@ easy_admin:
           - {property: 'thumbnail', type: 'image', base_path: '%app.path.events_images%' }
           - {property: 'imgAlternate' }
           - {property: 'price',type: 'money', type_options: { currency: 'EUR' }  }
-          - {property: 'ticketAvailable' }
+          - {property: 'ticketAvailable', template: }
           - {property: 'location' }
           - {property: 'startDate' }
           - {property: 'endDate' }
@@ -23,6 +23,7 @@ easy_admin:
           - {property: 'published' }
           - {property: 'favorite' }
       list:
+        batch_actions: ['delete']
         fields:
           - 'title'
           - 'slug'

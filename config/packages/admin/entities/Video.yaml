@@ -10,6 +10,7 @@ easy_admin:
           - {property: 'published' }
           - {property: 'favorite' }
       list:
+        batch_actions: ['delete']
         fields:
           - 'title'
           - 'text'

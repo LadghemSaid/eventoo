@@ -9,6 +9,7 @@ easy_admin:
           - {property: 'published' }
 
       list:
+        batch_actions: ['delete']
         fields:
           - 'questionTitle'
           - 'questionAnswer'

@@ -63,17 +63,18 @@
 </head>
 <body>
 
-
-{% include "header.html.twig" %}
-
+{% if current_menu is defined and current_menu != "login" and current_menu != "register" %}
+    {% include "header.html.twig" %}
+{% endif %}
 
 {% block body %}
 
 {% endblock %}
 
 
-
-{% include "footer.html.twig" %}
+{% if current_menu is defined and current_menu != "login" and current_menu != "register" %}
+    {% include "footer.html.twig" %}
+{% endif %}
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
