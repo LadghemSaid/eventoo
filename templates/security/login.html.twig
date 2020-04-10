@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Connexion - Eventoo{% endblock %}
+			{% block title %}Connexion - Eventoo
+			{% endblock %}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block meta_description %}{% endblock %}{% block meta_keywords %}{% endblock %}{% block meta_robots %}{% endblock %}{% block meta_google %}{% endblock %}
 		<link type="text/plain" rel="author" href="Nom de domaine/humans.txt"/>
@@ -18,6 +19,7 @@
 		<meta name="theme-color" content="#00103e">
 		<meta property="og:image" content="img/icon.png"/>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/595ca4abfa.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="{{ asset('js/tarteaucitron/tarteaucitron.js') }}"></script>
 		<script type="text/javascript">
 			tarteaucitron.init({
@@ -55,8 +57,8 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 
 	</head>
 	<body>
-		<div class="container h-100">
-			<div class="row h-100 d-flex align-items-center">
+		<div class="w-100 h-100">
+			<div class="row w-100 h-100 m-0 d-flex align-items-end">
 
 
 				{% if error %}
@@ -72,58 +74,52 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 
 				{% else %}
 					<div class="col-md-8 login-col-left">
-						<form method="post">
-							<h2 class="mb-20 font-weight-normal upperCase">Connexion</h2>
-							<button type="button" class="btn btn-lg btn-block mb-20 btn-facebook upperCase">Se connecter avec Facebook</button>
-							<div class="divider mb-20">
-								<p class="text-center">ou</p>
-							</div>
-							<div class="form-group row">
-								<label for="inputEmail input-label" class="col-sm-3 col-form-label">Email</label>
-								<div class="col-sm-9">
-									<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+						<div class="login-margin">
+							<form method="post">
+								<h2 class="mb-20 font-weight-normal upperCase">Connexion</h2>
+								<button type="button" class="btn btn-lg btn-block mb-20 btn-facebook upperCase">Se connecter avec Facebook</button>
+								<div class="divider mb-20">
+									<p class="text-center">ou</p>
 								</div>
-							</div>
-							<div class="form-group row mb-30">
-								<label for="inputPassword" class="col-sm-3 col-form-label">Mot de passe</label>
-								<div class="col-sm-9">
-									<input type="password" name="password" id="inputPassword" class="form-control" required>
+								<div class="form-group row">
+									<label for="inputEmail input-label" class="col-sm-3 col-form-label fc-white">Email</label>
+									<div class="col-sm-9">
+										<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+									</div>
 								</div>
+								<div class="form-group row mb-30">
+									<label for="inputPassword" class="col-sm-3 col-form-label fc-white">Mot de passe</label>
+									<div class="col-sm-9">
+										<input type="password" name="password" id="inputPassword" class="form-control" required>
+									</div>
+								</div>
+								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+								<button class="btn btn-lg btn-block mb-20 btn-purple upperCase" type="submit">
+									Se connecter
+								</button>
+							</form>
+							<p class="light-text">Je suis d’accord avec les conditions d’utilisation et la politique de confidentialité et de cookies de Eventoo qui vous permet de créer des profils personnels de vous-même afin que nous puissions vous montrer du contenu ciblé et des publicités personnalisées qui correspondent à vos intérêts.</p>
+							<a href="" class="d-flex justify-content-center forgot-password">Mot de passe oublié ?</a>
+						</div>
+
+						<div class="d-flex justify-content-between align-items-center bottom-section">
+							<div class="light-text fc-dark-grey">
+								<a href="{{ path("index") }}">
+									<i class="fas fa-chevron-left mr-5"></i>Retour à la page d'accueil</a>
 							</div>
-							<input
-							type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-							{#
-																						                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-																						                    See https://symfony.com/doc/current/security/remember_me.html
-																						
-																						                    <div class="checkbox mb-3">
-																						                        <label>
-																						                            <input type="checkbox" name="_remember_me"> Remember me
-																						                        </label>
-																						                    </div>
-																						                #}
-
-							<button class="btn btn-lg btn-block mb-20 btn-purple upperCase" type="submit">
-								Se connecter
-							</button>
-						</form>
-						<p class="light-text">Je suis d’accord avec les conditions d’utilisation et la politique de confidentialité et de cookies de Eventoo qui vous permet de créer des profils personnels de vous-même afin que nous puissions vous montrer du contenu ciblé et des publicités personnalisées qui correspondent à vos intérêts.</p>
-						<a href="" class="d-flex justify-content-center forgot-password">Mot de passe oublié ?</a>
-
-                    <div class="d-flex justify-content-between">
-                        <div class="light-text">
-                            <a href=""><i class="fas fa-chevron-left"></i>Retour à la page d'accueil</a>
-                        </div>
-                        <div class="d-flex light-text">
-                            <p>Vous n'avez pas de compte ?</p>
-                            <button class="btn btn-lg mb-20 btn-grey upperCase" type="submit">
-								Inscription
-							</button>
-                        </div>
-                    </div>
+							<div class="d-flex light-text fc-dark-grey">
+								<p class="mr-5 mb-0 d-flex align-items-center">Vous n'avez pas de compte ?</p>
+								<a href="{{ path('app_register') }}">
+									<button class="btn btn-lg btn-grey upperCase" type="submit">
+										Inscription
+									</button>
+								</a>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-4"></div>
+					<div class="col-md-4 h-100 right-section">
+						<img src="{{ asset("img/eventoo_logo.png") }}" alt="Eventoo logo"/>
+					</div>
 
 				{% endif %}
 

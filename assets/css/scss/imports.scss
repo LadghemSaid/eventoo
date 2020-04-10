@@ -6,6 +6,7 @@
 
 
 @import 'helpers/utils/main';
+@import 'helpers/utils/text/text.scss';
 @import 'helpers/utils/text/textalign';
 @import 'helpers/utils/text/textdecoration';
 @import 'helpers/utils/text/textlineheight';
@@ -21,6 +22,7 @@
 @import 'helpers/utils/positions-display/flex';
 @import 'helpers/utils/positions-display/grid';
 @import 'helpers/utils/forms/forms.scss';
+
 /*
 @import 'helpers/utils/placeholder/animate';
 @import 'helpers/utils/placeholder/box-shadows';

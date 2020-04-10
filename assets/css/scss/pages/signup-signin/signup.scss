@@ -1,3 +1,11 @@
+.login-margin {
+    margin: 10% 10% 20% 10%;
+}
+
+.register-margin {
+    margin: 10%;
+}
+
 .divider {
     position: relative;
     text-align: center;
@@ -35,4 +43,23 @@
     color: $dark-grey;
     font-size: small;
     font-weight: bold;
+}
+
+.bottom-section {
+    margin-bottom: 20px;
+}
+
+.right-section {
+    background-image: url(/pho/login/fest.png);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    img {
+        width: 80%;
+        margin: auto;
+    }
 }
