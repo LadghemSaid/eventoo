@@ -53,6 +53,11 @@ class Video
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -182,6 +187,18 @@ class Video
     public function setAllowComment(?array $allowComment): self
     {
         $this->allowComment = $allowComment;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

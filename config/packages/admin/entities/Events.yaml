@@ -1,10 +1,10 @@
 easy_admin:
   entities:
-    Events:
+    Event:
       templates:
         # Twig namespace template syntax
         paginator: '@App/Default/fragments/_paginator.html.twig'
-      class: App\Entity\Events
+      class: App\Entity\Event
       show:
         fields:
           - {property: 'title', type_options: { block_name: 'custom_title' } }

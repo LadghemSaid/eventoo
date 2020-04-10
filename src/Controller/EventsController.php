@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Repository\CommentRepository;
-use App\Repository\EventsRepository;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Events;
+use App\Entity\Event;
 use App\Entity\Comment;
 use App\Form\CommentType;
 
@@ -15,7 +15,7 @@ class EventsController extends AbstractController
     /**
      * @Route("/events", name="events.index")
      */
-    public function index(EventsRepository $repository)
+    public function index(EventRepository $repository)
     {
         $events = $repository->findAll();
         // $eventsFavorite= $repository->findBy(array('favorite'=>true));
@@ -28,7 +28,7 @@ class EventsController extends AbstractController
     /**
      * @Route("/event/{slug}", name="event.show" , requirements={"slug"="[a-z0-9\-]*"})
      */
-    public function show(EventsRepository $eventRepository, Events $event, CommentRepository $commentsRepository)
+    public function show(EventRepository $eventRepository, Event $event, CommentRepository $commentsRepository)
     {
 
 

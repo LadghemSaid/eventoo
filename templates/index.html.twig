@@ -6,10 +6,16 @@
         (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
     </script>
 {% endblock %}
-{% block meta_description %}<meta name="description" content="Agence web à Lens. Conception et développement de sites sur mesure. Communication digitale, référencement SEO Google."/>{% endblock %}
-{% block meta_keywords %}<meta name="keywords" content="Agence web de communication web marketing, stratégie digitale à Lens, France, creation site internet, agence de développement web, Création site internet, Lens, Lille, France, creation site internet, 59, 62, Nord Pas de Calais, Nord, Haut de France, création site internet vitrine, community management entreprise, community management personnel, création boutique en ligne, site internet, site web, création site internet boutique en ligne, Création site web, 75, Paris, Création site web e commerce, agence de référencement, agence seo, seo, référencement naturel, web marketing, agence web, agence de communication, vidéo promotionnelle, vidéo commercial, création site catalogue, création site internet responsive, généré du trafic sur mon site internet, première page google, référencement google, création de site internet france, conseil et webdesign, référencement internet, agence web, site internet responsive, site responsive, création et optimisation de site web, web design et développement de site internet, communication digitale, webmarketing, création site internet boutique en ligne, boutique en ligne, créer boutique en ligne, refonte boutique en ligne, refonte site internet e-commerce, responsive web design, refonte site internet responsive, site adaptable, site internet, site web, création site internet, création site web, responsive, création site internet e-commerce"/>{% endblock %}
-{% block meta_robots %}<meta name="robots" content="unavailable_after: [date ]">{% endblock %}
-{% block google %}<meta name="google" content="unavailable_after: [date ]">{% endblock %}
+{% block meta_description %}
+    <meta name="description"
+          content="Agence web à Lens. Conception et développement de sites sur mesure. Communication digitale, référencement SEO Google."/>{% endblock %}
+{% block meta_keywords %}
+    <meta name="keywords"
+          content="Agence web de communication web marketing, stratégie digitale à Lens, France, creation site internet, agence de développement web, Création site internet, Lens, Lille, France, creation site internet, 59, 62, Nord Pas de Calais, Nord, Haut de France, création site internet vitrine, community management entreprise, community management personnel, création boutique en ligne, site internet, site web, création site internet boutique en ligne, Création site web, 75, Paris, Création site web e commerce, agence de référencement, agence seo, seo, référencement naturel, web marketing, agence web, agence de communication, vidéo promotionnelle, vidéo commercial, création site catalogue, création site internet responsive, généré du trafic sur mon site internet, première page google, référencement google, création de site internet france, conseil et webdesign, référencement internet, agence web, site internet responsive, site responsive, création et optimisation de site web, web design et développement de site internet, communication digitale, webmarketing, création site internet boutique en ligne, boutique en ligne, créer boutique en ligne, refonte boutique en ligne, refonte site internet e-commerce, responsive web design, refonte site internet responsive, site adaptable, site internet, site web, création site internet, création site web, responsive, création site internet e-commerce"/>{% endblock %}
+{% block meta_robots %}
+    <meta name="robots" content="unavailable_after: [date ]">{% endblock %}
+{% block google %}
+    <meta name="google" content="unavailable_after: [date ]">{% endblock %}
 {% block style_custom %}
     <style>
 
@@ -21,10 +27,126 @@
     <div class="img-banner">
         <img src="{{ asset('pho/banner.png') }}" alt="Bannière accueil" class="banner">
         <div class="text">
-            <h1>Eventoo</h1>
-            <p>Tagline.</p>
+            <h1>Prochain evenement</h1>
+            <h2> {{ events|first.title }}</h2>
+            <p> {{ events|first.description }}</p>
+            <div id="compteur" class="compteur"
+                 data-startdate="{{ events|first.startDate|date("m/d/Y h:m:s") }} "></div>
+            <a class="primaire" href="{{ path('event.show',{'slug':events|first.slug}) }}">Découvrir</a>
+
         </div>
     </div>
+    <div class="container">
+        <div class="events">
+            <div class="events-news">
+                <h3>Evenements à venir</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis neque nisi placeat sunt ullam?
+                    Blanditiis
+                    corporis debitis dolore dolorum error, eum, ipsum maxime quae quo, quod recusandae reiciendis
+                    repudiandae
+                    sunt?
+
+                </p>
+            </div>
+            {% for event in events %}
+                <a  href="{{ path('event.show',{'slug':event.slug}) }}">
+                    <div class="event">
+                        <img class="image" src="https://picsum.photos/400/200" alt="">
+
+                        <div class="infos">
+                            <h1 class="title">{{ event.title }}</h1>
+                            <div class="icons">
+                                <div class="wraper">
+                                    <i class="fa fa-calendar">
+                                    </i>
+                                    <div>
+                                        <span>Du {{ event.startDate|date("m/d/Y h:m" ) }} </span>
+                                        <br>
+                                        <span>Au {{ event.endDate|date("m/d/Y h:m" ) }} </span>
+                                    </div>
+                                </div>
+                                <div class="wraper">
+                                    <i class="fa fa-map-marker"></i>
+                                    </i>
+                                    <div>
+                                        <span> {{ event.location }} </span>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <p class="description">{{ event.description }}</p>
+                        </div>
+
+                    </div>
+                </a>
+            {% endfor %}
+            <a href="" class="primaire">Voir plus</a>
+
+        </div>
+
+
+        <div class="articles">
+            <div class="articles-news">
+                <h3>Actualités</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis neque nisi placeat sunt ullam?
+                    Blanditiis
+                    corporis debitis dolore dolorum error, eum, ipsum maxime quae quo, quod recusandae reiciendis
+                    repudiandae
+                    sunt?
+
+                </p>
+            </div>
+            {% for article in articles %}
+                <a href="{{ path('article.show',{'slug':article.slug}) }}">
+                    <div class="article">
+                        <img class="image" src="https://picsum.photos/400/200" alt="">
+                        <div class="infos">
+                            <h1 class="title">{{ article.title }}</h1>
+                            <div class="icons">
+
+
+                                    <div>
+                                        <i class="fa fa-calendar">
+                                        </i>
+                                        <span>{{ article.createdAt|date("m/d/Y h:m" ) }} </span>
+                                    </div>
+
+
+                                    <div>
+                                        <i class="fa fa-heart"></i>
+                                        </i>
+                                        <span> {{ article.likes | length }} </span>
+
+                                    </div>
+                                <div>
+                                    <i class="fa fa-comment"></i>
+                                    </i>
+                                    <span> {{ article.comments | length }} </span>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <p class="description">{{ article.description }}</p>
+                        </div>
+
+                    </div>
+                </a>
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
 
 
 {% endblock %}
@@ -32,6 +154,52 @@
 {% block javascripts %}
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
+        // Set the date we're counting down to
+        var date = $('#compteur')[0].dataset.startdate;
+        var countDownDate = new Date(date).getTime();
+        console.log(countDownDate)
 
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            var seconds = ("0" + seconds).slice(-2);
+            var minutes = ("0" + minutes).slice(-2);
+            var hours = ("0" + hours).slice(-2);
+            var days = ("0" + days).slice(-2);
+
+            // Display the result in the element with id="demo"
+            if (days === '00') {
+                document.getElementById("compteur").innerHTML =
+                    "<span class='hours'>" + hours + "</span>" +
+                    "<span class='minutes'>" + minutes + "</span>" +
+                    "<span class='seconds'>" + seconds + "</span>"
+                ;
+            } else {
+                document.getElementById("compteur").innerHTML =
+                    "<span class='days'>" + days + "</span>" +
+                    "<span class='hours'>" + hours + "</span>" +
+                    "<span class='minutes'>" + minutes + "</span>" +
+                    "<span class='seconds'>" + seconds + "</span>";
+            }
+
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("compteur").innerHTML = "EXPIRED";
+            }
+        }, 1000);
     </script>
 {% endblock %}

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -49,6 +51,16 @@ class User implements UserInterface
      * @ORM\Column(name="salt", type="string", nullable=true)
      */
     private $salt;
+
+    /**
+     * @ORM\OneToMany(targetEntity="LikeVote", mappedBy="user")
+     */
+    private $likes;
+
+    public function __construct()
+    {
+        $this->likes = new ArrayCollection();
+    }
 
     public function serialize()
     {
@@ -171,6 +183,37 @@ class User implements UserInterface
     public function setUsername($username): void
     {
         $this->username = $username;
+    }
+
+    /**
+     * @return Collection|LikeVote[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(LikeVote $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(LikeVote $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+            // set the owning side to null (unless already changed)
+            if ($like->getUser() === $this) {
+                $like->setUser(null);
+            }
+        }
+
+        return $this;
     }
 
 

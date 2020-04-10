@@ -12,7 +12,7 @@ easy_admin:
       - label: 'Contenu'
         icon: 'newspaper-o'
         children:
-          - {entity: 'Events', icon: 'scroll', label: 'Evenements'}
+          - {entity: 'Event', icon: 'scroll', label: 'Evenements'}
           - {entity: 'Video', icon: 'video-camera', label: 'Video'}
           - {entity: 'Faq', icon: 'question', label: 'Faq'}
           - {entity: 'Article', icon: 'scroll', label: 'Articles'}

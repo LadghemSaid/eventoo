@@ -101,6 +101,16 @@ class Article
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity="LikeVote", mappedBy="article")
+     */
+    private $likes;
+
 
 
     public function __construct()
@@ -108,6 +118,7 @@ class Article
         $this->tags = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->categorie = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
 
@@ -352,6 +363,49 @@ class Article
     {
         if ($this->categorie->contains($categorie)) {
             $this->categorie->removeElement($categorie);
+        }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|LikeVote[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(LikeVote $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(LikeVote $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+            // set the owning side to null (unless already changed)
+            if ($like->getArticle() === $this) {
+                $like->setArticle(null);
+            }
         }
 
         return $this;

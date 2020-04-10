@@ -1,26 +1,123 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700,800|Roboto:100,300,400,500,700,900&display=swap');
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Raleway', sans-serif;
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+  background-color: #0c1821;
+  color: white;
 }
 
-p, a, span, button, label, ::placeholder {
-    font-family: 'Roboto', sans-serif;
+header a {
+  color: white;
 }
+
+header img {
+  height: 100px;
+  padding: 15px;
+}
+
 
 .img-banner {
 
-    .banner {
-        width: 100%;
-        height: 600px;
-        object-fit: cover;
-    }
+  .banner {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+  }
 
-    .text {
-        position: absolute;
-        top: 250px;
-        width: 100%;
-        text-align: center;
-        color: #FFFFFF;
-    }
+  .text {
+    position: absolute;
+    top: 170px;
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+  }
+}
+
+.menu-du-header a {
+  text-decoration: none;
+  color: white;
+  background-color: #111111;
+  padding: 16px 8px 8px 8px;
+  font-size: medium;
+  display: block;
+}
+
+
+/* soulignage effect */
+#menu-du-header a:after {
+  position: relative;
+  content: " ";
+  display: block;
+  left: 0;
+  top: 4px;
+  width: 0px;
+  height: 2px;
+  border-bottom: 3px $red solid;
+  transition: all 0.3s ease;
+
+}
+
+
+#menu-du-header a:hover:not(.active):after {
+  width: 100%;
+}
+
+#menu-du-header {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1050px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    padding: 8px;
+    margin: 0px 8px;
+  }
+
+  .active::after {
+    position: relative;
+    content: " ";
+    display: block;
+    left: 0;
+    top: 4px;
+    width: 100% !important;
+    height: 2px;
+    border-bottom: 3px $red solid;
+  }
+}
+
+#marge-du-header {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1050px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* soulignage effet (fin) */
+@media (max-width: 650px), handheld {
+
+
+  #marge-du-header {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1050px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center
+  }
+  #menu-du-header a {
+
+  }
 }

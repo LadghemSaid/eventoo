@@ -56,10 +56,10 @@ class Comment
     private $username;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Events", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="Event", inversedBy="comments")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $events;
+    private $event;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Video", inversedBy="comments")
@@ -67,11 +67,16 @@ class Comment
      */
     private $video;
 
+    /**
+     * @ORM\OneToMany(targetEntity="LikeVote", mappedBy="comment")
+     */
+    private $likes;
+
 
 
     public function __construct()
     {
-
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -157,14 +162,14 @@ class Comment
         return $this;
     }
 
-    public function getEvents(): ?Events
+    public function getEvent(): ?Event
     {
         return $this->events;
     }
 
-    public function setEvents(?Events $events): self
+    public function setEvent(?Event $event): self
     {
-        $this->events = $events;
+        $this->events = $event;
 
         return $this;
     }
@@ -177,6 +182,37 @@ class Comment
     public function setVideo(?Video $video): self
     {
         $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|LikeVote[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(LikeVote $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setComment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(LikeVote $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+            // set the owning side to null (unless already changed)
+            if ($like->getComment() === $this) {
+                $like->setComment(null);
+            }
+        }
 
         return $this;
     }

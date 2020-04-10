@@ -1,0 +1,63 @@
+.compteur{
+  height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 150px;
+  align-items: center;
+  margin-bottom: 80px;
+  span{
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.61);
+    color: white;
+    border-radius: 5px;
+    font-size: 10rem;
+    position: relative;
+  }
+  span.days:before{
+    background-color: #ccc9dc;
+    border-radius:5px ;
+    color: #383838;
+    content: 'Jours';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 3rem;
+  }
+  span.hours:before{
+    background-color: #ccc9dc;
+    border-radius:5px ;
+    color: #383838;
+    content: 'Heures';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 3rem;
+  }
+  span.minutes:before{
+    background-color: #ccc9dc;
+    border-radius:5px ;
+    color: #383838;
+    content: 'Minutes';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 3rem;
+  }  span.seconds:before{
+    background-color: #ccc9dc;
+    border-radius:5px ;
+    color: #383838;
+    content: 'Secondes';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 3rem;
+  }
+}

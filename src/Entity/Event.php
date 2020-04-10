@@ -12,9 +12,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @Vich\Uploadable
- * @ORM\Entity(repositoryClass="App\Repository\EventsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
  */
-class Events
+class Event
 {
     /**
      * @ORM\Id()
@@ -119,9 +119,18 @@ class Events
 
     /**
      * @ORM\Column(type="datetime")
-     * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity="LikeVote", mappedBy="event")
+     */
+    private $likes;
 
 
     public function __construct()
@@ -129,6 +138,7 @@ class Events
         $this->comments = new ArrayCollection();
         $this->categorie = new ArrayCollection();
         $this->tag = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     /**
@@ -424,6 +434,49 @@ class Events
     {
         if ($this->tag->contains($tag)) {
             $this->tag->removeElement($tag);
+        }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|LikeVote[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(LikeVote $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(LikeVote $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+            // set the owning side to null (unless already changed)
+            if ($like->getEvent() === $this) {
+                $like->setEvent(null);
+            }
         }
 
         return $this;

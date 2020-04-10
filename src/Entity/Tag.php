@@ -29,7 +29,7 @@ class Tag
     private $slug;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Events", mappedBy="tag")
+     * @ORM\ManyToMany(targetEntity="Event", mappedBy="tag")
      */
     private $events;
 
@@ -76,14 +76,14 @@ class Tag
     }
 
     /**
-     * @return Collection|Events[]
+     * @return Collection|Event[]
      */
     public function getEvents(): Collection
     {
         return $this->events;
     }
 
-    public function addEvent(Events $event): self
+    public function addEvent(Event $event): self
     {
         if (!$this->events->contains($event)) {
             $this->events[] = $event;
@@ -93,7 +93,7 @@ class Tag
         return $this;
     }
 
-    public function removeEvent(Events $event): self
+    public function removeEvent(Event $event): self
     {
         if ($this->events->contains($event)) {
             $this->events->removeElement($event);
