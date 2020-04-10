@@ -5,9 +5,8 @@ namespace App\Controller;
 
 use App\Form\ContactType;
 use App\Repository\ArticleRepository;
-use App\Repository\JobRepository;
+use App\Repository\EventsRepository;
 use App\Repository\MaillingListRepository;
-use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\CurlHttpClient;
