@@ -20,6 +20,7 @@
 @import 'helpers/utils/positions-display/absolute';
 @import 'helpers/utils/positions-display/flex';
 @import 'helpers/utils/positions-display/grid';
+@import 'helpers/utils/forms/forms.scss';
 /*
 @import 'helpers/utils/placeholder/animate';
 @import 'helpers/utils/placeholder/box-shadows';
@@ -44,5 +45,6 @@
 @import 'pages/404/404.scss';
 @import 'pages/about/about.scss';
 @import 'pages/contact/contact.scss';
+@import 'pages/signup-signin/signup.scss';
 
 

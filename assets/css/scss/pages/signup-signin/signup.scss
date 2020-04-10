@@ -1,0 +1,38 @@
+.divider {
+    position: relative;
+    text-align: center;
+    font-size: 12px;
+    color: #8A8A90;
+}
+
+.divider:before, .divider:after {
+    background: -webkit-linear-gradient(left,#172936,#BEBEBE 50%,#172936);
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: #E9E9E9;
+    content: '';
+}
+
+.divider:before {
+    left: 0;
+}
+
+.divider:after {
+    right: 0;
+}
+
+.forgot-password {
+    color: $dark-grey;
+    font-size: small;
+    font-weight: bold;
+}
+
+.forgot-password:hover {
+    color: $dark-grey;
+    font-size: small;
+    font-weight: bold;
+}
