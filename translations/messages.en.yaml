@@ -1,0 +1,161 @@
+#label
+labels.must.have: 'required fields'
+label.full.day.ticket: 'Whole day ticket'
+label.half.day.ticket: 'Half day ticket (from 2:00PM)'
+label.visit.date: 'Visit date'
+label.visit.type: 'Ticket type'
+label.visit.nb.tickets: 'How many ticket'
+label.lastname.visitor: 'Lastname'
+label.firstname.visitor: 'Firstname'
+label.country.visitor: 'Country'
+label.birthday.visitor: 'Date of birth'
+label.discount.visitor: "Reduced rate: 10 euros - Tariff granted under some conditions (student, museum employee, staff member of culture ministry, soldier…)"
+label.contact.customer: "Contact of customer"
+label.lastname.customer: 'Lastname'
+label.firstname.customer: 'Firstname'
+label.email.customer: 'Email'
+label.adress.customer: 'Adress'
+label.postcode.customer: 'Postal code'
+label.city.customer: 'City'
+label.country.customer: 'Country'
+label.bookingcode: 'Booking code'
+
+#navigation
+nav.title: 'Ticketing of Louvre Museum'
+nav.home: 'Homepage'
+nav.contact: 'Contact'
+nav.languages: 'Langages'
+nav.languages.fr: 'French'
+nav.languages.en: 'English'
+
+#footer
+footer.payment: 'Secure payment'
+footer.louvre.website: 'Official website of Louvre Museum'
+
+#breadcrumbs
+breadcrumb.first.label: 'Tickets'
+breadcrumb.second.label: 'Visitors'
+breadcrumb.third.label: 'Purchaser'
+breadcrumb.fourth.label: 'Payment'
+breadcrumb.five.label: 'Confirmation'
+
+
+#layout.html.twig
+title.site: 'Ticketing of Louvre Museum'
+
+#index.html.twig
+title.site.index: 'Homepage'
+title.welcome: 'Welcome on ticketing of Louvre Museum'
+homepage.paragraph0: "The Louvre Museum welcomes you every day, except tuesday and some public holidays (the 1st of May, the 1st of November et le 25th of December),
+from 9:00AM to 6:00PM, until 9:45 all thursdays and fridays. Rooms close from 5:30PM, from 9:30PM all thursdays and fridays."
+homepage.paragraph1 : 'For your visit, two kind of ticket are suggested :'
+homepage.full.day.ticket: 'Whole day ticket'
+homepage.half.day.ticket: 'Half day ticket. With this ticket, you can enter in the Louvre Museum from 2:00PM.'
+homepage.prices: 'There are differents prices'
+homepage.array.tickets: 'Tickets'
+homepage.first.price: 'Standard ticket (from 12 years)'
+homepage.second.price: 'Senior ticket (from 60 years)'
+homepage.third.price: 'Reduced rate'
+homepage.fourth.price: 'Child ticket (from 4 to 12 years)'
+discount.first.condition: 'Admittance from 2:00PM'
+discount.second.condition: "Reduced rate: 10 euros - Tariff granted under some conditions (student, museum employee, staff member of culture ministry, soldier…)"
+discount.third.condition: "Free for children under 4 years"
+homepage.recommandations: "Each online ticket is nominative. An identity document can be asked to you when you will arrive."
+button.buy.tickets: 'Buy your tickets'
+
+#order.html.twig
+title.site.order: 'Tickets'
+button.validate: 'Validate'
+
+#identify.html.twig
+title.site.identify: 'Visitors'
+ticket: 'Ticket'
+
+#customer.html.twig
+invoice.informations: "Billing adress"
+
+#pay.html.twig
+title.site.pay: 'Payment for the order'
+payment.visit: 'Your order summary'
+total.invoice: 'Total amount of the order'
+pay.order: "I pay the order"
+louvre.museum: "Louvre Museum"
+ticketing: "Ticketing"
+flash.payment.error: "An error has occured. Please contact our webmaster."
+
+
+#confirmation.html.twig
+title.site.confirmation: 'Confirmation of the order'
+validate.visit: 'Your order has been successful.'
+send.email: "You will received to this email adress"
+confirmed.payment: "the confirmation of your payment"
+content.visit: "your order summary (number of tickets, contacts of visitors, prices)"
+unique.bookingcode.visit: 'the booking code of your visit'
+
+prepare.your.visit: 'Plan your visit'
+exhibitions: 'Exhibitions'
+guided.tour: 'Guided tours'
+informations.museum: "Practical informations (location, hours)"
+have.a.good.visit: 'Enjoy your visit'
+
+
+#contact.html.twig
+title.site.contact: 'Contact'
+contact.us: "Contact us"
+contact.paragraph0: "You need some informations to plan your visit, you have a question about your order...
+Contact us with the form below. We will answer you quickly."
+
+#visitController
+flash.payment.success: "You payment has been accepted."
+message.contact.send: "Your message has been sent successfully. We will answer you quickly."
+
+#Emails/registration.html.twig
+title.registration: "Booking - Louvre Museum"
+hello: 'Hello'
+valid.order: "You have confirmed your online order on ticketing of Louvre Museum. We thank you."
+order.summary: "Your order summary can be found below."
+on.behalf.of: "On behalf of "
+price.ticket: "Price of this ticket"
+registration.paragraph0: "The Louvre Museum welcomes you from 9:00AM to 6:00PM, until 9:45 all thursdays and fridays. Rooms close from 5:30PM, from 9:30PM all thursdays and fridays."
+registration.paragraph1: "The online ticket is nominative. An identity document can be asked to you when you will arrive."
+comments.guided_tour: "If it's your first time in Louvre Museum or if you are a regular, find the best guided tour for you."
+pratical.informations: "Practical informations"
+comments.pratical.informations: "Hours of museum, time of opening and closing of rooms, guides tours, locations..."
+comments.exhibitions: "Discover permanent and temporary exhibitions of Louvre Museum. Each season, we invite you to discover a new temporary exhibition, result of the latest expert research."
+workshops: "Workshops"
+comments.workshops: "There are some workshops for children and for adults. A wide range of artistic approaches is offered."
+
+#Emails/contact.html.twig
+title.email.contact: "Contact Page - Louvre Museum"
+contact.page: "Contact Page"
+new.message: "This is a new message sent by a visitor with Contact Page of the ticketing of Louvre Museum."
+lastname.contact: "Lastname"
+firstname.contact: "Firstname"
+email.contact: "Email"
+message.contact: "Message"
+
+#EmailService
+emailservice.subject_validator_order: "Booking confirmation on the ticketing of Louvre Museum"
+email.subject_contact_page: "Louvre Museum website - Contact Page"
+
+
+#ContactType
+label.lastname: 'Lastname'
+label.firstname: 'Firstname'
+label.email: 'Email'
+label.message: 'Message'
+
+
+#error.404.html.twig / error.403.html.twig / error.html.twig
+title.site.error: "An error occurred."
+Oops: "Oops"
+error.server: "The server returned a error"
+broken.link: "this link is broken or doesn't still exist."
+sorry: "We would be sorry for this inconvenience."
+go.to.homepage: "We will meet again on homepage."
+access.denied: "Access denied. You don't have the necessary access rights to visit this section of the website. Please contact the website administration."
+website.unavailable: "The website is unavailable at the moment. Please come back thereafter."
+
+
+#exceptionListener
+exception.message_error: "An error has occured. Please enter your order again."

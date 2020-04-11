@@ -1,0 +1,77 @@
+{# src/AppBundle/Resources/views/Visit/confirmation.html.twig#}
+
+{% extends "base.html.twig" %}
+
+    {% block title %}
+        {{ 'title.site.confirmation' | trans }} - {{ parent() }}
+    {% endblock %}
+
+
+    {% block body %}
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-1">
+                </div>
+
+                <div class="col-lg-11 section-progress">
+                    <div class="container">
+
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_order') }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
+                                <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_identify') }}">{{ 'breadcrumb.second.label' | trans }}</a></li>
+                                <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_customer') }}">{{ 'breadcrumb.third.label' | trans }}</a></li>
+                                <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_pay') }}">{{ 'breadcrumb.fourth.label' | trans }}</a></li>
+                                <li class="breadcrumb-item text-success font-weight-bold text-uppercase" style="text-decoration:underline;">{{ 'breadcrumb.five.label' | trans }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <section>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-3">
+                    </div>
+
+
+                    <div class="col-lg-7">
+
+                        <div class="title-recap"><button type="button" class="btn btn-success text-white">{{ 'validate.visit' | trans }} !</button></div>
+
+                        {{ 'label.bookingcode' | trans }} : {{ visit.bookingCode }}<br/><br/>
+
+                        {{ 'send.email' | trans }} <span class="num-billet">{{ visit.customer.email }}</span><br/>
+                        <ul>
+                            <li>{{ 'confirmed.payment' | trans }},</li>
+                            <li>{{ 'content.visit' | trans }},</li>
+                            <li>{{ 'unique.bookingcode.visit' | trans }}.</li>
+                        </ul>
+                        {{ 'have.a.good.visit' | trans }} !<br/><br/><br/>
+
+
+                        <div class="title-recap"><button type="button" class="btn btn-success text-white">{{ 'prepare.your.visit' | trans }}</button></div>
+                        <ul>
+                            <li><a href="https://www.louvre.fr/expositions" target="_blank">{{ 'exhibitions' | trans }}</a></li>
+                            <li><a href="https://www.louvre.fr/visites-guidees" target="_blank">{{ 'guided.tour' | trans }}</a></li>
+                            <li><a href="https://www.louvre.fr/horaires-tarifs-acces" target="_blank">{{ 'informations.museum' | trans }}</a></li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="col-lg-2">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}

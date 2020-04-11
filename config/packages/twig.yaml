@@ -13,3 +13,6 @@ twig:
         site_name: 'Nomdesite'
         site_mail: 'Nomdesite@domain.fr'
         site_name_pretty: 'Nom de site'
+
+        stripe_publish_key: 'stripe_publish_key'
+        stripe_secret_key: 'stripe_secret_key'

@@ -1,0 +1,42 @@
+#visit
+constraint.visit.min.visitdate: "You have to choose a visit date higher or equal to date today."
+constraint.visit.max.visitdate: "The booking is possible only on this year."
+constraint.visit.type: "You have to choose a ticket type."
+constraint.visit.min.nb.tickets: "You have to book one ticket at least."
+constraint.visit.max.nb.tickets: "You can't book more than 20 tickets by order."
+
+
+#ticket
+constraint.ticket.notblank.lastname: "You have to enter a lastname."
+constraint.ticket.type.lastname: "The lastname is wrong."
+constraint.ticket.notblank.firstname: "You have to enter a firstname."
+constraint.ticket.type.firstname: "The firstname is wrong."
+
+#customer
+constraint.customer.notblank.lastname: "You have to enter your lastname."
+constraint.customer.type.lastname: "The lastname is wrong."
+constraint.customer.notblank.firstname: "You have to enter your firstname."
+constraint.customer.type.firstname: "The firstname is wrong."
+constraint.customer.notblank.email: "You have to enter an email adress."
+constraint.customer.message.email: "This email adress is invalid."
+constraint.customer.notblank.adress: "You have to enter your mailing address."
+constraint.customer.notblank.postcode: "You have to enter the postal code of your city."
+constraint.customer.notblank.city: "You have to enter your city."
+
+
+#Validator - Constraints
+constraint.limited_reservation_after_hour: "Once %hour%h passed, you cannot buy a whole day ticket for today."
+constraint.no_reservation_on_public_holidays: "Booking unavailable on this public holiday."
+constraint.no_reservation_on_sunday: "Online, you cannot book a visit on sunday."
+constraint.no_reservation_on_tuesday: "It's not possible to book a ticket on tuesday. To this day, the museum is closed."
+constraint.one_thousand_tickets: "There aren't no more available tickets on this day.
+Please make a reservation on another day."
+constraint.to_late_for_today: "Once %hour%h passed, you cannot make a reservation on date today."
+
+
+#ContactType
+constraint.contactType_lastname_notBlank: 'You have to enter your lastname.'
+constraint.contactType_firstname_notBlank: 'You have to enter your firstname.'
+constraint.contactType_email_notBlank: 'You have to enter your email adress.'
+constraint.contactType_email_valide: "This email adress is invalid."
+constraint.contactType_message_notBlank: 'You have to enter your message.'

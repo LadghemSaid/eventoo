@@ -1,0 +1,42 @@
+#visit
+constraint.visit.min.visitdate: "Vous devez choisir une date de visite supérieure ou égale à la date du jour."
+constraint.visit.max.visitdate: "La réservation est uniquement sur l'année en cours."
+constraint.visit.type: "Vous devez choisir un type de billet."
+constraint.visit.min.nb.tickets: "Vous devez réserver au minimum un billet."
+constraint.visit.max.nb.tickets: "Vous ne pouvez pas réserver plus de 20 billets par commande."
+
+
+#ticket
+constraint.ticket.notblank.lastname: "Vous devez saisir un nom de famille."
+constraint.ticket.type.lastname: "Le nom saisi est incorrect."
+constraint.ticket.notblank.firstname: "Vous devez saisir un prénom."
+constraint.ticket.type.firstname: "Le prénom saisi est incorrect."
+
+#customer
+constraint.customer.notblank.lastname: "Vous devez saisir votre nom de famille."
+constraint.customer.type.lastname: "Le nom saisi est incorrect."
+constraint.customer.notblank.firstname: "Vous devez saisir votre prénom."
+constraint.customer.type.firstname: "Le prénom saisi est incorrect."
+constraint.customer.notblank.email: "Vous devez saisir un email."
+constraint.customer.message.email: "L'email saisi n'est pas une adresse valide."
+constraint.customer.notblank.adress: "Vous devez saisir votre adresse postale."
+constraint.customer.notblank.postcode: "Vous devez saisir le code postal de votre ville."
+constraint.customer.notblank.city: "Vous devez saisir le nom de votre ville."
+
+
+#Validator - Constraints
+constraint.limited_reservation_after_hour: "Une fois %hour%h passées, vous ne pouvez plus acheter de billet journée pour aujourd'hui."
+constraint.no_reservation_on_public_holidays: "Réservation indisponible ce jour férié."
+constraint.no_reservation_on_sunday: "En ligne, il n'est pas possible de réserver une visite pour la journée du dimanche."
+constraint.no_reservation_on_tuesday: "Il n'est pas possible de réserver un billet en ligne pour la journée du mardi. Ce jour, le musée est fermé."
+constraint.one_thousand_tickets: "Il n'y a plus de billets disponibles à la réservation sur cette date.
+Veuillez effectuer une réservation sur une autre date."
+constraint.to_late_for_today: "Une fois %hour%h passées, vous ne pouvez plus effectuer une réservation sur le jour en cours."
+
+
+#ContactType
+constraint.contactType_lastname_notBlank: 'Vous devez saisir votre nom de famille.'
+constraint.contactType_firstname_notBlank: 'Vous devez saisir votre prénom.'
+constraint.contactType_email_notBlank: 'Vous devez saisir votre email.'
+constraint.contactType_email_valide: "L'email saisi n'est pas une adresse valide."
+constraint.contactType_message_notBlank: 'Vous devez saisir votre message.'

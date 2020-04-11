@@ -1,0 +1,161 @@
+#label
+labels.must.have: 'champs obligatoires'
+label.full.day.ticket: 'Billet Journée'
+label.half.day.ticket: 'Billet demi-journée (à partir de 14h)'
+label.contact.customer: "Coordonnées de l'acheteur"
+label.visit.date: 'Date de la visite'
+label.visit.type: 'Type de billet'
+label.visit.nb.tickets: 'Nombre de billets'
+label.lastname.visitor: 'Nom'
+label.firstname.visitor: 'Prénom'
+label.country.visitor: 'Pays'
+label.birthday.visitor: 'Date de naissance'
+label.discount.visitor: "Tarif réduit de 10 euros - Tarif accordé sous certaines conditions (étudiant, employé du musée, d’un service du Ministère de la Culture, militaire…)"
+label.lastname.customer: 'Nom'
+label.firstname.customer: 'Prénom'
+label.email.customer: 'Email'
+label.adress.customer: 'Adresse'
+label.postcode.customer: 'Code Postal'
+label.city.customer: 'Ville'
+label.country.customer: 'Pays'
+label.bookingcode: 'Votre code de réservation'
+
+#navigation
+nav.title: 'Billetterie du Musée du Louvre'
+nav.home: 'Accueil'
+nav.contact: 'Contact'
+nav.languages: 'Langues'
+nav.languages.fr: 'Français'
+nav.languages.en: 'Anglais'
+
+#footer
+footer.payment: 'Paiement 100% sécurisé'
+footer.louvre.website: 'Site officiel du musée du Louvre'
+
+#breadcrumbs
+breadcrumb.first.label: 'Choix des billets'
+breadcrumb.second.label: 'Identification des visiteurs'
+breadcrumb.third.label: "Coordonnées de l'acheteur"
+breadcrumb.fourth.label: 'Paiement'
+breadcrumb.five.label: 'Confirmation de la commande'
+
+
+#layout.html.twig
+title.site: 'Billetterie du Musée du Louvre'
+
+#index.html.twig
+title.site.index: 'Accueil'
+title.welcome: 'Bienvenue sur la billetterie du musée du Louvre'
+homepage.paragraph0: "Le musée du Louvre vous accueille tous les jours, sauf les mardis et quelques jours fériés (les 1er mai, 1er novembre et 25 décembre), de 9h à 18h,
+jusqu'à 21h45 les jeudis et vendredis. La fermeture des salles débute à 17h30 et à 21h30 les jeudis et vendredis."
+homepage.paragraph1 : 'Pour votre visite, deux types de billets vous sont proposés :'
+homepage.full.day.ticket: 'Billet « Journée »'
+homepage.half.day.ticket: 'Billet « Demi-journée ». Il vous permet d’entrer dans l’établissement à partir de 14h.'
+homepage.prices: 'Plusieurs tarifs sont disponibles'
+homepage.array.tickets: 'Billets'
+homepage.first.price: 'Tarif normal (à partir de 12 ans)'
+homepage.second.price: 'Tarif senior (à partir de 60 ans)'
+homepage.third.price: 'Tarif réduit'
+homepage.fourth.price: 'Tarif enfant (de 4 ans à 12 ans)'
+discount.first.condition: 'Entrée à partir de 14h'
+discount.second.condition: "Tarif accordé sous certaines conditions (étudiant, employé du musée, d’un service du Ministère de la Culture, militaire…)"
+discount.third.condition: "Gratuit pour les enfants de moins de 4 ans"
+homepage.recommandations: "Le billet acheté en ligne est nominatif. Un document d’identité peut vous être demandé à votre arrivée."
+button.buy.tickets: 'Achetez vos billets'
+
+#order.html.twig
+title.site.order: 'Choix des billets'
+button.validate: 'Validez'
+
+#identify.html.twig
+title.site.identify: 'Identification des visiteurs'
+ticket: 'Billet'
+
+#customer.html.twig
+invoice.informations: "Adresse de facturation"
+
+#pay.html.twig
+title.site.pay: 'Paiement de la commande'
+payment.visit: 'Récapitulatif de votre commande'
+total.invoice: 'Total de la commande'
+pay.order: "Je paie la commande"
+louvre.museum: "Musée du Louvre"
+ticketing: "Billeterie"
+flash.payment.error: "Une erreur est survenue lors du paiement en ligne. Veuillez contacter notre administrateur."
+
+
+#confirmation.html.twig
+title.site.confirmation: 'Confirmation de la commande'
+validate.visit: 'Votre commande est désormais validée'
+send.email: "Vous allez recevoir à l'adresse mail"
+confirmed.payment: "la confirmation de votre paiement"
+content.visit: "le récapitulatif de votre commande (nombre de billets, noms des visiteurs, tarifs)"
+unique.bookingcode.visit: 'le code de réservation de votre visite'
+
+prepare.your.visit: 'Préparez votre visite'
+exhibitions: 'Les expositions'
+guided.tour: 'Les visites guidées'
+informations.museum: "Les informations pratiques (plan d'accès, horaires)"
+have.a.good.visit: 'Bonne visite'
+
+
+#contact.html.twig
+title.site.contact: 'Contact'
+contact.us: "Contactez-nous"
+contact.paragraph0: "Besoin d'informations avant de préparer votre visite, une question concernant votre commande en ligne...
+Contactez-nous via le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais."
+
+#visitController
+flash.payment.success: "Votre paiement a bien été pris en compte."
+message.contact.send: "Votre message a bien été pris en compte. Nous vous répondrons dans les plus brefs délais."
+
+#Emails/registration.html.twig
+title.registration: "Réservation - Musée du Louvre"
+hello: 'Bonjour'
+valid.order: "Vous venez d'effectuer une commande en ligne sur la billetterie du Louvre. Nous vous en remercions."
+order.summary: "Vous trouverez ci-dessous le récapitulatif de vos achats."
+on.behalf.of: "Au nom de"
+price.ticket: "Prix de ce billet"
+registration.paragraph0: "Le musée du Louvre vous accueille de 9h à 18h, jusqu'à 21h45 les jeudis et vendredis. La fermeture des salles débute à 17h30 et à 21h30 les jeudis et vendredis."
+registration.paragraph1: "Le billet acheté en ligne est nominatif. Un document d’identité peut vous être demandé à votre arrivée."
+comments.guided_tour: "Que vous veniez pour la première fois ou que vous soyez un habitué, trouvez la visite qui vous correspond, parmi le large choix de thématiques proposées."
+pratical.informations: "Infos pratiques"
+comments.pratical.informations: "Les horaires du musée, les heures d'ouverture et de fermeture des salles, les rendez-vous des visites guidées, les informations pour y accéder..."
+comments.exhibitions: "Découvrez les expositions permanentes et temporaires du Musée du louvre. Chaque saison, nous vous proposons des expositions temporaires, fruits des dernières recherches des spécialistes."
+workshops: "Les ateliers"
+comments.workshops: "Les ateliers du Louvre sont accessibles pour les enfants comme pour les adultes. Un large choix d'approches artistiques y est proposé sous la conduite d’un expert."
+
+#Emails/contact.html.twig
+title.email.contact: "Page Contact - Musée du Louvre"
+contact.page: "Page Contact"
+new.message: "Voici un nouveau message envoyé par un internaute via la page Contact de la billetterie du Musée du Louvre."
+lastname.contact: "Nom"
+firstname.contact: "Prénom"
+email.contact: "Email"
+message.contact: "Message"
+
+#EmailService
+emailservice.subject_validator_order: "Confirmation de votre réservation sur le site du Musée du Louvre"
+email.subject_contact_page: "Site du Musée du Louvre - Page Contact"
+
+
+#ContactType
+label.lastname: 'Nom'
+label.firstname: 'Prénom'
+label.email: 'Email'
+label.message: 'Message'
+
+
+#error.404.html.twig / error.403.html.twig / error.html.twig
+title.site.error: "Une erreur est survenue."
+Oops: "Oops"
+error.server: "Le serveur retourne une erreur"
+broken.link: "le lien de cette page est cassé ou n'existe plus."
+sorry: "Désolé pour la gêne occasionnée."
+go.to.homepage: "Nous vous donnons rendez-vous en page d'accueil."
+access.denied: "Accès refusé. Vous n'avez pas les droits requis pour accéder à cette partie du site. Veuillez contacter l'administrateur."
+website.unavailable: "Le site est actuellement indisponible. Veuillez vous y connecter ultérieurement."
+
+
+#exceptionListener
+exception.message_error: "Une erreur s'est produite. Veuillez saisir à nouveau votre commande."

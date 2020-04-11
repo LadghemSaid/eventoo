@@ -1,0 +1,93 @@
+{# src/AppBundle/Resources/views/Visit/customer.html.twig#}
+
+{% extends "base.html.twig" %}
+
+    {% block title %}
+        {{ 'label.contact.customer' | trans }} - {{ parent() }}
+    {% endblock %}
+
+
+    {% block body %}
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-1">
+                </div>
+
+                <div class="col-lg-11 section-progress">
+                    <div class="container">
+
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_order') }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
+                                <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_identify') }}">{{ 'breadcrumb.second.label' | trans }}</a></li>
+                                <li class="breadcrumb-item text-success font-weight-bold text-uppercase" style="text-decoration:underline;">{{ 'breadcrumb.third.label' | trans }}</li>
+                                <li class="breadcrumb-item active">{{ 'breadcrumb.fourth.label' | trans }}</li>
+                                <li class="breadcrumb-item active">{{ 'breadcrumb.five.label' | trans }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <section>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-1">
+                    </div>
+
+
+                    <div class="col-lg-11">
+                        <div class="container">
+                            <div class="form-group">
+
+
+                                {{ form_start(form, {'attr': {'class': 'was-validated'}}) }}
+
+
+                                <div class="num-billet">{{ 'breadcrumb.third.label' | trans }} :</div><br/>
+
+                                {{ form_row(form.customer.lastname) }}<br/>
+
+                                {{ form_row(form.customer.firstname) }}<br/>
+
+                                {{ form_row(form.customer.email) }}<br/>
+
+
+                                <div class="num-billet">{{ 'invoice.informations' | trans }} :</div><br/>
+
+                                {{ form_row(form.customer.adress) }}<br/>
+
+                                {{ form_row(form.customer.postCode) }}<br/>
+
+                                {{ form_row(form.customer.city) }}<br/>
+
+                                {{ form_row(form.customer.country) }}<br/>
+
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                    </div>
+
+                                    <div class="col-sm-11">
+                                        <button type="submit" class="btn btn-success">{{ 'button.validate' | trans }}</button>
+                                    </div>
+                                </div>
+
+
+
+                                {{ form_end(form) }}<br/>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}
