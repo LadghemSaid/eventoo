@@ -52,10 +52,12 @@ class VisitManager
      * Création de l'objet Visit
      * @return Visit
      */
-    public function initVisit()
+    public function initVisit($event)
     {
         $visit = new Visit();
-        $this->whichVisitDay($visit);
+        $visit->setEvent($event);
+        $visit->setVisitDate($visit->getEvent()->getStartDate());
+        //$this->whichVisitDay($visit);
         $this->session->set(self::SESSION_ID_CURRENT_VISIT,$visit);
 
         return $visit;

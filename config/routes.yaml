@@ -2,3 +2,8 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+
+
+endroid_qr_code:
+  resource: "@EndroidQrCodeBundle/Resources/config/routes.yaml"
+  prefix: /qr-code

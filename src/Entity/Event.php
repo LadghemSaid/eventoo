@@ -132,6 +132,11 @@ class Event
      */
     private $likes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Visit", mappedBy="event", orphanRemoval=true)
+     */
+    private $visits;
+
 
     public function __construct()
     {
@@ -139,6 +144,7 @@ class Event
         $this->categorie = new ArrayCollection();
         $this->tag = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        $this->visits = new ArrayCollection();
     }
 
     /**
@@ -476,6 +482,37 @@ class Event
             // set the owning side to null (unless already changed)
             if ($like->getEvent() === $this) {
                 $like->setEvent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Visit[]
+     */
+    public function getVisits(): Collection
+    {
+        return $this->visits;
+    }
+
+    public function addVisit(Visit $visit): self
+    {
+        if (!$this->visits->contains($visit)) {
+            $this->visits[] = $visit;
+            $visit->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVisit(Visit $visit): self
+    {
+        if ($this->visits->contains($visit)) {
+            $this->visits->removeElement($visit);
+            // set the owning side to null (unless already changed)
+            if ($visit->getEvent() === $this) {
+                $visit->setEvent(null);
             }
         }
 

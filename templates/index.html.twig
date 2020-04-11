@@ -27,7 +27,7 @@
     <div class="img-banner">
         <img src="{{ asset('pho/banner.png') }}" alt="Bannière accueil" class="banner">
         <div class="text">
-            <h1>Prochain evenement</h1>
+            <h1>{{ 'home.nextEvents' | trans }}</h1>
             <h2> {{ events|first.title }}</h2>
             <p> {{ events|first.description }}</p>
             <div id="compteur" class="compteur"

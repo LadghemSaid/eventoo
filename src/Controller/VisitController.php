@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Customer;
+use App\Entity\Event;
 use App\Entity\Visit;
 use App\Entity\Ticket;
 use App\Exception\InvalidVisitSessionException;
@@ -13,6 +14,7 @@ use App\Form\VisitCustomerType;
 use App\Form\VisitTicketsType;
 use App\Form\VisitType;
 use App\Manager\VisitManager;
+use App\Repository\EventRepository;
 use App\Service\EmailService;
 use PHPUnit\Runner\Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -29,17 +31,26 @@ class VisitController extends Controller
 
     /**
      * Page 2 - Initialisation de la visite - choix de la date / du type de billet / du nb de billets
-     * @Route("/order", name="app_visit_order")
+     * @Route("/order/event/{event}", name="app_visit_order" , requirements={"slug"="[0-9\-]*"})
      * @param Request $request
      * @param VisitManager $visitManager
      * @param PublicHolidaysService $publicHolidaysService
+     * @param Event $event
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function orderAction(Request $request, VisitManager $visitManager, PublicHolidaysService $publicHolidaysService)
+    public function orderAction(Request $request, VisitManager $visitManager, PublicHolidaysService $publicHolidaysService, $event,EventRepository $eventRepository)
     {
-        $visit = $visitManager->initVisit();
 
-        $publicHolidays = $publicHolidaysService->getPublicHolidaysOnTheseTwoYears();
+        //Récupération de l'event passer en get par id et vérification qu'il existe autrement retour a la home
+        $event = $eventRepository->findBy(array('id'=>$event));
+        if(!$event){
+            return $this->redirectToRoute('index');
+        }
+
+
+        $visit = $visitManager->initVisit($event[0]);
+
+        //$publicHolidays = $publicHolidaysService->getPublicHolidaysOnTheseTwoYears();
 
         $form = $this->createForm(VisitType::class, $visit);
 
@@ -53,7 +64,7 @@ class VisitController extends Controller
 
         return $this->render('Visit/order.html.twig', array(
             'form' => $form->createView(),
-            'publicHolidays' => $publicHolidays
+        //    'publicHolidays' => $publicHolidays
         ));
 
     }

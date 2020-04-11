@@ -159,3 +159,6 @@ website.unavailable: "Le site est actuellement indisponible. Veuillez vous y con
 
 #exceptionListener
 exception.message_error: "Une erreur s'est produite. Veuillez saisir à nouveau votre commande."
+
+#HomePage
+home.nextEvents: "Prochain evenement"

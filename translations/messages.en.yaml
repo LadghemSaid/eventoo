@@ -159,3 +159,6 @@ website.unavailable: "The website is unavailable at the moment. Please come back
 
 #exceptionListener
 exception.message_error: "An error has occured. Please enter your order again."
+
+#HomePage
+home.nextEvents: "Next events"

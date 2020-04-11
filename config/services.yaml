@@ -7,6 +7,9 @@ parameters:
     #Utiliser par VichUpload dans le package.yml
     app.path.article_images: '%env(string:UPLOAD_PATH_ARTICLES)%'
     app.path.events_images: '%env(string:UPLOAD_PATH_EVENTS)%'
+    locale: 'fr'                         # default locale
+    activated_locales: ['%locale%','fr'] # to get as an array
+    locales_requirements: '%locale%|fr'  # to inject in controller routes requirements
 
 services:
     # default configuration for services in *this* file

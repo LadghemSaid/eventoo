@@ -1,3 +1,7 @@
+#Defini le prefix sur tout les urls pour appliqué le fichier de langue approprier
 controllers:
     resource: ../../src/Controller/
     type: annotation
+    prefix: /{_locale}
+    requirements:
+        _locale: "fr|en"

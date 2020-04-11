@@ -1,6 +1,12 @@
 {
+    "bacon/bacon-qr-code": {
+        "version": "2.0.0"
+    },
     "cocur/slugify": {
         "version": "v4.0.0"
+    },
+    "dasprid/enum": {
+        "version": "1.0.0"
     },
     "doctrine/annotations": {
         "version": "1.0",
@@ -109,6 +115,15 @@
     "egulias/email-validator": {
         "version": "2.1.11"
     },
+    "endroid/installer": {
+        "version": "1.2.2"
+    },
+    "endroid/qr-code": {
+        "version": "3.7.7"
+    },
+    "endroid/qr-code-bundle": {
+        "version": "3.4.2"
+    },
     "friendsofsymfony/ckeditor-bundle": {
         "version": "2.0",
         "recipe": {
@@ -175,6 +190,9 @@
     "jms/metadata": {
         "version": "2.1.0"
     },
+    "khanamiryan/qrcode-detector-decoder": {
+        "version": "1.0.2"
+    },
     "knplabs/knp-time-bundle": {
         "version": "v1.9.1"
     },
@@ -183,6 +201,9 @@
     },
     "myclabs/deep-copy": {
         "version": "1.9.4"
+    },
+    "myclabs/php-enum": {
+        "version": "1.7.6"
     },
     "nelmio/alice": {
         "version": "3.2",
@@ -262,6 +283,9 @@
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "stripe/stripe-php": {
+        "version": "v7.28.1"
     },
     "studio-42/elfinder": {
         "version": "2.1.53"

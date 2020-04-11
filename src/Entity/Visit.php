@@ -77,8 +77,12 @@ class Visit
     /**
      * @var int
      * @ORM\Column(name="nbTicket", type="integer")
-     * @Assert\Range(min=1, minMessage="constraint.visit.min.nb.tickets", max=20,
-     *     maxMessage="constraint.visit.max.nb.tickets", groups={"order_registration"})
+     * @Assert\Range(
+     *     min=1,
+     *     minMessage="constraint.visit.min.nb.tickets",
+     *     max=20,
+     *     maxMessage="constraint.visit.max.nb.tickets",
+     *     groups={"order_registration"})
      */
     private $nbTicket;
 
@@ -112,6 +116,12 @@ class Visit
      * @Assert\Valid(groups={"identification_registration"})
      */
     private $tickets;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="visits")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $event;
 
 
     /**
@@ -339,5 +349,17 @@ class Visit
     public function getTickets()
     {
         return $this->tickets;
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
+
+        return $this;
     }
 }
