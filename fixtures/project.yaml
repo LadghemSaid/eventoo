@@ -28,18 +28,18 @@ App\Entity\Event:
     slug: <fr_FR:slug()>
     thumbnail: <fr_FR:randomElement(['img1.jpg','img3.jpg','img2.jpg'])>
     imgAlternate: 'Image alternative'
-    published: 'true'
     startDate: <dateTimeBetween('+1 days', '+10 days')>
     endDate: <dateTimeBetween('+ 10 days', '+1 years')>
-    price: <fr_FR:numberBetween(40,50)>
+    price: <fr_FR:numberBetween(10,15)>
     ticketAvailable: <fr_FR:numberBetween(400,1500)>
     allowComment: ['allowComment','']
     location: <fr_FR:address()>
-    duration: <fr_FR:numberBetween(1,5)>
+    published: 'true'
+    expired: <boolean(0)>
     favorite: 'true'
     tag: '3x @tag*'
     createdAt: <dateTime('now')>
-    updatedAt: <dateTime()>
+    updatedAt: <dateTimeBetween('+1 days', '+10 days')>
 
 
 

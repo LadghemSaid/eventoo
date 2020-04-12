@@ -68,6 +68,7 @@
                     <p class="p-description">{{ event.text | raw }}</p>
                 </div>
             </div>
+            <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="primaire">Reservez</a>
         </div>
 
         {% include '/comment/comment.html.twig' %}

@@ -8,7 +8,10 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -21,24 +24,25 @@ class VisitType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder->add('visitDate', DateType::class, array(
-                'label' => 'label.visit.date',
-                'widget' => 'single_text',
-                'attr' => ['class' => 'datepicker'],
-                'required' => true
-            )
-        )
+        $builder
             ->add('type', ChoiceType::class, array(
-                'choices' => array(
-                    'label.full.day.ticket' => Visit::TYPE_FULL_DAY,
-                    'label.half.day.ticket' => Visit::TYPE_HALF_DAY
-                ),
+                'choices' => $this->getDuration($options['data']->getEvent()->getDuration()),
                 'label' => 'label.visit.type',
-                'expanded' => true,
+                'expanded' => false,
                 'multiple' => false,
 
             ))
-
+            ->add('visitDate', TextType::class, array(
+                    'label' => 'label.visit.date',
+                    'attr' => [
+                        'class' => 'datepicker',
+                        'data-startdate' => $options['data']->getEvent()->getStartDateToString(),
+                        'data-price' => $options['data']->getEvent()->getprice()
+                    ],
+                    'row_attr' => ['class' => ''],
+                    'required' => true,
+                )
+            )
             ->add('nbTicket', ChoiceType::class, array(
                 'choices' => array(
                     '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7, '8' => 8, '9' => 9, '10' => 10,
@@ -70,5 +74,15 @@ class VisitType extends AbstractType
         return 'appbundle_visit';
     }
 
+    private function getDuration($duration)
+    {
+        $arr = [];
+        for ($i = 1; $i <= $duration; $i++) {
+            array_push($arr, "Pass $i jours");
+        }
+        return array_flip($arr);
+    }
+
 
 }
+

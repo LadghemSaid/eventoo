@@ -8,6 +8,7 @@ use App\Repository\ArticleRepository;
 use App\Repository\EventRepository;
 use App\Repository\MaillingListRepository;
 use Doctrine\ORM\EntityManager;
+use Faker\Provider\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpClient\CurlHttpClient;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,9 +23,11 @@ class IndexController extends AbstractController
     public function index(Request $request, ArticleRepository $articleRepository, EventRepository $eventsRepository)
     {
         $articles =$articleRepository->findBy(array('published'=>true,'favorite'=>true),array('createdAt'=>"desc"),3);
-        $events =$eventsRepository->findBy(array('published'=>true,'favorite'=>true),array('startDate'=>"asc"),3);
-
-        //dd($treeLastProjects);
+        $events =$eventsRepository->findBy(array('published'=>true,'favorite'=>true,'expired'=>false),array('startDate'=>"asc"),3);
+        if(new \DateTime() > $events[0]->getStartDate()){
+            $events[0]->setExpired(true);
+            $events =$eventsRepository->findBy(array('published'=>true,'favorite'=>true,'expired'=>false),array('startDate'=>"asc"),3);
+        }
         return $this->render('index.html.twig', [
             "current_menu" => "index",
             "articles" => $articles,

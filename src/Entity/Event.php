@@ -137,6 +137,11 @@ class Event
      */
     private $visits;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $expired;
+
 
     public function __construct()
     {
@@ -145,6 +150,10 @@ class Event
         $this->tag = new ArrayCollection();
         $this->likes = new ArrayCollection();
         $this->visits = new ArrayCollection();
+        //Pas sur de l'utilité de cette ligne
+        $this->expired = false;
+
+
     }
 
     /**
@@ -270,6 +279,12 @@ class Event
         return $this->startDate;
     }
 
+    public function getStartDateToString()
+    {
+
+        return $this->startDate->format('d/m/y');
+    }
+
     public function setStartDate(?\DateTimeInterface $startDate): self
     {
         $this->startDate = $startDate;
@@ -284,6 +299,8 @@ class Event
 
     public function setEndDate(?\DateTimeInterface $endDate): self
     {
+        $this->duration = $this->startDate->diff($endDate)->days;
+
         $this->endDate = $endDate;
 
         return $this;
@@ -515,6 +532,18 @@ class Event
                 $visit->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getExpired(): ?bool
+    {
+        return $this->expired;
+    }
+
+    public function setExpired(bool $expired): self
+    {
+        $this->expired = $expired;
 
         return $this;
     }

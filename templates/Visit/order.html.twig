@@ -5,6 +5,9 @@
     {% block title %}
         {{ 'title.site.order' | trans }} - {{ parent() }}
     {% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+    {% endblock %}
 
 
     {% block body %}
@@ -47,26 +50,85 @@
                         <div class="container">
                             <div class="form-group">
 
-                                {{ form_start(form, {'attr': {'class': 'was-validated'}}) }}
 
-                                {{ form_row(form.visitDate,  {'attr': {'data-date-dates-disabled': ''}}) }}<br/>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="tile">
+                                            <div class="wrapper">
+                                                <div class="header">{{ visit.event.title }}</div>
 
-                                {{ form_row(form.type, {label_attr: {class: 'radio-custom'} }) }}<br/>
+                                                <div class="banner-img">
+                                                    <img src="http://via.placeholder.com/640x360" alt="Image 1">
+                                                </div>
 
-                                {{ form_row(form.nbTicket) }}<br/>
+                                                <div class="dates">
+                                                    <div class="start">
+                                                        <strong>Arrivé</strong>
+                                                        <p class="fc-black"
+                                                           id="startDate">{{ visit.event.startDate|date('j/m/y') }}</p>
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="ends">
+                                                        <strong>Départ</strong>
+                                                        <p class="fc-black"
+                                                           id="endDate">{{ visit.event.startDate|date('j/m/y') }}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="stats">
+
+                                                    <div>
+                                                        <strong>Formule</strong> <span id="sumFormula">1 jour</span>
+                                                    </div>
+
+                                                    <div>
+                                                        <strong>Nombre de tickets</strong><span
+                                                                id="sumTickets">1 place</span>
+                                                    </div>
+
+                                                    <div>
+                                                        <strong>Totale</strong> <span
+                                                                id="sumPrice">{{ visit.event.price }} €</span>
+                                                    </div>
+
+                                                </div>
+                                                <div class="container">
+                                                    {{ form_start(form, {'attr': {'class': 'was-validated'}}) }}
+
+                                                    {{ form_row(form.type, {label_attr: {class: 'radio-custom'} }) }}
+                                                    <br/>
+
+
+                                                    {{ form_row(form.visitDate) }}<br/>
+
+                                                    {{ form_row(form.nbTicket) }}<br/>
+                                                </div>
+
+
+                                                <div class="footer">
+                                                    <a href="#" class="Cbtn Cbtn-danger">Annuler</a>
+                                                    <button type="submit"
+                                                            class="Cbtn Cbtn-primary">{{ 'button.validate' | trans }}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-sm-1">
                                     </div>
 
                                     <div class="col-sm-11">
-                                        <button type="submit" class="btn btn-success">{{ 'button.validate' | trans }}</button>
+
                                     </div>
                                 </div>
 
                                 {{ form_end(form) }}<br/>
 
                             </div>
+
+
                         </div>
                     </div>
 
@@ -77,30 +139,200 @@
 
     {% endblock %}
 
-{% block stylesheets %}
-
-    {{ parent() }}
-    <link href="{{ asset('assets/bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.standalone.css') }}"
-          rel="stylesheet">
-
-{% endblock %}
 
 
 {% block javascripts %}
-    <script src="{{ asset('assets/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('assets/bootstrap-datepicker-master/dist/locales/bootstrap-datepicker.fr.min.js') }}"></script>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
     <script>
+
+        function calculSomme(nbrTickets, nbrDays) {
+            price = parseInt($('.datepicker')[0].dataset.price);
+
+            if (nbrDays !== 1) {
+                return $('#sumPrice')[0].innerText = nbrTickets  * price* nbrDays  - (nbrTickets * nbrDays * 5) + " €";
+
+            } else {
+                return $('#sumPrice')[0].innerText = nbrTickets  * price* nbrDays  + " €";
+
+            }
+        }
+
         $(document).ready(function () {
-            $('.datepicker').datepicker({
-                format: "yyyy-mm-dd",
-                language: "fr",
-                autoclose: true,
-                daysOfWeekDisabled: '0, 2',
-                endDate: '+1y'
+
+            //Initialisation des valeur startDate et endDate traduite a partir de twig
+            $('#startDate')[0].innerText = moment($('#startDate')[0].innerText, "DD/MM/YYYY").format("dddd D MMMM YYYY - 8:00")
+            $('#endDate')[0].innerText = moment($('#endDate')[0].innerText, "DD/MM/YYYY").format("dddd D MMMM YYYY - 20:00")
+
+
+            $('.datepicker').daterangepicker({
+
+                "locale": {
+
+                    "format": "DD/MM/YYYY",
+                    "separator": " - ",
+                    "applyLabel": "Valider",
+                    "cancelLabel": "Annuler",
+                    "fromLabel": "De",
+                    "toLabel": "A",
+                    "customRangeLabel": "Custom",
+                    "weekLabel": "M",
+                    "daysOfWeek": [
+                        "Dim",
+                        "Lun",
+                        "Mar",
+                        "Mer",
+                        "Jeu",
+                        "Ven",
+                        "Sam"
+                    ],
+                    "monthNames": [
+                        "Janvier",
+                        "Fevrier",
+                        "Mars",
+                        "Avril",
+                        "Mai",
+                        "Juin",
+                        "Juillet",
+                        "Aout",
+                        "Septembre",
+                        "Octobre",
+                        "Novembre",
+                        "Decembre"
+                    ],
+                    "firstDay": 1
+                },
+                "startDate": "{{ visit.event.startDate|date('j/m/y') }}",
+                "endDate": "{{ visit.event.startDate|date_modify("+1 day")|date('j/m/y') }}",
+                "minDate": "{{ visit.event.startDate|date('j/m/y') }}",
+                "maxDate": "{{ visit.event.endDate|date('j/m/y') }}",
+                "maxSpan": {
+                    "days": 1
+                },
+                "opens": "center"
+            }, function (start, end, label) {
+                $('.datepicker').value = start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY');
+
+                var a = moment(start.format('DD/MM/YYYY'), 'D/M/YYYY');
+                var b = moment(end.format('DD/MM/YYYY'), 'D/M/YYYY');
+                var diffDays = b.diff(a, 'days') + 1;
+
+                $('#appbundle_visit_type')[0].options.selectedIndex = diffDays - 1;
+                console.log('New date range selected: ' + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY') + ' (range: ' + diffDays + ')');
+
+                //Actualisation de la endDate et startDate au changement dans le datepicker
+                $('#startDate')[0].innerText = start.format("dddd D MMMM YYYY - 8:00");
+                $('#endDate')[0].innerText = end.format("dddd D MMMM YYYY - 8:00");
             });
+
+            //Initialisation de la EndDate
+            var momentObj = moment($('.datepicker')[0].dataset.startdate, "DD/MM/YYYY");
+            $('.datepicker').data('daterangepicker').setEndDate(momentObj);
+
+            //Initialisation de la somme
+            nbrTickets = parseInt($('#appbundle_visit_nbTicket')[0].selectedIndex + 1);
+            nbrDays = parseInt($('#appbundle_visit_type')[0].selectedIndex + 1);
+            calculSomme(nbrTickets, nbrDays);
+
+            //Listener du select des tickets
+            $('#appbundle_visit_nbTicket').on('change', (tickets) => {
+                $('#sumTickets')[0].innerText = tickets.target.selectedIndex + 1 + " places";
+
+                //Actualisation de la somme
+                nbrTickets = parseInt(tickets.target.selectedIndex + 1);
+                nbrDays = parseInt($('#appbundle_visit_type')[0].selectedIndex + 1);
+                calculSomme(nbrTickets, nbrDays);
+            })
+
+            //Listerner du select des formules pass journalier
+            $('#appbundle_visit_type').on('change', (type) => {
+
+
+                $('.datepicker').daterangepicker({
+                        "locale": {
+                            "format": "DD/MM/YYYY",
+                            "separator": " - ",
+                            "applyLabel": "Valider",
+                            "cancelLabel": "Annuler",
+                            "fromLabel": "De",
+                            "toLabel": "A",
+                            "customRangeLabel": "Custom",
+                            "weekLabel": "M",
+                            "daysOfWeek": [
+                                "Dim",
+                                "Lun",
+                                "Mar",
+                                "Mer",
+                                "Jeu",
+                                "Ven",
+                                "Sam"
+                            ],
+                            "monthNames": [
+                                "Janvier",
+                                "Fevrier",
+                                "Mars",
+                                "Avril",
+                                "Mai",
+                                "Juin",
+                                "Juillet",
+                                "Aout",
+                                "Septembre",
+                                "Octobre",
+                                "Novembre",
+                                "Decembre"
+                            ],
+                            "firstDay": 1
+                        },
+                        "startDate": "{{ visit.event.startDate|date('j/m/y') }}",
+                        "endDate": "",
+                        "minDate": "{{ visit.event.startDate|date('j/m/y') }}",
+                        "maxDate": "{{ visit.event.endDate|date('j/m/y') }}",
+                        "maxSpan": {
+                            "days": type.target.selectedIndex
+                        },
+                        "opens": "center"
+                    }, function (start, end, label) {
+                        //Actualisation de la valeur selectionné dans l'input
+                        $('.datepicker').value = start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY');
+
+                        //Calcul de la difference entre les deux dates
+                        var a = moment(start.format('DD/MM/YYYY'), 'D/M/YYYY');
+                        var b = moment(end.format('DD/MM/YYYY'), 'D/M/YYYY');
+                        var diffDays = b.diff(a, 'days') + 1;
+
+                        //Utilisation de la difference pour determiner quelle pass journalier appliqué et le rend selectionné
+                        $('#appbundle_visit_type')[0].options.selectedIndex = diffDays - 1;
+                        console.log('New date range selected: ' + start.format('DD/MM/YYYY') + ' to ' + end.format('DD/MM/YYYY') + ' (range: ' + diffDays + ')');
+
+                        //Actualisation des date de debut de fin
+                        $('#startDate')[0].innerText = start.format("dddd D MMMM YYYY - 8:00");
+                        $('#endDate')[0].innerText = end.format("dddd D MMMM YYYY - 8:00");
+                    }
+                );
+
+                //Actualisation de la formule
+                $('#sumFormula')[0].innerText = type.target.selectedIndex + 1 + " jours";
+
+                //Creation de la nouvelle endDate a partir de la seclection choisis dans le select des pass journalier
+                var momentObj = moment( $('.datepicker').data('daterangepicker').startDate).add(type.target.selectedIndex + 1, 'days');
+
+                //Actualisation de la endDate et la startDate
+
+                $('#startDate')[0].innerText =  $('.datepicker').data('daterangepicker').startDate.format("dddd D MMMM YYYY - 8:00");
+                $('#endDate')[0].innerText = momentObj.subtract(1, 'days').format("dddd D MMMM YYYY - 20:00")
+
+                //Actualisation du datepicker
+                $('.datepicker').data('daterangepicker').setEndDate(momentObj);
+
+                //Actualisation de la somme
+                nbrTickets = parseInt($('#appbundle_visit_nbTicket')[0].selectedIndex + 1);
+                nbrDays = parseInt($('#appbundle_visit_type')[0].selectedIndex + 1);
+                calculSomme(nbrTickets, nbrDays);
+
+            })
+
         });
     </script>
+
 
 {% endblock %}

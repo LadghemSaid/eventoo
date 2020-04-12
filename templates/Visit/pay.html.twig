@@ -20,7 +20,7 @@
 
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_order') }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
+                                <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_order',{'event':visit.event.id}) }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
                                 <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_identify') }}">{{ 'breadcrumb.second.label' | trans }}</a></li>
                                 <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_customer') }}">{{ 'breadcrumb.third.label' | trans }}</a></li>
                                 <li class="breadcrumb-item text-success font-weight-bold text-uppercase" style="text-decoration:underline;">{{ 'breadcrumb.fourth.label' | trans }}</li>
@@ -49,14 +49,9 @@
 
                                 <div class="title-recap"><button type="button" class="btn btn-success text-white">{{ 'payment.visit' | trans }}</button></div>
                                 <ul>
-                                    <li><strong>{{ 'label.visit.date' | trans }} :</strong> {{ visit.visitDate | date('d/m/Y') }}</li>
+                                    <li><strong>{{ 'label.visit.date' | trans }} :</strong> {{ visit.visitDate }}</li>
                                     <li><strong>{{ 'label.visit.type' | trans }} :</strong>
-                                        {% if visit.type is constant('TYPE_FULL_DAY', visit ) %}
-                                            {{ 'label.full.day.ticket' | trans }}
-                                        {% endif %}
-                                        {% if visit.type is constant('TYPE_HALF_DAY', visit) %}
-                                            {{ 'label.half.day.ticket' | trans }}
-                                        {% endif %}
+                                        Pass {{ visit.type + 1 }} Jours
                                     </li>
                                     <li>
                                         {% for ticket in visit.tickets %}

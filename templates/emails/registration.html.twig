@@ -1,0 +1,234 @@
+
+<!DOCTYPE>
+<html lang="fr">
+<head>
+    <title>{{ 'title.registration' | trans }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+<body style="margin:0; padding:0;" bgcolor="#eaeced">
+<table style="min-width:320px;" width="100%" cellspacing="0" cellpadding="0" bgcolor="#eaeced">
+
+    <td class="wrapper" style="padding:0 10px;">
+
+        <!-- module 1 -->
+        <table width="100%" height="60%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td bgcolor="#eaeced">
+                    <table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td data-bgcolor="bg-block" class="holder" style="padding:58px 60px 52px;" bgcolor="#f9f9f9">
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="center" style="text-align: center; padding-bottom: 20px;">
+                                            <img src="{{ img }}" width="300" border="0" alt="logo_du_louvre">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-min="25" data-max="45" align="center" style="font:35px/38px Arial, Helvetica, sans-serif; color:#f05f40; padding:0 0 24px;">
+                                            {{ 'title.site' | trans }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-min="10" data-max="26" align="left" style="font:16px Arial, Helvetica, sans-serif; color:#000000; padding:0 0 23px;">
+                                            {{ 'hello' | trans }} {{ visit.customer.firstname }},<br/><br/>
+
+                                            {{ 'valid.order' | trans }}<br/><br/>
+                                            {{ 'order.summary' | trans }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-min="10" data-max="26" align="left" style="font:16px Arial, Helvetica, sans-serif; color:#000000; padding:0 0 23px;">
+
+                                            <strong>{{ 'label.visit.date' | trans }} :</strong> {{ visit.visitDate }}<br/>
+                                            <strong>{{ 'label.visit.type' | trans }} :</strong>
+
+                                                {{ visit.type + 1 }} {{ 'day' | trans }}
+
+                                            <br/>
+                                            <strong>{{ 'label.bookingcode' | trans }} :</strong> {{ visit.bookingCode}}<br/>
+                                            <strong>{{ 'total.invoice' | trans }} :</strong> {{ visit.totalAmount }} euros<br/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-min="10" data-max="26" align="left" style="font:16px Arial, Helvetica, sans-serif; color:#000000; padding:0 0 23px;">
+
+                                            {% for ticket in visit.tickets %}
+
+                                                <strong>{{ 'ticket' | trans }} n° {{ loop.index }}</strong><br/>
+                                                {{ 'on.behalf.of' | trans }} {{ ticket.lastname }} {{ ticket.firstname }}<br/>
+                                                {{ 'label.birthday.visitor' | trans }} : {{ ticket.birthday | date('d/m/Y')}}<br/>
+                                                {{ 'price.ticket' | trans }} : {{ ticket.price }} euros<br/><br/>
+
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+{#                                            <img src="{{ qrCode }}" width="150" border="0" alt="qrCode de la commande">#}
+                                            <img src="{{ qr_code_url(visit.bookingCode, { size: 150 }) }}">
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <tr><td height="28"></td></tr>
+
+        <!-- module 2 -->
+        <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td bgcolor="#eaeced">
+                    <table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="padding:64px 60px 10px;" bgcolor="#f9f9f9">
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td data-min="20" data-max="40" data-link-style="text-decoration:none; color:#292c34;" align="center" style="font:30px/33px Arial, Helvetica, sans-serif; color:#f05f40; padding:0 0 23px;">
+                                            {{ 'prepare.your.visit' | trans }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-min="10" data-max="26" align="left" style="font:16px Arial, Helvetica, sans-serif; color:#000000; padding:0 0 23px;">
+                                            <p>{{ 'registration.paragraph0' | trans }}</p>
+
+                                            <p>{{ 'registration.paragraph1' | trans }} </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                        <tr>
+                            <td>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <th class="flex" width="300" align="left" style="vertical-align:top; padding:0;">
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <!--visites guidees-->
+                                                <tr>
+                                                    <td height="300" bgcolor="#F05F40">
+                                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td style="padding:10px 40px 10px 70px;">
+                                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                                        <tr>
+                                                                            <td align="right" style="font:bold 15px/23px Arial, Helvetica, sans-serif; color:#fff; padding:0 0 6px;">
+                                                                                <a href="https://www.louvre.fr/visites-guidees" target="_blank" style="text-decoration: underline; color: white">{{ 'guided.tour' | trans }}</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td data-min="10" data-max="25" align="right" style="font:15px/23px Arial, Helvetica, sans-serif; color:#ffffff;">
+                                                                                {{ 'comments.guided_tour' | trans }}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+
+                                                <!-- Expositions -->
+
+                                                <tr>
+                                                    <td height="300" bgcolor="#76b3dd">
+                                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td style="padding:10px 40px 10px 70px;">
+                                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                                        <tr>
+                                                                            <td align="right" style="font:bold 15px/23px Arial, Helvetica, sans-serif; color:#fff; padding:0 0 6px;">
+                                                                                <a href="https://www.louvre.fr/horaires-tarifs-acces" target="_blank" style="text-decoration: underline; color: white">{{ 'pratical.informations' | trans }}</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td data-min="10" data-max="25" align="right" style="font:15px/23px Arial, Helvetica, sans-serif; color:#ffffff;">
+                                                                                {{ 'comments.pratical.informations' | trans }}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </th>
+                                        <th class="flex" width="300" align="left" style="vertical-align:top; padding:0;">
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+
+                                                <!-- Les expositions -->
+                                                <tr>
+                                                    <td height="300" bgcolor="#218838">
+                                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td style="padding:10px 70px 10px 40px;">
+                                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                                        <tr>
+                                                                            <td data-min="10" data-max="25" style="font:bold 15px/23px Arial, Helvetica, sans-serif; color:#ffffff; padding:0 0 6px;">
+                                                                                <a href="https://www.louvre.fr/expositions" target="_blank" style="text-decoration: underline; color: white">{{ 'exhibitions' | trans }}</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="font:15px/23px Arial, Helvetica, sans-serif; color:#ffffff;">
+                                                                                {{ 'comments.exhibitions' | trans }}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+
+                                                <!-- les ateliers -->
+                                                <tr>
+                                                    <td height="300" bgcolor="#333c4d">
+                                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td style="padding:10px 70px 10px 40px;">
+                                                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                                                        <tr>
+                                                                            <td data-min="10" data-max="25" style="font:bold 15px/23px Arial, Helvetica, sans-serif; color:#ffffff; padding:0 0 6px;">
+                                                                                <a href="https://www.louvre.fr/ateliers" target="_blank" style="text-decoration: underline; color: white">{{ 'workshops' | trans }}</a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td data-color="text-2" data-size="size text-2" data-min="10" data-max="25" data-link-color="link text-2 color" data-link-style="font-weight:bold; text-decoration:underline; color:#fff;" style="font:15px/23px Arial, Helvetica, sans-serif; color:#fff;">
+                                                                                {{ 'comments.workshops' | trans }}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr><td height="28"></td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </td>
+    </tr>
+</table>
+</body>
+</html>

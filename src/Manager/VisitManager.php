@@ -56,7 +56,10 @@ class VisitManager
     {
         $visit = new Visit();
         $visit->setEvent($event);
-        $visit->setVisitDate($visit->getEvent()->getStartDate());
+        $visitRangeDate = $visit->getEvent()->getStartDate()->format('j/m/y').' - '.$visit->getEvent()->getEndDate()->format('j/m/y');
+        $visit->setVisitStartDate($visit->getEvent()->getStartDate());
+        $visit->setVisitEndDate($visit->getEvent()->getEndDate());
+        $visit->setVisitDate($visitRangeDate);
         //$this->whichVisitDay($visit);
         $this->session->set(self::SESSION_ID_CURRENT_VISIT,$visit);
 
@@ -86,7 +89,6 @@ class VisitManager
         {
             throw new InvalidVisitSessionException("Commande invalide.");
         }
-
         return $visit;
     }
 
@@ -148,11 +150,20 @@ class VisitManager
      */
     public function computeTicketPrice(Ticket $ticket)
     {
-        $birthday = $ticket->getBirthday();
         $visit = $ticket->getVisit();
+        $event = $visit->getEvent();
+        //Pass journalier selectionné
+        $passSelected = $visit->getType()+1;
+
+        //Une reduction en fonction du nombre de jours selectionné
+        $price = $passSelected * ($event->getPrice() - $passSelected);
+        $ticket->setPrice($price);
+        return $price;
+
+
+        $birthday = $ticket->getBirthday();
         $today = new \DateTime();
         $age = date_diff($birthday, $today)->y;
-
         $discount = $ticket->getDiscount();
 
         /*

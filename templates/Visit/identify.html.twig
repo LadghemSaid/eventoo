@@ -20,7 +20,7 @@
 
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a class="breadcrumb-item" href="{{ path('app_visit_order') }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
+                                <li class="breadcrumb-item"><a class="breadcrumb-item" href="{{ path('app_visit_order',{'event':visit.event.id}) }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
                                 <li class="breadcrumb-item text-success font-weight-bold text-uppercase"
                                     style="text-decoration:underline;">{{ 'breadcrumb.second.label' | trans }}
                                 </li>

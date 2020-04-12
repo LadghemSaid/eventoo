@@ -14,7 +14,6 @@ use App\Validator\Constraints as LouvreAssert;
  * @ORM\Table(name="visit")
  * @ORM\Entity(repositoryClass="App\Repository\VisitRepository")
  * @UniqueEntity("bookingCode")
- * @LouvreAssert\LimitedReservationAfterHour(hour=14,groups={"order_registration"})
  * @LouvreAssert\OneThousandTickets(nbTicketsByDay=Visit::NB_TICKET_MAX_DAY, groups={"order_registration"})
  *
  *
@@ -55,16 +54,23 @@ class Visit
     /**
      *
      * @var \DateTime
-     * @ORM\Column(name="visitDate", type="date")
-     * @LouvreAssert\ToLateForToday(hour=16, groups={"order_registration"})
-     * @LouvreAssert\NoReservationOnTuesday(day=2, groups={"order_registration"})
-     * @LouvreAssert\NoReservationOnSunday(day=0, groups={"order_registration"})
-     * @LouvreAssert\NoReservationOnPublicHolidays(publicHolidays="",groups={"order_registration"})
-     * @Assert\Range(min="today", minMessage="constraint.visit.min.visitdate",
-     *     max="+1 year", maxMessage="constraint.visit.max.visitdate", groups={"order_registration"})
-     * @Assert\NotNull()
+     * @ORM\Column(name="visitDate", type="string")
      */
     private $visitDate;
+
+    /**
+     *
+     * @var \DateTime
+     * @ORM\Column(name="visitStartDate", type="datetime")
+     */
+    private $visitStartDate;
+
+    /**
+     *
+     * @var \DateTime
+     * @ORM\Column(name="visitEndDate", type="datetime")
+     */
+    private $visitEndDate;
 
     /**
      * @var integer
@@ -118,7 +124,7 @@ class Visit
     private $tickets;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="visits")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="visits" , cascade={"persist", "remove" })
      * @ORM\JoinColumn(nullable=false)
      */
     private $event;
@@ -132,7 +138,8 @@ class Visit
     {
         $this->setInvoiceDate(new \DateTime('now', new \DateTimeZone('Europe/Paris')));
         $this->tickets = new ArrayCollection();
-        //$this->visitDate = (new \DateTime())/*->modify('+1 day')*/;
+        //$this->visitDate = $this->event->getStartDate()->format('j/m/y').' - '.$this->event->getEndDate()->format('j/m/y');
+
 
     }
 
@@ -178,9 +185,9 @@ class Visit
      *
      * @return Visit
      */
-    public function setVisitDate($visitDate)
+    public function setVisitDate($visitRangeData)
     {
-        $this->visitDate = $visitDate;
+        $this->visitDate = $visitRangeData;
 
         return $this;
     }
@@ -361,5 +368,42 @@ class Visit
         $this->event = $event;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->visitDate->format('Y-m-d H:i:s');
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getVisitStartDate()
+    {
+        return $this->visitStartDate;
+    }
+
+    /**
+     * @param \DateTime $visitStartDate
+     */
+    public function setVisitStartDate($visitStartDate)
+    {
+        $this->visitStartDate = $visitStartDate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getVisitEndDate()
+    {
+        return $this->visitEndDate;
+    }
+
+    /**
+     * @param \DateTime $visitEndDate
+     */
+    public function setVisitEndDate($visitEndDate)
+    {
+        $this->visitEndDate = $visitEndDate;
     }
 }
