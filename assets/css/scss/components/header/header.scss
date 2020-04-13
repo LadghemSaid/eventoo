@@ -19,21 +19,23 @@ header img {
 }
 
 
-.img-banner {
+.banner {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
 
-  .banner {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-  }
+.text {
+  position: absolute;
+  top: 170px;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+}
 
-  .text {
-    position: absolute;
-    top: 170px;
-    width: 100%;
-    text-align: center;
-    color: #FFFFFF;
-  }
+.light-text {
+  color: $dark-grey;
+  font-size: x-small;
 }
 
 .menu-du-header a {

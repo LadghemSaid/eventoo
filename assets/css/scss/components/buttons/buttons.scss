@@ -1,3 +1,33 @@
+.btn-facebook {
+  background-color: #4267B2;
+  color: $white;
+}
+
+.btn-facebook:hover {
+  background-color: #395BA0;
+  color: $white;
+}
+
+.btn-purple {
+  background-color: $purple;
+  color: $white;
+}
+
+.btn-purple:hover {
+  background-color: $dark-purple;
+  color: $white;
+}
+
+.btn-grey {
+  background-color: $dark-grey;
+  color: $white;
+}
+
+.btn-grey:hover {
+  background-color: #A8A8A8;
+  color: $white;
+}
+
 .btn-circle {
   width: 30px;
   height: 30px;

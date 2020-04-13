@@ -1,37 +1,168 @@
-{% extends '/base.html.twig' %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Connexion - Eventoo
+			{% endblock %}
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block meta_description %}{% endblock %}{% block meta_keywords %}{% endblock %}{% block meta_robots %}{% endblock %}{% block meta_google %}{% endblock %}
+		<link type="text/plain" rel="author" href="Nom de domaine/humans.txt"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/> {% block stylesheets %}{% endblock %}
+
+		{{ encore_entry_link_tags('app') }}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+
+		<link rel="icon" type="image/png" href="img/favicon.png"/>
+		<meta name="theme-color" content="#00103e">
+		<meta property="og:image" content="img/icon.png"/>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/595ca4abfa.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ asset('js/tarteaucitron/tarteaucitron.js') }}"></script>
+		<script type="text/javascript">
+			tarteaucitron.init({
+"privacyUrl": "", /* Privacy policy url */
+
+"hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+"cookieName": "tarteaucitron", /* Cookie name */
+
+"orientation": "bottom", /* Banner position (top - bottom) */
+"showAlertSmall": false, /* Show the small banner on bottom right */
+"cookieslist": true, /* Show the cookie list */
+
+"adblocker": false, /* Show a Warning if an adblocker is detected */
+"AcceptAllCta": true, /* Show the accept all button when highPrivacy on */
+"highPrivacy": false, /* Disable auto consent */
+"handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+
+"removeCredit": true, /* Remove credit link */
+"moreInfoLink": false, /* Show more info link */
+"useExternalCss": false,
+/* If false, the tarteaucitron.css file will be loaded */
+
+// "cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
+
+"readmoreLink": "/cookiespolicy" /* Change the default readmore link */
+});
+
+(tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
+tarteaucitron.user.gajsUa = 'UA-107718823-2';
+tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */
+};
+		</script>
+		{% block gtag %}{% endblock %}
 
 
-{% block title %}Log in!{% endblock %}
-
-{% block body %}
-    <div class="img-banner">
-        <img src="{{ asset('pho/banner-agence.jpg') }}" alt="Bannière accueil" class="banner">
-        <div class="text">
-            <h1>Inscription</h1>
-            <p>...</p>
-        </div>
-    </div>
-    <div class="container mt-50 mb-50">
+	</head>
+	<body>
+		<div class="w-100 h-100">
+			<div class="row w-100 h-100 m-0 d-flex align-items-end">
 
 
+				{% if app.user %}
+					<div class="mb-3">
+						Vous etes connecté en tant que :
+						{{ app.user.username }},
+						<a href="{{ path('app_logout') }}">Logout</a>
+					</div>
 
-        {% if app.user %}
-            <div class="mb-3">
-                Vous etes connecté en tant que : {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
+				{% else %}
+					<div class="col-md-8 login-col-left">
+						<div class="register-margin">
+							<form method="post">
+								<h2 class="mb-20 font-weight-normal upperCase">Inscription</h2>
+                                <p class="mb-20 fc-white">Inscrivez-vous à votre compte Eventoo et accédez directement au meilleur réseau d’événements sur terre</p>
+								<button type="button" class="btn btn-lg btn-block mb-20 btn-facebook upperCase">S'inscrire avec Facebook</button>
+								<div class="divider mb-20">
+									<p class="text-center">ou</p>
+								</div>
+								<form method="post">
+									<div class="form-group row">
+										<label for="registration_form_email" class="col-sm-3 col-form-label fc-white required">Email</label>
+										<div class="col-sm-9">
+											<input type="email" id="registration_form_email" name="registration_form[email]" required="required" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="registration_form_username" class="col-sm-3 col-form-label fc-white required">Pseudo</label>
+										<div class="col-sm-9">
+											<input type="text" id="registration_form_username" name="registration_form[username]" required="required" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="registration_form_plainPassword_first" class="col-sm-3 col-form-label fc-white required">Mot de passe</label>
+										<div class="col-sm-9">
+											<input type="password" id="registration_form_plainPassword_first" placeholder="Choisir un mot de passe" name="registration_form[plainPassword][first]" required="required" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row mb-20">
+										<label for="registration_form_plainPassword_second" class="col-sm-3 col-form-label fc-white required">Mot de passe</label>
+										<div class="col-sm-9">
+											<input type="password" id="registration_form_plainPassword_second" placeholder="Confirmer le mot de passe" name="registration_form[plainPassword][second]" required="required" class="form-control">
+										</div>
+									</div>
 
-        {% else %}
-            {{ form_start(registrationForm) }}
-            {{ form_row(registrationForm.email) }}
-            {{ form_row(registrationForm.username) }}
-            {{ form_row(registrationForm.plainPassword) }}
-            {{ form_row(registrationForm.agreeTerms) }}
+									<button class="btn btn-lg btn-block mb-20 btn-purple upperCase">S'inscrire</button>
+									<div class="form-group row">
+										<div class="col-sm-1 p-0">
+											<input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1">
+										</div>
+										<label class="col-sm-11 p-0 light-text required" for="registration_form_agreeTerms">Je suis d’accord avec les conditions d’utilisation et la politique de confidentialité et de cookies de Eventoo qui vous permet de créer des profils personnels de vous-même afin que nous puissions vous montrer du contenu ciblé et des publicités personnalisées qui correspondent à vos intérêts.</label>
+									</div>
+								</form>
+							</div>
 
-            <button class="btn btn-primary btn-block">S'inscrire</button>
-            {{ form_end(registrationForm) }}
-        {% endif %}
+							<div class="d-flex justify-content-between align-items-center bottom-section">
+								<div class="light-text fc-dark-grey">
+									<a href="{{ path("index") }}">
+										<i class="fas fa-chevron-left mr-5"></i>Retour à la page d'accueil</a>
+								</div>
+								<div class="d-flex light-text fc-dark-grey">
+									<p class="mr-5 mb-0 d-flex align-items-center">Vous avez déjà un compte ?</p>
+									<a href="{{ path('app_login') }}">
+										<button class="btn btn-lg btn-grey upperCase" type="submit">
+											Connexion
+										</button>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 h-100 right-section">
+							<img src="{{ asset("img/eventoo_logo.png") }}" alt="Eventoo logo"/>
+						</div>
+					{% endif %}
+				</div>
 
+			</div>
 
-    </div>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+			<script src="{{ asset("js/lazysizes.min.js") }}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+			<script src="{{ asset("build/app.js") }}"></script>
+			<a aria-label="Button permettant de retourner en haut de la page" id="scrollToTop"></a>
+			<script>
+				var btn = $('#scrollToTop');
 
-{% endblock %}
+$(window).scroll(function () {
+if ($(window).scrollTop() > 300) {
+btn.addClass('show');
+} else {
+btn.removeClass('show');
+}
+});
+
+btn.on('click', function (e) {
+e.preventDefault();
+$('html, body').animate({
+scrollTop: 0
+}, '300');
+});
+			</script>
+			{% block javascripts %}{% endblock %}
+		</body>
+	</body>
+</html>

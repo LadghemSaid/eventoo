@@ -1,0 +1,14 @@
+.form-control {
+    background-color: #070E14;
+    border: none;
+    color: #BEBEBE;
+    font-size: medium;
+}
+
+.form-control:focus {
+    background-color: #070E14;
+    border: none;
+    color: #BEBEBE;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(10, 19, 27);
+}
