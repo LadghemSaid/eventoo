@@ -21,7 +21,7 @@ label.country.customer: 'Country'
 label.bookingcode: 'Booking code'
 
 #navigation
-nav.title: 'Ticketing of Louvre Museum'
+nav.title: 'Ticketing of Eventoo'
 nav.home: 'Homepage'
 nav.contact: 'Contact'
 nav.languages: 'Langages'
@@ -30,7 +30,6 @@ nav.languages.en: 'English'
 
 #footer
 footer.payment: 'Secure payment'
-footer.louvre.website: 'Official website of Louvre Museum'
 
 #breadcrumbs
 breadcrumb.first.label: 'Tickets'
@@ -41,16 +40,16 @@ breadcrumb.five.label: 'Confirmation'
 
 
 #layout.html.twig
-title.site: 'Ticketing of Louvre Museum'
+title.site: 'Eventoo Ticketing'
 
 #index.html.twig
 title.site.index: 'Homepage'
-title.welcome: 'Welcome on ticketing of Louvre Museum'
-homepage.paragraph0: "The Louvre Museum welcomes you every day, except tuesday and some public holidays (the 1st of May, the 1st of November et le 25th of December),
-from 9:00AM to 6:00PM, until 9:45 all thursdays and fridays. Rooms close from 5:30PM, from 9:30PM all thursdays and fridays."
+title.welcome: 'Welcome on ticketing of Eventoo'
+homepage.paragraph0: "Eventoo's festival welcomes you every day,
+from 8:00AM to 8:00PM."
 homepage.paragraph1 : 'For your visit, two kind of ticket are suggested :'
 homepage.full.day.ticket: 'Whole day ticket'
-homepage.half.day.ticket: 'Half day ticket. With this ticket, you can enter in the Louvre Museum from 2:00PM.'
+homepage.half.day.ticket: 'Half day ticket. With this ticket, you can enter in the festival from 2:00PM.'
 homepage.prices: 'There are differents prices'
 homepage.array.tickets: 'Tickets'
 homepage.first.price: 'Standard ticket (from 12 years)'
@@ -72,14 +71,14 @@ title.site.identify: 'Visitors'
 ticket: 'Ticket'
 
 #customer.html.twig
-invoice.informations: "Billing adress"
+invoice.informations: "Billing address"
 
 #pay.html.twig
 title.site.pay: 'Payment for the order'
 payment.visit: 'Your order summary'
 total.invoice: 'Total amount of the order'
 pay.order: "I pay the order"
-louvre.museum: "Louvre Museum"
+louvre.museum: "Eventoo"
 ticketing: "Ticketing"
 flash.payment.error: "An error has occured. Please contact our webmaster."
 
@@ -110,33 +109,30 @@ flash.payment.success: "You payment has been accepted."
 message.contact.send: "Your message has been sent successfully. We will answer you quickly."
 
 #Emails/registration.html.twig
-title.registration: "Booking - Louvre Museum"
+title.registration: "Booking - Eventoo"
 hello: 'Hello'
-valid.order: "You have confirmed your online order on ticketing of Louvre Museum. We thank you."
+valid.order: "You have confirmed your online order on ticketing of Eventoo. We thank you."
 order.summary: "Your order summary can be found below."
 on.behalf.of: "On behalf of "
 price.ticket: "Price of this ticket"
-registration.paragraph0: "The Louvre Museum welcomes you from 9:00AM to 6:00PM, until 9:45 all thursdays and fridays. Rooms close from 5:30PM, from 9:30PM all thursdays and fridays."
+registration.paragraph0: "Eventoo's festival welcomes you from 8:00AM to 8:00PM."
 registration.paragraph1: "The online ticket is nominative. An identity document can be asked to you when you will arrive."
-comments.guided_tour: "If it's your first time in Louvre Museum or if you are a regular, find the best guided tour for you."
+comments.guided_tour: "If it's your first time in a festival or if you are a regular, find the best guided tour for you."
 pratical.informations: "Practical informations"
-comments.pratical.informations: "Hours of museum, time of opening and closing of rooms, guides tours, locations..."
-comments.exhibitions: "Discover permanent and temporary exhibitions of Louvre Museum. Each season, we invite you to discover a new temporary exhibition, result of the latest expert research."
-workshops: "Workshops"
-comments.workshops: "There are some workshops for children and for adults. A wide range of artistic approaches is offered."
+comments.pratical.informations: "Hours of progamation, time of opening and closing of rooms, guides tours, locations..."
 
 #Emails/contact.html.twig
-title.email.contact: "Contact Page - Louvre Museum"
+title.email.contact: "Contact Page - Eventoo"
 contact.page: "Contact Page"
-new.message: "This is a new message sent by a visitor with Contact Page of the ticketing of Louvre Museum."
+new.message: "This is a new message sent by a visitor with Contact Page of the ticketing of Eventoo."
 lastname.contact: "Lastname"
 firstname.contact: "Firstname"
 email.contact: "Email"
 message.contact: "Message"
 
 #EmailService
-emailservice.subject_validator_order: "Booking confirmation on the ticketing of Louvre Museum"
-email.subject_contact_page: "Louvre Museum website - Contact Page"
+emailservice.subject_validator_order: "Booking confirmation on the ticketing of Eventoo"
+email.subject_contact_page: "Eventoo website - Contact Page"
 
 
 #ContactType

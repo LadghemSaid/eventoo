@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-use App\Validator\Constraints as LouvreAssert;
+use App\Validator\Constraints as EventooAssert;
 
 /**
  * Visit
@@ -14,7 +14,7 @@ use App\Validator\Constraints as LouvreAssert;
  * @ORM\Table(name="visit")
  * @ORM\Entity(repositoryClass="App\Repository\VisitRepository")
  * @UniqueEntity("bookingCode")
- * @LouvreAssert\OneThousandTickets(nbTicketsByDay=Visit::NB_TICKET_MAX_DAY, groups={"order_registration"})
+ * @EventooAssert\OneThousandTickets(nbTicketsByDay=Visit::NB_TICKET_MAX_DAY, groups={"order_registration"})
  *
  *
  */
