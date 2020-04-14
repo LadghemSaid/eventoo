@@ -188,7 +188,7 @@ class VisitController extends Controller
         }
 
         //Bypass du paiement
-
+/*
         // Création du booking code
         $visitManager->generateBookingCodeWithEmail($visit);
 
@@ -201,7 +201,7 @@ class VisitController extends Controller
 
         return $this->redirect($this->generateUrl('app_visit_confirmation'));
 
-
+*/
         return $this->render('Visit/pay.html.twig', array(
             'visit' => $visit,
             'bodyClass' => "reservationForm"

@@ -20,7 +20,7 @@ label.country.customer: 'Pays'
 label.bookingcode: 'Votre code de réservation'
 
 #navigation
-nav.title: 'Billetterie d'Eventoo'
+nav.title: "Billetterie d'Eventoo"
 nav.home: 'Accueil'
 nav.contact: 'Contact'
 nav.languages: 'Langues'
@@ -43,9 +43,9 @@ title.site: 'Eventoo - Billeterie en ligne'
 
 #index.html.twig
 title.site.index: 'Accueil'
-title.welcome: 'Bienvenue sur la billetterie d'Eventoo'
-homepage.paragraph0: 'Lorem ipsum'
-homepage.paragraph1: 'Pour votre visite, deux types de billets vous sont proposés :'
+title.welcome: "Bienvenue sur la billetterie d'Eventoo"
+homepage.paragraph0: "Lorem ipsum"
+homepage.paragraph1: "Pour votre visite, deux types de billets vous sont proposés :"
 homepage.full.day.ticket: 'Billet « Journée »'
 homepage.half.day.ticket: 'Billet « Demi-journée ». Il vous permet d’entrer dans l’établissement à partir de 14h.'
 homepage.prices: 'Plusieurs tarifs sont disponibles'
