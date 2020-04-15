@@ -72,10 +72,10 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 					<div class="col-md-8 login-col-left">
 						<div class="register-margin">
 							<form method="post">
-								<h2 class="mb-20 font-weight-normal upperCase fc-white">Inscription</h2>
-                                <p class="mb-20 fc-white">Inscrivez-vous à votre compte Eventoo et accédez directement au meilleur réseau d’événements sur terre</p>
-								<button type="button" class="btn btn-lg btn-block mb-20 btn-facebook upperCase">S'inscrire avec Facebook</button>
-								<div class="divider mb-20">
+								<h2 class="mb-20 mb-20Mobile font-weight-normal upperCase fc-white">Inscription</h2>
+                                <p class="mb-20 mb-20Mobile fc-white">Inscrivez-vous à votre compte Eventoo et accédez directement au meilleur réseau d’événements sur terre</p>
+								<button type="button" class="btn btn-lg btn-block mb-20 mb-20Mobile btn-facebook upperCase">S'inscrire avec Facebook</button>
+								<div class="divider mb-20 mb-20Mobile">
 									<p class="text-center">ou</p>
 								</div>
 								<form method="post">
@@ -97,14 +97,14 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 											<input type="password" id="registration_form_plainPassword_first" placeholder="Choisir un mot de passe" name="registration_form[plainPassword][first]" required="required" class="form-control">
 										</div>
 									</div>
-									<div class="form-group row mb-20">
+									<div class="form-group row mb-20 mb-20Mobile">
 										<label for="registration_form_plainPassword_second" class="col-sm-3 col-form-label fc-white required">Mot de passe</label>
 										<div class="col-sm-9">
 											<input type="password" id="registration_form_plainPassword_second" placeholder="Confirmer le mot de passe" name="registration_form[plainPassword][second]" required="required" class="form-control">
 										</div>
 									</div>
 
-									<button class="btn btn-lg btn-block mb-20 btn-purple upperCase">S'inscrire</button>
+									<button class="btn btn-lg btn-block mb-20 mb-20Mobile btn-purple upperCase">S'inscrire</button>
 									<div class="form-group row">
 										<div class="col-sm-1 p-0">
 											<input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" value="1">
@@ -117,10 +117,10 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 							<div class="d-flex justify-content-between align-items-center bottom-section">
 								<div class="light-text fc-dark-grey">
 									<a href="{{ path("index") }}">
-										<i class="fas fa-chevron-left mr-5"></i>Retour à la page d'accueil</a>
+										<i class="fas fa-chevron-left mr-5 mr-5Mobile"></i>Retour à la page d'accueil</a>
 								</div>
 								<div class="d-flex light-text fc-dark-grey">
-									<p class="mr-5 mb-0 d-flex align-items-center">Vous avez déjà un compte ?</p>
+									<p class="mr-5 mb-0 d-flex align-items-center hidden-sm-down">Vous avez déjà un compte ?</p>
 									<a href="{{ path('app_login') }}">
 										<button class="btn btn-lg btn-grey upperCase" type="submit">
 											Connexion
@@ -129,7 +129,7 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4 h-100 right-section">
+						<div class="col-md-4 h-100 right-section hidden-sm-down">
 							<img src="{{ asset("img/eventoo_logo.png") }}" alt="Eventoo logo"/>
 						</div>
 					{% endif %}

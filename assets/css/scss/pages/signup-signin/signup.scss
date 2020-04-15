@@ -63,3 +63,18 @@
         margin: auto;
     }
 }
+
+@media (max-width: 768px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+
+    .col-left {
+        height: 100vh;
+    }
+
+    .login-margin {
+        margin: 35% 10% 35% 10%;
+    }
+
+}

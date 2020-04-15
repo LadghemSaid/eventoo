@@ -76,9 +76,9 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 					<div class="col-md-8 login-col-left">
 						<div class="login-margin">
 							<form method="post">
-								<h2 class="mb-20 font-weight-normal fc-white upperCase">Connexion</h2>
-								<button type="button" class="btn btn-lg btn-block mb-20 btn-facebook upperCase">Se connecter avec Facebook</button>
-								<div class="divider mb-20">
+								<h2 class="mb-20 mb-20Mobile font-weight-normal size-litleTitle fc-white upperCase">Connexion</h2>
+								<button type="button" class="btn btn-lg btn-block mb-20 mb-20Mobile btn-facebook upperCase">Se connecter avec Facebook</button>
+								<div class="divider mb-20 mb-20Mobile">
 									<p class="text-center">ou</p>
 								</div>
 								<div class="form-group row">
@@ -87,14 +87,14 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 										<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
 									</div>
 								</div>
-								<div class="form-group row mb-30">
+								<div class="form-group row mb-30 mb-30Mobile">
 									<label for="inputPassword" class="col-sm-3 col-form-label fc-white">Mot de passe</label>
 									<div class="col-sm-9">
 										<input type="password" name="password" id="inputPassword" class="form-control" required>
 									</div>
 								</div>
 								<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-								<button class="btn btn-lg btn-block mb-20 btn-purple upperCase" type="submit">
+								<button class="btn btn-lg btn-block mb-20 mb-20Mobile btn-purple upperCase" type="submit">
 									Se connecter
 								</button>
 							</form>
@@ -105,10 +105,10 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 						<div class="d-flex justify-content-between align-items-center bottom-section">
 							<div class="light-text fc-dark-grey">
 								<a href="{{ path("index") }}">
-									<i class="fas fa-chevron-left mr-5"></i>Retour à la page d'accueil</a>
+									<i class="fas fa-chevron-left mr-5 mr-5Mobile"></i>Retour à la page d'accueil</a>
 							</div>
 							<div class="d-flex light-text fc-dark-grey">
-								<p class="mr-5 mb-0 d-flex align-items-center">Vous n'avez pas de compte ?</p>
+								<p class="mr-5 mb-0 d-flex align-items-center hidden-sm-down">Vous n'avez pas de compte ?</p>
 								<a href="{{ path('app_register') }}">
 									<button class="btn btn-lg btn-grey upperCase" type="submit">
 										Inscription
@@ -117,7 +117,7 @@ tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push(
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4 h-100 right-section">
+					<div class="col-md-4 h-100 right-section hidden-sm-down">
 						<img src="{{ asset("img/eventoo_logo.png") }}" alt="Eventoo logo"/>
 					</div>
 
