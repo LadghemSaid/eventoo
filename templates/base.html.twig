@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Agence Web - PopWeb{% endblock %}</title>
+    <title>{% block title %}Eventoo{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block meta_description %}{% endblock %}
     {% block meta_keywords %}{% endblock %}
@@ -22,7 +22,7 @@
 
     {% endblock %}
 
-    <link rel="icon" type="image/png" href="img/favicon.png"/>
+    <link rel="icon" type="image/png" href="{{ asset("img/favicon.png") }}"/>
     <meta name="theme-color" content="#00103e">
     <meta property="og:image" content="img/icon.png"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
@@ -98,6 +98,7 @@
 <script src="{{ asset("js/lazysizes.min.js") }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
 <script src="{{ asset("build/app.js") }}"></script>
+<script src="{{ asset("build/main.js") }}"></script>
 <script>
     moment.locale('fr', {
         months : 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_'),
@@ -164,23 +165,6 @@
 
 </script>
 <a aria-label="Button permettant de retourner en haut de la page" id="scrollToTop"></a>
-<script>
-    var btn = $('#scrollToTop');
-
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > 300) {
-            btn.addClass('show');
-        } else {
-            btn.removeClass('show');
-        }
-    });
-
-    btn.on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({scrollTop: 0}, '300');
-    });
-
-</script>
 {% block javascripts %}{% endblock %}
 
 </body>
