@@ -2,7 +2,10 @@
   height: 80px;
   width: 100%;
   background-color: $dark-blue;
-  position: relative;
+  padding: 0 5%;
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.4);
 }
 
 .nav > .nav-header {
@@ -60,6 +63,9 @@
 }
 
 @media (max-width:1000px) {
+  .nav {
+    padding: 0 2% 0 0;
+  }
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
@@ -125,26 +131,6 @@ header a {
 header img {
   height: 50px;
   padding: 5px;
-}
-
-
-.banner {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-}
-
-.text {
-  position: absolute;
-  top: 170px;
-  width: 100%;
-  text-align: center;
-  color: #FFFFFF;
-}
-
-.light-text {
-  color: $dark-grey;
-  font-size: x-small;
 }
 
 // search bar
@@ -214,89 +200,3 @@ header img {
 	  padding: 10px 17px;
 	  font-size: 27px;
 }
-
-// .menu-du-header a {
-//   text-decoration: none;
-//   color: white;
-//   background-color: #111111;
-//   padding: 16px 8px 8px 8px;
-//   font-size: medium;
-//   display: block;
-// }
-
-
-// /* soulignage effect */
-// #menu-du-header a:after {
-//   position: relative;
-//   content: " ";
-//   display: block;
-//   left: 0;
-//   top: 4px;
-//   width: 0px;
-//   height: 2px;
-//   border-bottom: 3px $red solid;
-//   transition: all 0.3s ease;
-
-// }
-
-
-// #menu-du-header a:hover:not(.active):after {
-//   width: 100%;
-// }
-
-// #menu-du-header {
-//   margin-right: auto;
-//   margin-left: auto;
-//   width: 100%;
-//   max-width: 1050px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   align-items: center;
-
-//   a {
-//     padding: 8px;
-//     margin: 0px 8px;
-//   }
-
-//   .active::after {
-//     position: relative;
-//     content: " ";
-//     display: block;
-//     left: 0;
-//     top: 4px;
-//     width: 100% !important;
-//     height: 2px;
-//     border-bottom: 3px $red solid;
-//   }
-// }
-
-// #marge-du-header {
-//   margin-right: auto;
-//   margin-left: auto;
-//   width: 100%;
-//   max-width: 1050px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-//   align-items: center;
-// }
-
-// /* soulignage effet (fin) */
-// @media (max-width: 650px), handheld {
-
-
-//   #marge-du-header {
-//     margin-right: auto;
-//     margin-left: auto;
-//     width: 100%;
-//     max-width: 1050px;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     align-items: center
-//   }
-//   #menu-du-header a {
-
-//   }
-// }

@@ -27,6 +27,20 @@ a {
     }
 }
 
+.border-top-blue {
+    border-top: $custom-blue 1px solid;
+}
+
+.border-bottom-blue {
+    border-bottom: $custom-blue 1px solid;
+}
+
+.image-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /*
 DOCUMENTATION
 

@@ -8,72 +8,86 @@ size-veryLarge = font-size:2.4rem
  */
 
 .size {
-  &-tiny {
-    font-size: $tiny;
+  &-text {
+    font-size: $text;
 
     @media (max-width: 768px) {
-      font-size: $Mtiny;
+      font-size: $Mtext;
     }
 
     &Mobile {
       @media (max-width: 768px) {
-        font-size: $Mtiny !important;
+        font-size: $Mtext !important;
       }
     }
   }
 
-  &-small {
-    font-size: $small;
+  &-bigText {
+    font-size: $bigText;
 
     @media (max-width: 768px) {
-      font-size: $Msmall;
+      font-size: $MbigText;
     }
 
     &Mobile {
       @media (max-width: 768px) {
-        font-size: $Msmall !important;
+        font-size: $MbigText !important;
       }
     }
   }
 
-  &-medium {
-    font-size: $mediumS;
+  &-subtitle {
+    font-size: $subtitle;
 
     @media (max-width: 768px) {
-      font-size: $mediumS;
+      font-size: $subtitle;
     }
 
     &Mobile {
       @media (max-width: 768px) {
-        font-size: $MmediumS !important;
+        font-size: $Msubtitle !important;
       }
     }
   }
 
-  &-large {
-    font-size: $large;
+  &-litleTitle {
+    font-size: $litleTitle;
 
     @media (max-width: 768px) {
-      font-size: $large;
+      font-size: $litleTitle;
     }
 
     &Mobile {
       @media (max-width: 768px) {
-        font-size: $Mlarge !important;
+        font-size: $MlitleTitle !important;
       }
     }
   }
 
-  &-veryLarge {
-    font-size: $veryLarge;
+  &-title {
+    font-size: $title;
 
     @media (max-width: 768px) {
-      font-size: $MveryLarge;
+      font-size: $Mtitle;
     }
 
     &Mobile {
       @media (max-width: 768px) {
-        font-size: $MveryLarge !important;
+        font-size: $Mtitle !important;
+      }
+    }
+  }
+
+  &-bigTitle {
+    font-size: $bigTitle;
+
+    @media (max-width: 768px) {
+      font-size: $MbigTitle;
+    }
+
+    &Mobile {
+      @media (max-width: 768px) {
+        font-size: $MbigTitle !important;
       }
     }
   }

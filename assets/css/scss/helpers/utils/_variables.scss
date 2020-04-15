@@ -2,19 +2,21 @@
 
 //  FONT SIZES
 
-$tiny: 1.2rem;
-$small: 1.4rem;
-$mediumS: 1.6rem;
-$large: 2rem;
-$veryLarge: 2.4rem;
+$text: 1.2rem;
+$bigText: 1.6rem;
+$subtitle: 2.1rem;
+$litleTitle: 3rem;
+$title: 4rem;
+$bigTitle: 6rem;
 
 // FONT SIZE MOBILE
 
-$Mtiny: 1.2rem;
-$Msmall: 1.4rem;
-$MmediumS: 1.6rem;
-$Mlarge: 2rem;
-$MveryLarge: 2.5rem;
+$Mtext: 1.5rem;
+$MbigText: 1.6rem;
+$Msubtitle: 2rem;
+$MlitleTitle: 2.2rem;
+$Mtitle: 2.6rem;
+$MbigTitle: 3rem;
 
 // FONT STYLE
 
@@ -121,7 +123,7 @@ $red : #F60052;
 
 // Customized colors
 $dark-blue: #0C1821;
-$blue: #1B2A41;
+$custom-blue: #1B2A41;
 $light-blue: #3C5972;
 $purple: #CCC9DC;
 $dark-purple: #ACA8C1;

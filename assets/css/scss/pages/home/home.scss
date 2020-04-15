@@ -9,12 +9,27 @@ body {
   flex: 1;
 }
 
+.banner {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  filter: brightness(50%);
+}
 
-a.primaire {
-  padding: 12px 22px;
-  border-radius: 5px;
-  cursor:pointer;
-  background-color: $red;
-  color: white;
+.text {
+  position: absolute;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.light-text {
+  color: $dark-grey;
+  font-size: x-small;
+}
+
+a.no-hover:hover {
+  color: $white;
 }
 

@@ -28,6 +28,32 @@
   color: $white;
 }
 
+.btn-group-lg>.btn, .btn-lg {
+    padding: 1rem 2rem !important;
+    font-size: 1.5rem !important;
+    line-height: 1.5 !important;
+    border-radius: 1rem !important;
+}
+
+.btn-group-lg>.btn, .btn-medium {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+}
+
+a.primaire {
+  padding: 12px 22px;
+  border-radius: 5px;
+  cursor:pointer;
+  background-color: $purple;
+  color: white;
+}
+
+a.primaire:hover {
+  background-color: $dark-purple;
+}
+
 .btn-circle {
   width: 30px;
   height: 30px;
