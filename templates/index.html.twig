@@ -50,10 +50,10 @@
 				<h1 class="upperCase size-title">Evenements à venir</h1>
 				<p class="size-bigText">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis neque nisi placeat sunt ullam?
-																																																																				                    Blanditiis
-																																																																				                    corporis debitis dolore dolorum error, eum, ipsum maxime quae quo, quod recusandae reiciendis
-																																																																				                    repudiandae
-																																																																				                    sunt?
+																																																																														                    Blanditiis
+																																																																														                    corporis debitis dolore dolorum error, eum, ipsum maxime quae quo, quod recusandae reiciendis
+																																																																														                    repudiandae
+																																																																														                    sunt?
 
 				</p>
 			</div>
@@ -88,7 +88,7 @@
 										</div>
 									</div>
 								</div>
-								<p class="size-text description">{{ event.description }}</p>
+								<p class="size-text description fc-dark-grey">{{ event.description }}</p>
 							</div>
 						</div>
 					</a>
@@ -106,48 +106,51 @@
 				<h1 class="upperCase size-title">Actualités</h1>
 				<p class="size-bigText">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis neque nisi placeat sunt ullam?
-																																																																			                    Blanditiis
-																																																																			                    corporis debitis dolore dolorum error, eum, ipsum maxime quae quo, quod recusandae reiciendis
-																																																																			                    repudiandae
-																																																																			                    sunt?
+																																																																													                    Blanditiis
+																																																																													                    corporis debitis dolore dolorum error, eum, ipsum maxime quae quo, quod recusandae reiciendis
+																																																																													                    repudiandae
+																																																																													                    sunt?
 
 				</p>
 			</div>
 			{% for article in articles %}
 				<div class="article container pt-20 pb-20 mt-20 pt-20Mobile pb-20Mobile mt-20Mobile">
-					<a class="no-hover" href="{{ path('article.show',{'slug':article.slug}) }}">
-						<div class="row">
-							<div class="col-sm-12 col-md-6">
-								<img class="image-cover" src="https://picsum.photos/400/200" alt="">
-							</div>
-							<div class="col-sm-12 col-md-6 mt-10Mobile">
-								<div class="infos">
-									<h1 class="size-subtitle mb-4">{{ article.title }}</h1>
-									<div class="icons d-flex mb-3 size-text">
-										<div class="mr-4">
-											<i class="fa fa-calendar mr-2"></i>
-											<span>{{ article.createdAt|date("m/d/Y h:m" ) }}
-											</span>
-										</div>
-
-										<div class="mr-4">
-											<i class="fa fa-heart mr-2"></i>
-											<span>
-												{{ article.likes | length }}
-											</span>
-										</div>
-										<div>
-											<i class="fa fa-comment mr-2"></i>
-											<span>
-												{{ article.comments | length }}
-											</span>
-										</div>
+					<div class="row">
+						<div class="col-sm-12 col-md-6">
+							<img class="image-cover" src="https://picsum.photos/400/200" alt="">
+						</div>
+						<div class="col-sm-12 col-md-6 mt-10Mobile">
+							<div class="infos">
+								<h1 class="size-subtitle mb-4">{{ article.title }}</h1>
+								<div class="icons d-flex mb-3 size-text fc-dark-grey">
+									<div class="mr-4">
+										<i class="fa fa-calendar mr-2"></i>
+										<span>{{ article.createdAt|date("m/d/Y h:m" ) }}
+										</span>
 									</div>
-									<p class="size-text description">{{ article.description }}</p>
+
+									<div class="mr-4">
+										<i class="fa fa-heart mr-2"></i>
+										<span>
+											{{ article.likes | length }}
+										</span>
+									</div>
+									<div>
+										<i class="fa fa-comment mr-2"></i>
+										<span>
+											{{ article.comments | length }}
+										</span>
+									</div>
 								</div>
+								<p class="size-text description mb-4">{{ article.description }}</p>
+								<a href="{{ path('article.show',{'slug':article.slug}) }}">
+									<button class="btn btn-lg btn-light-blue">
+										Découvrir
+									</button>
+								</a>
 							</div>
 						</div>
-					</a>
+					</div>
 				</div>
 			{% endfor %}
 		</div>

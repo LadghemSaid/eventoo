@@ -28,6 +28,16 @@
   color: $white;
 }
 
+.btn-light-blue {
+  background-color: $light-blue;
+  color: $white;
+}
+
+.btn-light-blue:hover {
+  background-color: #52718D;
+  color: $white;
+}
+
 .btn-group-lg>.btn, .btn-lg {
     padding: 1rem 2rem !important;
     font-size: 1.5rem !important;
