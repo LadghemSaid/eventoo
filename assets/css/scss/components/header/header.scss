@@ -58,6 +58,10 @@
   background-color: $light-blue;
 }
 
+.nav-link.active {
+  background-color: $light-blue;
+}
+
 .nav > #nav-check {
   display: none;
 }
