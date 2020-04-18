@@ -4,7 +4,7 @@
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
 			<div class="nav-title">
-				<a href="{{ path("index") }}"><img src="{{ asset("img/logo.png") }}" alt="Agence Pop Web logo"/></a>
+				<a href="{{ path("index") }}"><img src="{{ asset("img/logo.png") }}" alt="logo Eventoo"/></a>
 			</div>
 		</div>
 		<div class="nav-btn">
@@ -30,7 +30,9 @@
                href="{{ path('contact.show') }}">Contactez-nous</a>
 		</div>
       <div class="nav-right">
-          <a href="#search"><i class="fa fa-search"></i></a>
+         <a class="nav-link mk-search-trigger mk-fullscreen-trigger" href="#" id="search-button-listener">
+            <div id="search-button"><i class="fa fa-search"></i></div>
+         </a>
          {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
 
@@ -56,13 +58,17 @@
       </div>
 	</div>
    </div>
-   <div id="search">
-    <button type="button" class="close"><i class="fas fa-times"></i></button>
-    <form>
-        <input type="search" value="" placeholder="Rechercher..." />
-        <button type="submit" class="btn btn-lg btn-purple">Ok</button>
-    </form>
-</div>
+   <div class="overlay">
+      <div class="mk-fullscreen-search-overlay" id="mk-search-overlay">
+        <a href="#" class="mk-fullscreen-close" id="mk-fullscreen-close-button"><i class="fa fa-times"></i></a>
+        <div id="mk-fullscreen-search-wrapper">
+          <form method="get" id="mk-fullscreen-searchform" action="">
+            <input class="input" type="text" value="" placeholder="Rechercher..." id="mk-fullscreen-search-input">
+            <i class="fa fa-search fullscreen-search-icon"><input value="" type="submit"></i>
+          </form>
+        </div>
+      </div>
+    </div>
 </header>
 
 

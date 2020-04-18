@@ -197,4 +197,20 @@ document.getElementById("compteur").innerHTML = "EXPIRED";
 }
 }, 1000);
 	</script>
+	<script>
+jQuery(document).ready(function($) {
+  // Search
+  $('#search-button').click(function() {
+    console.log("Open Search, Search Centered");
+    $("div.mk-fullscreen-search-overlay").addClass("mk-fullscreen-search-overlay-show");
+    $(".nav-open").css('display', 'none');
+  });
+  $("a.mk-fullscreen-close").click(function() {
+    console.log("Closed Search");
+    $("div.mk-fullscreen-search-overlay").removeClass("mk-fullscreen-search-overlay-show");
+    $(".nav-open").css('display', 'inline-block');
+  });
+});
+</script>
+
 {% endblock %}
