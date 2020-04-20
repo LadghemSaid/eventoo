@@ -26,7 +26,7 @@
 {% endblock %}
 {% block body %}
 
-	<div class="pt-80 img-banner">
+	<div class="pt-80 pt-80Mobile img-banner">
 		<img src="{{ asset('pho/banner.jpg') }}" alt="Bannière accueil" class="banner">
 		<div class="text">
 			<h1 class="upperCase size-bigTitle">{{ 'home.nextEvents' | trans }}</h1>
@@ -62,7 +62,9 @@
 					<a class="no-hover" href="{{ path('event.show',{'slug':event.slug}) }}">
 						<div class="row">
 							<div class="col-sm-12 col-md-6">
-								<img class="image-cover" src="https://picsum.photos/400/200" alt="">
+								<div class="img-hover-zoom">
+									<img class="image-cover" src="https://picsum.photos/400/200" alt="">
+								</div>
 							</div>
 							<div class="col-sm-12 col-md-6 mt-10Mobile">
 								<h2 class="upperCase size-subtitle mb-4">{{ event.title }}</h2>
@@ -117,7 +119,9 @@
 				<div class="article container pt-20 pb-20 mt-20 pt-20Mobile pb-20Mobile mt-20Mobile">
 					<div class="row">
 						<div class="col-sm-12 col-md-6">
-							<img class="image-cover" src="https://picsum.photos/400/200" alt="">
+							<div class="img-hover-zoom">
+								<img class="image-cover" src="https://picsum.photos/400/200" alt="">
+							</div>
 						</div>
 						<div class="col-sm-12 col-md-6 mt-10Mobile">
 							<div class="infos">
