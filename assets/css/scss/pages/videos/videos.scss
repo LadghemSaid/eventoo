@@ -1,0 +1,19 @@
+.video-container {
+    background-color: $background-blue;
+}
+.video-iframe iframe {
+    width: 100%;
+    height: auto;
+}
+
+.custom-select {
+    background-color: transparent;
+    border: $dark-grey 1px solid;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    line-height: 20px;
+    height: auto;
+    font-size: 1.6rem;
+    color: $dark-grey;
+    background: none;
+}
