@@ -36,37 +36,65 @@
     </style>
 {% endblock %}
 {% block body %}
-    <div class="img-banner">
-        <img src="{{ asset('pho/banner-blog.jpg') }}" alt="Bannière blog" class="banner">
-        <div class="text">
-            <h1>Notre aide</h1>
-            <p>Découvrez l'aide que l'on vous apporte.</p>
-        </div>
-    </div>
+    <div class="pt-80 pl-0 pr-0 pb-0 pt-80Mobile pl-0Mobile pr-0Mobile pb-0Mobile breadcrumb">
+		<img src="{{ asset('pho/breadcrumb.png') }}" alt="image fond breadcrumb" class="img-breadcrumb">
+		<div class="container">
+			<div class="text d-flex">
+				<a href="">
+					<h3 class="upperCase size-litleTitle">Accueil</h3>
+				</a>
+				<p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+				<a href="">
+					<h3 class="upperCase size-litleTitle">Actualités</h3>
+				</a>
+			</div>
+		</div>
+	</div>
 
-    <div class="container">
-        <div class="jumbotron">
-            <h1>On peut vous renseigner sur les sujets suivants :</h1>
-        </div>
+    <div class="container mt-50 mt-40Mobile fc-white">
         <div class="row">
 
             {% for article in articles %}
 
-                <div class="col-sm-4 article-item">
-                    <a href="{{ path('article.show',{'slug':article.slug}) }}">
-                        <img class="d-block lazyload "
-                             src="{{ asset("img/low_res.jpg") }}"
-                             data-src="{{ app_path_articles_images }}{{ article.image }}"
-                             alt="{{ article.imgAlternate }}"
-                        />
-                    </a>
+                <div class="col-sm-12 col-md-6 pt-10 pb-10 pt-10Mobile pb-10Mobile">
+                    <div class="article-item pt-40 pb-40 pl-20 pr-20 pt-40Mobile pb-40Mobile pl-20Mobile pr-20Mobile">
+                        <a href="{{ path('article.show',{'slug':article.slug}) }}">
+                            <h2 class="upperCase size-subtitle mb-4"> {{ article.title|striptags|length >20 ? article.title|striptags|slice(0, 50) ~ '...' : article.title|striptags }} </h2>
+                        </a>
+                        <div class="icons d-flex mb-3 size-text fc-dark-grey">
+									<div class="mr-4">
+										<i class="fa fa-calendar mr-2" aria-hidden="true"></i>
+										<span>10/29/2019 05:10
+										</span>
+									</div>
 
-                    <a href="{{ path('article.show',{'slug':article.slug}) }}">
-                        <h2> {{ article.title|striptags|length >20 ? article.title|striptags|slice(0, 50) ~ '...' : article.title|striptags }} </h2>
-                    </a>
-                    <p class="p-date" data-date="{{ article.updatedAt| date('U') }}"></p>
-                    <p class="p-description">{{ article.description|striptags|length > 100 ? article.description|striptags|slice(0, 100) ~ '...' : article.description|striptags }}</p>
-                    <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more">Voir plus</a>
+									<div class="mr-4">
+										<i class="fa fa-heart mr-2" aria-hidden="true"></i>
+										<span>
+											0
+										</span>
+									</div>
+									<div>
+										<i class="fa fa-comment mr-2" aria-hidden="true"></i>
+										<span>
+											1
+										</span>
+									</div>
+								</div>
+                        {# <p class="p-date" data-date="{{ article.updatedAt| date('U') }}"></p> #}
+                        <a href="{{ path('article.show',{'slug':article.slug}) }}">
+                            {# <img class="d-block lazyload "
+                                src="{{ asset("img/low_res.jpg") }}"
+                                data-src="{{ app_path_articles_images }}{{ article.image }}"
+                                alt="{{ article.imgAlternate }}"
+                            /> #}
+                            <div class="img-hover-zoom mb-3">
+                                <img class="d-block lazyload image-cover" src="{{ asset("pho/article.png") }}"/>
+                            </div>
+                        </a>
+                        <p class="p-description">{{ article.description|striptags|length > 100 ? article.description|striptags|slice(0, 100) ~ '...' : article.description|striptags }}</p>
+                        <a href="{{ path('article.show',{'slug':article.slug}) }}" class="more fc-dark-grey">Voir plus</a>
+                    </div>
                 </div>
 
 
