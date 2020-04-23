@@ -10,10 +10,35 @@
     background-color: transparent;
     border: $dark-grey 1px solid;
     border-radius: 10px;
-    padding: 10px 20px 10px 20px;
+    padding: 0 20px 0 20px;
     line-height: 20px;
     height: auto;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     color: $dark-grey;
     background: none;
+}
+
+.form-select {
+    background: transparent;
+    font-size: 1.2rem;
+    width: auto;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    color: #BEBEBE;
+    outline: 0;
+    box-shadow: none;
+}
+
+@media (max-width: 995px) {
+    .d-flex-responsive {
+        display: flex;
+        flex-direction: column;
+        width: 100£;
+    }
+    .col-flex-responsive {
+        width: 100%;
+        text-align: left;
+    }
 }

@@ -57,18 +57,33 @@
         <a href="" class="mr-10 ml-10 mr-5Mobile ml-5Mobile">Live sets</a>
     </div>
 
-    <div class="container d-flex bd-highlight mb-3 fc-white mt-50 mt-40Mobile">
-        <div class="mr-auto p-2 bd-highlight">
-            <h1 class="upperCase size-title">Toutes les vidéos</h1>
-        </div>
-        <div class="p-2 bd-highlight">
-            <div class="custom-select video-header__inputs">
-                <label name="event" class="mb-0 mb-0Mobile upperCase">Évènement: <i class="fas fa-chevron-down ml-20 ml-20Mobile"></i></label>
+    <div class="container fc-white mt-50 mt-40Mobile">
+        <div class="d-flex d-flex-responsive bd-highlight align-items-center">
+            <div class="p-2 flex-grow-1 bd-highlight col-flex-responsive">
+                <h1 class="upperCase size-title mb-0 mb-0Mobile">Toutes les vidéos</h1>
             </div>
-        </div>
-        <div class="p-2 bd-highlight">
-            <div class="custom-select video-header__inputs">
-                <label name="event" class="mb-0 mb-0Mobile upperCase">Type: <i class="fas fa-chevron-down ml-20 ml-20Mobile"></i></label>
+            <div class="p-2 bd-highlight upperCase col-flex-responsive">
+                <div class="form-group d-flex justify-content-between custom-select video-header__inputs mb-0 mb-0Mobile">
+                    <label for="exampleFormControlSelect1" class="d-flex align-items-center mb-0 mb-0Mobile">Évènement :</label>
+                    <select class="form-control form-select" id="exampleFormControlSelect1">
+                    <option>Toutes les vidéos</option>
+                    <option>Dominator</option>
+                    <option>Defqon 1</option>
+                    <option>Qapital</option>
+                    <option>Qlimax</option>
+                    </select>
+                </div>
+            </div>
+            <div class="p-2 bd-highlight upperCase col-flex-responsive">
+                <div class="form-group d-flex justify-content-between custom-select video-header__inputs mb-0 mb-0Mobile">
+                    <label for="exampleFormControlSelect1" class="d-flex align-items-center mb-0 mb-0Mobile">Type :</label>
+                    <select class="form-control form-select" id="exampleFormControlSelect1">
+                    <option>Toutes les vidéos</option>
+                    <option>Trailer</option>
+                    <option>Aftermovie</option>
+                    <option>Live set</option>
+                </select>
+            </div>
             </div>
         </div>
      </div>
@@ -77,7 +92,7 @@
     <div class="row">
     {% for video in videos %}
         <div class="col-sm-12 col-md-4 pt-10 pb-10 pt-10Mobile pb-10Mobile d-flex align-items-stretch">
-        <div class="video-container pt-20 pb-20 pl-10 pr-10 pt-20Mobile pb-20Mobile pl-10Mobile pr-10Mobile">
+        <div class="video-container pt-20 pb-20 pl-10 pr-10 pt-20Mobile pb-20Mobile pl-10Mobile pr-10Mobile w-100">
             <p class="video-iframe">{{ video.text |raw }}</p>
             <h2 class="upperCase size-bigText mb-4">{{ video.title }}</h2>
             <div class="icons d-flex mb-3 size-text fc-dark-grey">
