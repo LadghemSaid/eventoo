@@ -125,7 +125,7 @@ textarea:-ms-input-placeholder { color: #adadad;}
     display:none;
 }
 
-// event
+// events
 .event-item {
   width: 100%
 }
@@ -206,4 +206,10 @@ textarea:-ms-input-placeholder { color: #adadad;}
   height: auto;
   max-width: 70%;
   max-height: 30%;
+}
+
+// event
+.p-img {
+  height: 380px;
+  object-fit: cover;
 }

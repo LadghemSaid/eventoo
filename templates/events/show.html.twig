@@ -31,12 +31,22 @@
 
 
 {% block body %}
-    <div class="img-banner">
-        <img src="{{ asset('pho/banner-blog.jpg') }}" alt="Bannière blog" class="banner">
-        <div class="text">
-            <h1>{{ event.title }}</h1>
-        </div>
-    </div>
+    <div class="pt-80 pl-0 pr-0 pb-0 pt-80Mobile pl-0Mobile pr-0Mobile pb-0Mobile mb-0 mb-0Mobile breadcrumb">
+		<img src="{{ asset('pho/breadcrumb.png') }}" alt="image fond breadcrumb" class="img-breadcrumb">
+		<div class="container">
+			<div class="text d-flex">
+				<a href="">
+					<h3 class="upperCase size-litleTitle">Accueil</h3>
+				</a>
+				<p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+				<a href="">
+					<h3 class="upperCase size-litleTitle">Évènements</h3>
+				</a>
+                <p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+				<h3 class="upperCase size-litleTitle">{{ event.title }}</h3>
+			</div>
+		</div>
+	</div>
 
     {% for message in app.flashes('success') %}
         <div class="alert alert-success">
@@ -48,27 +58,35 @@
             {{ message }}
         </div>
     {% endfor %}
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 event-item-show">
-                <div class="title-section">
-                    <h1 class="p-title">{{ event.title }}</h1>
-                    <p class="p-date">Mis en ligne le
-                        : {{ event.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
-                </div>
-                <div class="image-section">
-                    <img class="d-block w-100 lazyload p-img"
+    <div class="image-section">
+        {# <img class="d-block w-100 lazyload p-img"
                          src="{{ asset("img/low_res.jpg") }}"
                          data-src="{{ app_path_events_images }}{{ event.thumbnail }}"
                          alt="{{ event.imgAlternate }}"
-                         height="290px"/>
+                         height="290px"/> #}
+                         <img class="d-block w-100 lazyload p-img" src="{{ asset("pho/event-banner.png") }}"/>
+    </div>
+
+    <div class="container fc-white mt-50 mt-40Mobile">
+        <div class="row">
+            <div class="col-md-12 event-item-show">
+                <div class="title-section">
+                    <h1 class="upperCase size-title">{{ event.title }}</h1>
+                    <p class="size-text fc-dark-grey">Mis en ligne le : {{ event.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }} </p>
+                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="d-flex">
+						<button class="btn btn-lg btn-purple">Tickets</button>
+					</a>
+                    <div class="d-flex justify-content-start fc-dark-grey mt-20 mt-20Mobile">
+                        <a href="" class="fc-white weight-medium mr-10 mr-5Mobile">Détail</a>
+                        <a href="" class="mr-10 ml-10 mr-5Mobile ml-5Mobile">Line-up</a>
+                        <a href="" class="mr-10 ml-10 mr-5Mobile ml-5Mobile">Tickets informations</a>
+                    </div>
                 </div>
                 <div class="p-text">
                     <p class="p-description">{{ event.text | raw }}</p>
                 </div>
             </div>
-            <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="primaire">Reservez</a>
+            
         </div>
 
         {% include '/comment/comment.html.twig' %}
