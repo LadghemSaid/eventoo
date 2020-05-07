@@ -213,3 +213,16 @@ textarea:-ms-input-placeholder { color: #adadad;}
   height: 380px;
   object-fit: cover;
 }
+
+.events-detail {
+
+  .img-event-detail {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: 50% 50%;
+      object-position: 50% 50%;
+  }
+
+}

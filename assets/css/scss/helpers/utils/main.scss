@@ -35,6 +35,14 @@ a {
     border-bottom: $custom-blue 1px solid;
 }
 
+.border-top-grey {
+    border-top: $grey 1px solid;
+}
+
+.border-bottom-grey {
+    border-bottom: $grey 1px solid;
+}
+
 .image-cover {
     width: 100%;
     height: 400px;
