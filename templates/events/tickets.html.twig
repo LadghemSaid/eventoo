@@ -91,73 +91,70 @@ gtag('config', 'UA-107718823-2');
 				</div>
 				<div class="event-detail mt-20 mt-20Mobile mb-20 mb-20Mobile">
 					<div class="informations pb-20 pb-20Mobile border-top-grey border-bottom-grey">
-						<div class="icons size-bigText d-md-flex pt-20 pb-20 pt-20Mobile pb-20Mobile">
-							<div class="d-flex mb-10Mobile">
-								<i class="fa fa-calendar mr-4 fc-purple" aria-hidden="true"></i>
-								<div>
-									<p class="mb-0">Du 04/15/2020 08:04</p>
-									<p class="mb-5 mb-5Mobile">Au 09/10/2020 01:09</p>
-									<a href="" class="fc-dark-grey size-text">Ajouter au calendrier
-										<i class="fas fa-chevron-right"></i>
-									</a>
-								</div>
-							</div>
-							<div class="d-flex ml-50">
-								<i class="fa fa-map-marker mr-4 fc-purple" aria-hidden="true"></i>
-								<div>
-									<p class="mb-5 mb-5Mobile">624, avenue Lemonnier 54 724 Collin</p>
-									<a href="" class="fc-dark-grey size-text">Google Maps
-										<i class="fas fa-chevron-right"></i>
-									</a>
-								</div>
-							</div>
+						<div class="p-text pt-20 pb-20 pt-20Mobile pb-20Mobile">
+							<p class="p-description  mb-0">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
 						</div>
-						<div class="p-text pt-20 pb-20 pt-20Mobile pb-20Mobile border-top-grey border-bottom-grey">
-							<p class="p-description  mb-0">{{ event.text | raw }}</p>
-						</div>
-						<div class="row mt-20 mt-20Mobile">
-							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom">
-									<a href="/en/events/airbeat-one/" class="general-event__link">
-										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-									</a>
-								</div>
-							</div>
-							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom">
-									<a href="/en/events/airbeat-one/" class="general-event__link">
-										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-									</a>
-								</div>
-							</div>
-							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom">
-									<a href="/en/events/airbeat-one/" class="general-event__link">
-										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-									</a>
-								</div>
-							</div>
-							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom">
-									<a href="/en/events/airbeat-one/" class="general-event__link">
-										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-									</a>
-								</div>
-							</div>
-							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom">
-									<a href="/en/events/airbeat-one/" class="general-event__link">
-										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-									</a>
-								</div>
-							</div>
-							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom">
-									<a href="/en/events/airbeat-one/" class="general-event__link">
-										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-									</a>
-								</div>
-							</div>
+						<div class="mt-20 mt-20Mobile">
+							<div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Weekend</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">110€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Weekend + Camping</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">165€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Camping</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">40€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">VIP Weekend</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">180€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Dimanche</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">60€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Samedi</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">55€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
