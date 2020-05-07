@@ -3,55 +3,55 @@
 		{% for comment in comments %}
 
 			<article class="comment" id="commentId-{{ comment.id }}">
-				<p class="comment__img">
-					<img src="https://api.adorable.io/avatars/50/{{ comment.id }}@adorable.io.png" alt="" width="50" height="50">
-				</p>
-				<div class="comment__body">
+				<div class="container d-flex">
+					<p class="comment__img">
+						<img src="https://api.adorable.io/avatars/50/{{ comment.id }}@adorable.io.png" alt="" class="mr-20 mr-10Mobile" width="50" height="50">
+					</p>
+					<div class="comment__body">
 
-					<div class="comment__header">
+						<div class="comment__header d-flex align-items-center mb-10 mb-10Mobile">
 
-						<p class="comment__author">{{ comment.username }}</p>
-						<span class="comment__createdat" data-date="{{ comment.createdAt | date('U') }}"></span>
-						{% if comment.username == app.user %}
-							<ul class="comment__actions">
-								<li class="comment__edit">
-									<a id="{{ comment.id }}" href="#" onclick="edit(event)" class="btn btn-primary btn-sm">
-										<i class="fa fa-cog"></i>
-									</a>
-								</li>
-								<li class="comment__edit--validate">
-									<a id="{{ comment.id }}" href="#" onclick="submitEditComment(event)" class="btn btn-primary btn-sm">
-										<i class="fa fa-lg fa-check"></i>
-									</a>
-								</li>
-								<li class="comment__delete">
-									<a href="{{ path('delete.comment',{'comment' : comment.id}) }}" class="btn btn-danger btn-sm">
-										<i class="fa fa-trash"></i>
-									</a>
-								</li>
-							</ul>
-						{% endif %}
+							<p class="comment__author size-bigText mr-10 mr-10Mobile mb-0">{{ comment.username }}</p>
+							<span class="comment__createdat mb-0" data-date="{{ comment.createdAt | date('U') }}"></span>
+							{% if comment.username == app.user %}
+								<ul class="comment__actions">
+									<li class="comment__edit">
+										<a id="{{ comment.id }}" href="#" onclick="edit(event)" class="btn btn-primary btn-sm">
+											<i class="fa fa-cog"></i>
+										</a>
+									</li>
+									<li class="comment__edit--validate">
+										<a id="{{ comment.id }}" href="#" onclick="submitEditComment(event)" class="btn btn-primary btn-sm">
+											<i class="fa fa-lg fa-check"></i>
+										</a>
+									</li>
+									<li class="comment__delete">
+										<a href="{{ path('delete.comment',{'comment' : comment.id}) }}" class="btn btn-danger btn-sm">
+											<i class="fa fa-trash"></i>
+										</a>
+									</li>
+								</ul>
+							{% endif %}
+						</div>
+						<div class="comment__text">
+							<p>{{ comment.textComment }}</p>
+						</div>
+
 					</div>
-					<div class="comment__text">
-						<p>{{ comment.textComment }}</p>
-					</div>
-
 				</div>
-
 			</article>
 		{% endfor %}
 	</section>
-	<p class="text-left upperCase text-bigText">Laisser un commentraire
-	</p>
 
 	{{ form_start(formComment,{'attr': {'class': 'commentForm'}}) }}
 	<div class="container">
+		<p class="text-left upperCase text-bigText mb-30 mb-30Mobile mt-3">Laisser un commentraire</p>
 
-				{{ form_row(formComment.email, {'attr': {'placeholder':"Email"}, 'label_attr': {'class': 'sr-only'}})}}
-				{{ form_row(formComment.username , {'attr': {'placeholder':"Pseudo"}, 'label_attr': {'class': 'sr-only'}})}}
-				{{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea', 'placeholder':"Votre commentaire ..."},'label_attr': {'class': 'sr-only'}}) }}
-				<div class="d-flex">{{ form_row(formComment.submit,{'attr': {'class': 'btn btn-lg btn-purple'},'label': 'Envoyer'}) }}</div>
-				{{ form_end(formComment) }}
+		{{ form_row(formComment.email, {'attr': {'placeholder':"Email"}, 'label_attr': {'class': 'sr-only'}})}}
+		{{ form_row(formComment.username , {'attr': {'placeholder':"Pseudo"}, 'label_attr': {'class': 'sr-only'}})}}
+		{{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea', 'placeholder':"Votre commentaire ..."},'label_attr': {'class': 'sr-only'}}) }}
+		<div class="d-flex">{{ form_row(formComment.submit,{'attr': {'class': 'btn btn-lg btn-purple'},'label': 'Envoyer'}) }}</div>
+		{{ form_end(formComment) }}
 	</div>
 
 
