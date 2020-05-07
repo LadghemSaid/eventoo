@@ -85,70 +85,76 @@ gtag('config', 'UA-107718823-2');
 					</a>
 					<div class="d-flex justify-content-start fc-dark-grey mt-20 mt-20Mobile">
 						<a href="{{ path('event.show',{'slug':event.slug}) }}" class="mr-10 mr-5Mobile">Détail</a>
-						<a href="{{ path('event.show.lineUp',{'slug':event.slug}) }}" class="fc-white weight-medium mr-10 ml-10 mr-5Mobile ml-5Mobile">Line-up</a>
-						<a href="{{ path('event.show.tickets',{'slug':event.slug}) }}" class="mr-10 ml-10 mr-5Mobile ml-5Mobile">Tickets informations</a>
+						<a href="{{ path('event.show.lineUp',{'slug':event.slug}) }}" class="mr-10 ml-10 mr-5Mobile ml-5Mobile">Line-up</a>
+						<a href="{{ path('event.show.tickets',{'slug':event.slug}) }}" class="fc-white weight-medium mr-10 ml-10 mr-5Mobile ml-5Mobile">Tickets informations</a>
 					</div>
 				</div>
 				<div class="event-detail mt-20 mt-20Mobile mb-20 mb-20Mobile">
-					<div class="line-up pb-20 pb-20Mobile border-top-grey border-bottom-grey">
+					<div class="informations pb-20 pb-20Mobile border-top-grey border-bottom-grey">
+						<div class="icons size-bigText d-md-flex pt-20 pb-20 pt-20Mobile pb-20Mobile">
+							<div class="d-flex mb-10Mobile">
+								<i class="fa fa-calendar mr-4 fc-purple" aria-hidden="true"></i>
+								<div>
+									<p class="mb-0">Du 04/15/2020 08:04</p>
+									<p class="mb-5 mb-5Mobile">Au 09/10/2020 01:09</p>
+									<a href="" class="fc-dark-grey size-text">Ajouter au calendrier
+										<i class="fas fa-chevron-right"></i>
+									</a>
+								</div>
+							</div>
+							<div class="d-flex ml-50">
+								<i class="fa fa-map-marker mr-4 fc-purple" aria-hidden="true"></i>
+								<div>
+									<p class="mb-5 mb-5Mobile">624, avenue Lemonnier 54 724 Collin</p>
+									<a href="" class="fc-dark-grey size-text">Google Maps
+										<i class="fas fa-chevron-right"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="p-text pt-20 pb-20 pt-20Mobile pb-20Mobile border-top-grey border-bottom-grey">
+							<p class="p-description  mb-0">{{ event.text | raw }}</p>
+						</div>
 						<div class="row mt-20 mt-20Mobile">
 							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom  img-hover-zoom--brightness">
+								<div class="card--general-event img-hover-zoom">
 									<a href="/en/events/airbeat-one/" class="general-event__link">
 										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-                                        <div class="general-event__logo-container">
-                                            <h3 class="upperCase size-title fc-white">John Doe</h3>
-                                        </div>
 									</a>
 								</div>
 							</div>
 							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
+								<div class="card--general-event img-hover-zoom">
 									<a href="/en/events/airbeat-one/" class="general-event__link">
 										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-                                        <div class="general-event__logo-container">
-                                            <h3 class="upperCase size-title fc-white">John Doe</h3>
-                                        </div>
 									</a>
 								</div>
 							</div>
 							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
+								<div class="card--general-event img-hover-zoom">
 									<a href="/en/events/airbeat-one/" class="general-event__link">
 										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-                                        <div class="general-event__logo-container">
-                                            <h3 class="upperCase size-title fc-white">John Doe</h3>
-                                        </div>
 									</a>
 								</div>
 							</div>
 							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
+								<div class="card--general-event img-hover-zoom">
 									<a href="/en/events/airbeat-one/" class="general-event__link">
 										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-                                        <div class="general-event__logo-container">
-                                            <h3 class="upperCase size-title fc-white">John Doe</h3>
-                                        </div>
 									</a>
 								</div>
 							</div>
 							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
+								<div class="card--general-event img-hover-zoom">
 									<a href="/en/events/airbeat-one/" class="general-event__link">
 										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-                                        <div class="general-event__logo-container">
-                                            <h3 class="upperCase size-title fc-white">John Doe</h3>
-                                        </div>
 									</a>
 								</div>
 							</div>
 							<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-								<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
+								<div class="card--general-event img-hover-zoom">
 									<a href="/en/events/airbeat-one/" class="general-event__link">
 										<img class="img-event-detail ls-is-cached lazyloaded" src="/pho/event.png" alt="image event">
-                                        <div class="general-event__logo-container">
-                                            <h3 class="upperCase size-title fc-white">John Doe</h3>
-                                        </div>
 									</a>
 								</div>
 							</div>
