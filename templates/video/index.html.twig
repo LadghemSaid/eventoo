@@ -37,22 +37,22 @@
 {% endblock %}
 {% block body %}
     <div class="pt-80 pl-0 pr-0 pb-0 pt-80Mobile pl-0Mobile pr-0Mobile pb-0Mobile breadcrumb">
-		<img src="{{ asset('pho/breadcrumb.png') }}" alt="image fond breadcrumb" class="img-breadcrumb">
-		<div class="container">
-			<div class="text d-flex">
-				<a href="">
-					<h3 class="upperCase size-litleTitle">Accueil</h3>
-				</a>
-				<p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
-				<a href="">
-					<h3 class="upperCase size-litleTitle">Vidéos</h3>
-				</a>
-			</div>
-		</div>
-	</div>
+        <img src="{{ asset('pho/breadcrumb.png') }}" alt="image fond breadcrumb" class="img-breadcrumb">
+        <div class="container">
+            <div class="text d-flex">
+                <a href="{{ path('index') }}">
+                    <h3 class="upperCase size-litleTitle">Accueil</h3>
+                </a>
+                <p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+                <a href="{{ path('video.index') }}">
+                    <h3 class="upperCase size-litleTitle">Vidéos</h3>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="d-flex justify-content-center fc-dark-grey mt-50 mt-40Mobile">
-        <a href=""  class="fc-white weight-medium mr-10 ml-10 mr-5Mobile ml-5Mobile">Toutes les vidéos</a>
+        <a href="" class="fc-white weight-medium mr-10 ml-10 mr-5Mobile ml-5Mobile">Toutes les vidéos</a>
         <a href="" class="mr-10 ml-10 mr-5Mobile ml-5Mobile">Aftermovies</a>
         <a href="" class="mr-10 ml-10 mr-5Mobile ml-5Mobile">Live sets</a>
     </div>
@@ -64,54 +64,95 @@
             </div>
             <div class="p-2 bd-highlight upperCase col-flex-responsive">
                 <div class="form-group d-flex justify-content-between custom-select video-header__inputs mb-0 mb-0Mobile">
-                    <label for="exampleFormControlSelect1" class="d-flex align-items-center mb-0 mb-0Mobile">Évènement :</label>
+                    <label for="exampleFormControlSelect1" class="d-flex align-items-center mb-0 mb-0Mobile">Évènement
+                        :</label>
                     <select class="form-control form-select" id="exampleFormControlSelect1">
-                    <option>Toutes les vidéos</option>
-                    <option>Dominator</option>
-                    <option>Defqon 1</option>
-                    <option>Qapital</option>
-                    <option>Qlimax</option>
+                        <option>Toutes les vidéos</option>
+                        <option>Dominator</option>
+                        <option>Defqon 1</option>
+                        <option>Qapital</option>
+                        <option>Qlimax</option>
                     </select>
                 </div>
             </div>
             <div class="p-2 bd-highlight upperCase col-flex-responsive">
                 <div class="form-group d-flex justify-content-between custom-select video-header__inputs mb-0 mb-0Mobile">
-                    <label for="exampleFormControlSelect1" class="d-flex align-items-center mb-0 mb-0Mobile">Type :</label>
+                    <label for="exampleFormControlSelect1" class="d-flex align-items-center mb-0 mb-0Mobile">Type
+                        :</label>
                     <select class="form-control form-select" id="exampleFormControlSelect1">
-                    <option>Toutes les vidéos</option>
-                    <option>Trailer</option>
-                    <option>Aftermovie</option>
-                    <option>Live set</option>
-                </select>
-            </div>
+                        <option>Toutes les vidéos</option>
+                        <option>Trailer</option>
+                        <option>Aftermovie</option>
+                        <option>Live set</option>
+                    </select>
+                </div>
             </div>
         </div>
-     </div>
+    </div>
 
     <div class="container mt-20 mt-10Mobile fc-white">
-    <div class="row">
-    {% for video in videos %}
-        <div class="col-sm-12 col-md-4 pt-10 pb-10 pt-10Mobile pb-10Mobile d-flex align-items-stretch">
-        <div class="video-container pt-20 pb-20 pl-10 pr-10 pt-20Mobile pb-20Mobile pl-10Mobile pr-10Mobile w-100">
-            <p class="video-iframe">{{ video.text |raw }}</p>
-            <h2 class="upperCase size-bigText mb-4">{{ video.title }}</h2>
-            <div class="icons d-flex mb-3 size-text fc-dark-grey">
-				<div class="mr-4">
-					<i class="fa fa-heart mr-2" aria-hidden="true"></i>
-					<span>
+        <div class="row">
+            {% for video in videos %}
+                <div class="col-sm-12 col-md-4 pt-10 pb-10 pt-10Mobile pb-10Mobile d-flex align-items-stretch videoCustom" >
+                    <div class="video-wrapper pt-20 pb-20 pl-10 pr-10 pt-20Mobile pb-20Mobile pl-10Mobile pr-10Mobile w-100">
+                        <div id="video-{{ video.id }}" class="lightbox" onclick="hideVideo('video-{{ video.id }}','iframe-{{ video.id }}')">
+                            <div class="lightbox-container">
+                                <div class="lightbox-content">
+
+                                    <button onclick="hideVideo('video-{{ video.id }}','iframe-{{ video.id }}')" class="lightbox-close">
+                                        Close | ✕
+                                    </button>
+                                    <div class="video-container">
+                                        {{ video.text |raw }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <p id="iframe-{{ video.id }}" class="video-iframe">{{ video.text |raw }}</p>
+                        <h2 class="upperCase size-bigText mb-4">{{ video.title }}</h2>
+                        <div class="icons d-flex mb-3 size-text fc-dark-grey">
+
+
+                            <div class="mr-4">
+                                <i class="fa fa-heart mr-2" aria-hidden="true"></i>
+                                <span>
 						0
 					</span>
-				</div>
-				<div>
-					<i class="fa fa-comment mr-2" aria-hidden="true"></i>
-					<span>
+                            </div>
+                            <div>
+                                <i class="fa fa-comment mr-2" aria-hidden="true"></i>
+                                <span>
 						1
 					</span>
-				</div>
-			</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        </div>
-    {% endfor %}
     </div>
-    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $('.videoCustom').on('click', (event)=>{
+            console.log(event)
+            event.target.classList.add('showTop')
+            revealVideo('video','youtube')
+        })
+
+        function revealVideo(div,video_id) {
+            var video = document.getElementById(video_id).src;
+            document.getElementById(video_id).src = video+'&autoplay=1'; // adding autoplay to the URL
+            document.getElementById(div).style.display = 'block';
+        }
+
+        // Hiding the lightbox and removing YouTube autoplay
+        function hideVideo(div,video_id) {
+            var video = document.getElementById(video_id).src;
+            var cleaned = video.replace('&autoplay=1',''); // removing autoplay form url
+            document.getElementById(video_id).src = cleaned;
+            document.getElementById(div).style.display = 'none';
+        }
+    </script>
 {% endblock %}

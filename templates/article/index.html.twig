@@ -37,19 +37,19 @@
 {% endblock %}
 {% block body %}
     <div class="pt-80 pl-0 pr-0 pb-0 pt-80Mobile pl-0Mobile pr-0Mobile pb-0Mobile breadcrumb">
-		<img src="{{ asset('pho/breadcrumb.png') }}" alt="image fond breadcrumb" class="img-breadcrumb">
-		<div class="container">
-			<div class="text d-flex">
-				<a href="">
-					<h3 class="upperCase size-litleTitle">Accueil</h3>
-				</a>
-				<p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
-				<a href="">
-					<h3 class="upperCase size-litleTitle">Actualités</h3>
-				</a>
-			</div>
-		</div>
-	</div>
+        <img src="{{ asset('pho/breadcrumb.png') }}" alt="image fond breadcrumb" class="img-breadcrumb">
+        <div class="container">
+            <div class="text d-flex">
+                <a href="{{ path('index') }}">
+                    <h3 class="upperCase size-litleTitle">Accueil</h3>
+                </a>
+                <p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+                <a href="{{ path('articles.index') }}">
+                    <h3 class="upperCase size-litleTitle">Actualités</h3>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="container mt-50 mt-40Mobile fc-white">
         <div class="row">
