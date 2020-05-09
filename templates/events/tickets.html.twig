@@ -1,0 +1,177 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ site_name }}
+	-
+	{{ event.title }}
+{% endblock %}
+{% block gtag %}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107718823-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'UA-107718823-2');
+	</script>
+{% endblock %}
+{% block meta_description %}
+	<meta name="description" content="Agence web à Lens. Conception et développement de sites sur mesure. Communication digitale, référencement SEO Google."/>
+{% endblock %}
+{% block meta_keywords %}
+	<meta name="keywords" content="Agence web de communication web marketing, stratégie digitale à Lens, France, creation site internet, agence de développement web, Création site internet, Lens, Lille, France, creation site internet, 59, 62, Nord Pas de Calais, Nord, Haut de France, création site internet vitrine, community management entreprise, community management personnel, création boutique en ligne, site internet, site web, création site internet boutique en ligne, Création site web, 75, Paris, Création site web e commerce, agence de référencement, agence seo, seo, référencement naturel, web marketing, agence web, agence de communication, vidéo promotionnelle, vidéo commercial, création site catalogue, création site internet responsive, généré du trafic sur mon site internet, première page google, référencement google, création de site internet france, conseil et webdesign, référencement internet, agence web, site internet responsive, site responsive, création et optimisation de site web, web design et développement de site internet, communication digitale, webmarketing, création site internet boutique en ligne, boutique en ligne, créer boutique en ligne, refonte boutique en ligne, refonte site internet e-commerce, responsive web design, refonte site internet responsive, site adaptable, site internet, site web, création site internet, création site web, responsive, création site internet e-commerce"/>
+{% endblock %}
+{% block meta_robots %}
+	<meta name="robots" content="unavailable_after: [date ]">
+{% endblock %}
+{% block google %}
+	<meta name="google" content="unavailable_after: [date ]">
+{% endblock %}
+
+
+{% block body %}
+	<div class="pt-80 pl-0 pr-0 pb-0 pt-80Mobile pl-0Mobile pr-0Mobile pb-0Mobile mb-0 mb-0Mobile breadcrumb">
+		<img src="{{ asset('pho/breadcrumb.png') }}" alt="image fond breadcrumb" class="img-breadcrumb">
+		<div class="container">
+			<div class="text d-flex">
+				<a href="">
+					<h3 class="upperCase size-bigText">Accueil</h3>
+				</a>
+				<p class="upperCase size-bigText ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+				<a href="">
+					<h3 class="upperCase size-bigText">Évènements</h3>
+				</a>
+				<p class="upperCase size-bigText ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+				<h3 class="upperCase size-bigText text-left">{{ event.title }}</h3>
+			</div>
+		</div>
+	</div>
+
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('error') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div
+		class="image-section">
+		{# <img class="d-block w-100 lazyload p-img"
+						                         src="{{ asset("img/low_res.jpg") }}"
+						                         data-src="{{ app_path_events_images }}{{ event.thumbnail }}"
+						                         alt="{{ event.imgAlternate }}"
+						                         height="290px"/> #}
+		<img class="d-block w-100 lazyload p-img" src="{{ asset("pho/event-banner.png") }}"/>
+	</div>
+
+	<div class="container fc-white mt-50 mt-40Mobile">
+		<div class="row">
+			<div class="col-md-12 event-item-show">
+				<div class="title-section">
+					<h1 class="upperCase size-title">{{ event.title }}</h1>
+					<p class="size-text fc-dark-grey">Mis en ligne le :
+						{{ event.updatedAt | date('d/m/Y H:i', timezone='Europe/Paris') }}
+					</p>
+					<a href="{{ path('app_visit_order',{'event':event.id}) }}" class="d-flex">
+						<button class="btn btn-lg btn-purple">Tickets</button>
+					</a>
+					<div class="d-flex justify-content-start fc-dark-grey mt-20 mt-20Mobile">
+						<a href="{{ path('event.show',{'slug':event.slug}) }}" class="mr-10 mr-5Mobile">Détail</a>
+						<a href="{{ path('event.show.lineUp',{'slug':event.slug}) }}" class="mr-10 ml-10 mr-5Mobile ml-5Mobile">Line-up</a>
+						<a href="{{ path('event.show.tickets',{'slug':event.slug}) }}" class="fc-white weight-medium mr-10 ml-10 mr-5Mobile ml-5Mobile">Tickets informations</a>
+					</div>
+				</div>
+				<div class="event-detail mt-20 mt-20Mobile mb-20 mb-20Mobile">
+					<div class="informations pb-20 pb-20Mobile border-top-grey border-bottom-grey">
+						<div class="p-text pt-20 pb-20 pt-20Mobile pb-20Mobile">
+							<p class="p-description  mb-0">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. </p>
+						</div>
+						<div class="mt-20 mt-20Mobile">
+							<div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Weekend</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">110€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Weekend + Camping</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">165€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Camping</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">40€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">VIP Weekend</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">180€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Dimanche</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">60€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="d-md-flex align-items-center bd-highlight mb-3">
+                                <div class="p-2 bd-highlight upperCase size-litleTitle">Samedi</div>
+                                <div class="mr-auto p-2 bd-highlight fc-dark-grey">200 places disponible</div>
+                                <div class="p-2 bd-highlight">55€</div>
+                                <div class="p-2 bd-highlight">
+                                    <a href="{{ path('app_visit_order',{'event':event.id}) }}" class="">
+                                        <button class="btn btn-lg btn-purple">Acheter</button>
+                                    </a>
+                                </div>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		{% include '/comment/comment.html.twig' %}
+
+	</div>
+
+
+{% endblock %}
+{% block javascripts %}
+	<script>
+
+		$(document).ready(() => {});
+	</script>
+
+{% endblock %}
