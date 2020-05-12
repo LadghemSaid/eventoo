@@ -32,6 +32,11 @@ class LikeVote
     private $comment;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Event", inversedBy="likes")
+     */
+    private $event;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -41,10 +46,7 @@ class LikeVote
      */
     private $ip;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Event", inversedBy="likes")
-     */
-    private $event;
+
 
     public function getId(): ?int
     {

@@ -133,12 +133,16 @@
 										</span>
 									</div>
 
-									<div class="mr-4">
-										<i class="fa fa-heart mr-2"></i>
-										<span>
+									<div onclick="handleAddLike(event)"
+										 data-action="{{ path('like.add',{"entity":"article",'id':article.id}) }}" class="mr-4">
+										<i class="far fa-heart mr-2" aria-hidden="true"></i>
+										<span class="number">
 											{{ article.likes | length }}
+
 										</span>
 									</div>
+
+
 									<div>
 										<i class="fa fa-comment mr-2"></i>
 										<span>

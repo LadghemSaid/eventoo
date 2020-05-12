@@ -76,6 +76,7 @@
     {% include "header.html.twig" %}
 {% endif %}
 
+
 {% block body %}
 
 {% endblock %}
@@ -84,7 +85,6 @@
 {% if current_menu is defined and current_menu != "login" and current_menu != "register" %}
     {% include "footer.html.twig" %}
 {% endif %}
-
 <script
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -97,7 +97,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="{{ asset("js/lazysizes.min.js") }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-<script src="{{ asset("build/app.js") }}"></script>
+
+{{ encore_entry_script_tags('ajax') }}
+
+
 <script>
     moment.locale('fr', {
         months : 'janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre'.split('_'),
@@ -163,7 +166,6 @@
     moment.locale('fr')
 
 </script>
-<a aria-label="Button permettant de retourner en haut de la page" id="scrollToTop"></a>
 {% block javascripts %}{% endblock %}
 
 </body>

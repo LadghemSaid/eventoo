@@ -7,3 +7,11 @@
 endroid_qr_code:
   resource: "@EndroidQrCodeBundle/Resources/config/routes.yaml"
   prefix: /qr-code
+
+
+homepage:
+  path: /
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+  defaults:
+    path: /fr
+    permanent: true

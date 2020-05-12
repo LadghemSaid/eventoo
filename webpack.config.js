@@ -14,6 +14,7 @@ Encore
     .setPublicPath('/eventoo/build')
     .setManifestKeyPrefix('build/')
     .addEntry('app', './assets/js/app.js')
+    .addEntry('ajax', './assets/js/ajax.js')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
@@ -37,6 +38,8 @@ Encore
     .setPublicPath('/build')
     .setManifestKeyPrefix('build/')
     .addEntry('app', './assets/js/app.js')
+    .addEntry('ajax', './assets/js/ajax.js')
+
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
