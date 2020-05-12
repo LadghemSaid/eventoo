@@ -41,30 +41,25 @@
         <div class="container">
             <div class="text d-flex">
                 <a href="{{ path('index') }}">
-                    <h3 class="upperCase size-litleTitle">Accueil</h3>
+                    <h3 class="upperCase size-bigText">Accueil</h3>
                 </a>
-                <p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+                <p class="upperCase size-bigText ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
                 <a href="{{ path('faq.index') }}">
-                    <h3 class="upperCase size-litleTitle">FAQ</h3>
+                    <h3 class="upperCase size-bigText">FAQ</h3>
                 </a>
             </div>
         </div>
     </div>
 
-    <section class="faq-section">
-        <div class="container">
+    <section class="container fc-white">
+        <div class="faq-section mt-50 mt-40Mobile">
             <div class="row">
                 <!-- ***** FAQ Start ***** -->
-                <div class="col-md-6 offset-md-3">
-
-                    <div class="faq-title text-center pb-3">
-                        <h2>FAQ</h2>
-                    </div>
-                </div>
+                        <h2 class="size-title text-center w-100 mb-40 mb-30Mobile">FAQ</h2>
                 {% for question in faqQuestions %}
 
 
-                    <div class="col-md-6 offset-md-3">
+                    <div class="col-md-12">
 
                         <div class="faq" id="accordion">
                             <div class="card">
