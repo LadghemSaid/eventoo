@@ -15,15 +15,11 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-1">
-                </div>
-
-                <div class="col-lg-11 section-progress">
-                    <div class="container">
+                <div class="col-lg-12 section-progress">
 
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item text-success font-weight-bold text-uppercase"
+                                <li class="breadcrumb-item text-purple font-weight-bold"
                                     style="text-decoration:underline;">{{ 'breadcrumb.first.label' | trans }}
                                 </li>
                                 <li class="breadcrumb-item active">{{ 'breadcrumb.second.label' | trans }}</li>
@@ -32,7 +28,6 @@
                                 <li class="breadcrumb-item active">{{ 'breadcrumb.five.label' | trans }}</li>
                             </ol>
                         </nav>
-                    </div>
                 </div>
             </div>
         </div>
@@ -42,11 +37,8 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-1">
-                    </div>
 
-
-                    <div class="col-lg-11">
+                    <div class="col-lg-12">
                         <div class="container">
                             <div class="form-group">
 
@@ -55,7 +47,7 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="tile">
                                             <div class="wrapper">
-                                                <div class="header">{{ visit.event.title }}</div>
+                                                <div class="header text-title">{{ visit.event.title }}</div>
 
                                                 <div class="banner-img">
                                                     <img src="http://via.placeholder.com/640x360" alt="Image 1">
@@ -63,14 +55,14 @@
 
                                                 <div class="dates">
                                                     <div class="start">
-                                                        <strong>Arrivé</strong>
-                                                        <p class="fc-black"
+                                                        <strong class="mb-2">Arrivé</strong>
+                                                        <p
                                                            id="startDate">{{ visit.event.startDate|date('j/m/y') }}</p>
                                                         <span></span>
                                                     </div>
                                                     <div class="ends">
-                                                        <strong>Départ</strong>
-                                                        <p class="fc-black"
+                                                        <strong class="mb-2">Départ</strong>
+                                                        <p
                                                            id="endDate">{{ visit.event.startDate|date('j/m/y') }}</p>
                                                     </div>
                                                 </div>
@@ -78,16 +70,16 @@
                                                 <div class="stats">
 
                                                     <div>
-                                                        <strong>Formule</strong> <span id="sumFormula">1 jour</span>
+                                                        <strong class="mb-2">Formule</strong> <span id="sumFormula">1 jour</span>
                                                     </div>
 
                                                     <div>
-                                                        <strong>Nombre de tickets</strong><span
+                                                        <strong class="mb-2">Nombre de tickets</strong><span
                                                                 id="sumTickets">1 place</span>
                                                     </div>
 
                                                     <div>
-                                                        <strong>Totale</strong> <span
+                                                        <strong class="mb-2">Totale</strong> <span
                                                                 id="sumPrice">{{ visit.event.price }} €</span>
                                                     </div>
 
@@ -106,9 +98,9 @@
 
 
                                                 <div class="footer">
-                                                    <a href="#" class="Cbtn Cbtn-danger">Annuler</a>
+                                                    <a href="#" class="btn btn-lg btn-grey upperCase">Annuler</a>
                                                     <button type="submit"
-                                                            class="Cbtn Cbtn-primary">{{ 'button.validate' | trans }}</button>
+                                                            class="btn btn-lg btn-purple upperCase">{{ 'button.validate' | trans }}</button>
                                                 </div>
                                             </div>
                                         </div>

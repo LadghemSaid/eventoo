@@ -9,13 +9,10 @@
 
     {% block body %}
 
-        <div class="container">
+        <div class="container mb-40">
             <div class="row">
 
-                <div class="col-lg-1">
-                </div>
-
-                <div class="col-lg-11 section-progress">
+                <div class="col-lg-12 section-progress">
                     <div class="container">
 
                         <nav aria-label="breadcrumb">
@@ -23,7 +20,7 @@
                                 <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_order',{'event':visit.event.id}) }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
                                 <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_identify') }}">{{ 'breadcrumb.second.label' | trans }}</a></li>
                                 <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_customer') }}">{{ 'breadcrumb.third.label' | trans }}</a></li>
-                                <li class="breadcrumb-item text-success font-weight-bold text-uppercase" style="text-decoration:underline;">{{ 'breadcrumb.fourth.label' | trans }}</li>
+                                <li class="breadcrumb-item text-purple font-weight-bold" style="text-decoration:underline;">{{ 'breadcrumb.fourth.label' | trans }}</li>
                                 <li class="breadcrumb-item active">{{ 'breadcrumb.five.label' | trans }}</li>
                             </ol>
                         </nav>
@@ -38,16 +35,13 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-2">
-                    </div>
-
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
 
                         <div class="row">
 
                             <div class="col-lg-7">
 
-                                <div class="title-recap"><button type="button" class="btn btn-success text-white">{{ 'payment.visit' | trans }}</button></div>
+                                <div class="title-recap"><button type="button" class="btn btn-lg btn-grey upperCase">{{ 'payment.visit' | trans }}</button></div>
                                 <ul>
                                     <li><strong>{{ 'label.visit.date' | trans }} :</strong> {{ visit.visitDate }}</li>
                                     <li><strong>{{ 'label.visit.type' | trans }} :</strong>
@@ -64,7 +58,7 @@
                                 </ul>
                                 <br/>
 
-                                <div class="title-recap"><button type="button" class="btn btn-success text-white">{{ 'label.contact.customer' | trans }}</button></div>
+                                <div class="title-recap"><button type="button" class="btn btn-lg btn-grey upperCase">{{ 'label.contact.customer' | trans }}</button></div>
                                 <ul>
                                     <li><strong>{{ 'label.lastname.customer' | trans }} :</strong> {{ visit.customer.lastname }}</li>
                                     <li><strong>{{ 'label.firstname.customer' | trans }} :</strong> {{ visit.customer.firstname }}</li>
@@ -76,7 +70,7 @@
 
                             <div class="col-lg-5">
 
-                                <div class="title-recap"><button type="button" class="btn btn-success text-white">{{ 'invoice.informations' | trans }}</button></div>
+                                <div class="title-recap"><button type="button" class="btn btn-lg btn-grey upperCase">{{ 'invoice.informations' | trans }}</button></div>
                                 <ul>
                                     <li><strong>{{ 'label.adress.customer' | trans }} :</strong> {{ visit.customer.adress }}</li>
                                     <li><strong>{{ 'label.postcode.customer' | trans }} :</strong> {{ visit.customer.postCode }}</li>
@@ -102,10 +96,6 @@
                             </div>
 
                         </div>
-                    </div>
-
-
-                    <div class="col-lg-1">
                     </div>
 
                 </div>

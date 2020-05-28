@@ -1,16 +1,23 @@
 .reservationForm {
-  p{
+  color: white;
 
+  .text-purple {
+    color: $purple;
   }
+
+  .breadcrumb {
+    background-color: $dark-blue;
+    color: white;
+}
+.breadcrumb-item.active {
+  color: $light-grey;
+}
   label{
-    color: #6d6d6d;
+    color: white;
   }
 
   .tile{
     width: 100%;
-    background:#fff;
-    border-radius:5px;
-    box-shadow:0px 2px 3px -1px rgba(151, 171, 187, 0.7);
     float:left;
     transform-style: preserve-3d;
     margin: 10px 5px;
@@ -18,12 +25,9 @@
   }
 
   .header{
-    border-bottom:1px solid #ebeff2;
     padding:19px 0;
     text-align:center;
-    color:#59687f;
-    font-size:600;
-    font-size:19px;
+    font-size: 4rem;
     position:relative;
   }
 
@@ -33,20 +37,22 @@
 
   .banner-img img {
     width: 100%;
-    border-radius: 5px;
     object-fit: cover;
     max-height: 200px;
   }
 
   .dates{
-    border:1px solid #ebeff2;
-    border-radius:5px;
-    padding:20px 0px;
-    margin:10px 20px;
-    font-size:16px;
-    color:#5aadef;
+    background-color: #142734;
+    border-radius:5px 5px 0 0;
+    padding:20px 0;
+    margin-top:20px;
     font-weight:600;
     overflow:auto;
+    color: white;
+
+    p {
+      font-size: 1.8rem;
+    }
   }
   .dates div{
     float:left;
@@ -58,35 +64,52 @@
   .stats strong{
     display:block;
     color:#adb8c2;
-    font-size:11px;
     font-weight:700;
+    font-size: medium;
   }
   .dates span{
     width:1px;
-    height:40px;
+    height:55px;
     position:absolute;
     right:0;
     top:0;
-    background:#ebeff2;
+    background:#263a44;
   }
   .stats{
-    border-top:1px solid #ebeff2;
-    background:#f7f8fa;
+    border-top:1px solid #263a44;
+    background-color: #142734;
     overflow:auto;
     padding:15px 0;
     font-size:16px;
-    color:#59687f;
+    color:white;
     font-weight:600;
     border-radius: 0 0 5px 5px;
+    margin-bottom: 20px;
   }
   .stats div{
-    border-right:1px solid #ebeff2;
+    border-right:1px solid #263a44;
     width: 33.33333%;
     float:left;
-    text-align:center
+    text-align:center;
+    font-size: 1.8rem;
   }
 
   .stats div:nth-of-type(3){border:none;}
+
+  .form-control {
+    background-color: #070E14;
+    border: none;
+    color: #BEBEBE;
+    font-size: medium;
+  }
+
+  .form-control:active {
+    background-color: #070E14;
+    border: none;
+    color: #BEBEBE;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #0a131b;
+  }
 
   div.footer {
     text-align: right;
@@ -97,7 +120,7 @@
   div.footer .Cbtn{
     padding: 10px 25px;
     background-color: #DADADA;
-    color: #666;
+    color: white;
     margin: 10px 2px;
     text-transform: uppercase;
     font-weight: bold;
