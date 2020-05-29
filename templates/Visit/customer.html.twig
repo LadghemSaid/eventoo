@@ -9,20 +9,17 @@
 
     {% block body %}
 
-        <div class="container">
+        <div class="container mb-40">
             <div class="row">
 
-                <div class="col-lg-1">
-                </div>
-
-                <div class="col-lg-11 section-progress">
+                <div class="col-lg-12 section-progress">
                     <div class="container">
 
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_order',{'event':visit.event.id}) }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
                                 <li class="breadcrumb-item active"><a class="breadcrumb-item" href="{{ path('app_visit_identify') }}">{{ 'breadcrumb.second.label' | trans }}</a></li>
-                                <li class="breadcrumb-item text-success font-weight-bold text-uppercase" style="text-decoration:underline;">{{ 'breadcrumb.third.label' | trans }}</li>
+                                <li class="breadcrumb-item text-purple font-weight-bold" style="text-decoration:underline;">{{ 'breadcrumb.third.label' | trans }}</li>
                                 <li class="breadcrumb-item active">{{ 'breadcrumb.fourth.label' | trans }}</li>
                                 <li class="breadcrumb-item active">{{ 'breadcrumb.five.label' | trans }}</li>
                             </ol>
@@ -38,11 +35,8 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-1">
-                    </div>
 
-
-                    <div class="col-lg-11">
+                    <div class="col-lg-12">
                         <div class="container">
                             <div class="form-group">
 
@@ -50,7 +44,7 @@
                                 {{ form_start(form, {'attr': {'class': 'was-validated'}}) }}
 
 
-                                <div class="num-billet">{{ 'breadcrumb.third.label' | trans }} :</div><br/>
+                                <div class="num-billet size-subtitle">{{ 'breadcrumb.third.label' | trans }} :</div><br/>
 
                                 {{ form_row(form.customer.lastname) }}<br/>
 
@@ -59,7 +53,7 @@
                                 {{ form_row(form.customer.email) }}<br/>
 
 
-                                <div class="num-billet">{{ 'invoice.informations' | trans }} :</div><br/>
+                                <div class="num-billet size-subtitle">{{ 'invoice.informations' | trans }} :</div><br/>
 
                                 {{ form_row(form.customer.adress) }}<br/>
 
@@ -70,11 +64,9 @@
                                 {{ form_row(form.customer.country) }}<br/>
 
                                 <div class="row">
-                                    <div class="col-sm-1">
-                                    </div>
 
-                                    <div class="col-sm-11">
-                                        <button type="submit" class="btn btn-success">{{ 'button.validate' | trans }}</button>
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-lg btn-purple upperCase">{{ 'button.validate' | trans }}</button>
                                     </div>
                                 </div>
 

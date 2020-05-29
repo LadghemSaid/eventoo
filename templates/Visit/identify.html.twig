@@ -9,19 +9,15 @@
 
     {% block body %}
 
-        <div class="container">
+        <div class="container mb-40">
             <div class="row">
 
-                <div class="col-lg-1">
-                </div>
-
-                <div class="col-lg-11 section-progress">
-                    <div class="container">
+                <div class="col-lg-12 section-progress">
 
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="breadcrumb-item" href="{{ path('app_visit_order',{'event':visit.event.id}) }}">{{ 'breadcrumb.first.label' | trans }}</a></li>
-                                <li class="breadcrumb-item text-success font-weight-bold text-uppercase"
+                                <li class="breadcrumb-item text-purple font-weight-bold"
                                     style="text-decoration:underline;">{{ 'breadcrumb.second.label' | trans }}
                                 </li>
                                 <li class="breadcrumb-item active">{{ 'breadcrumb.third.label' | trans }}</li>
@@ -29,7 +25,6 @@
                                 <li class="breadcrumb-item active">{{ 'breadcrumb.five.label' | trans }}</li>
                             </ol>
                         </nav>
-                    </div>
                 </div>
 
             </div>
@@ -40,11 +35,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-1">
-                    </div>
-
-
-                    <div class="col-lg-11">
+                    <div class="col-lg-12">
                         <div class="container">
                             <div class="form-group">
 
@@ -52,7 +43,7 @@
 
                                 {% for ticket in form.tickets %}
 
-                                    <div class="num-billet">{{ 'ticket' | trans }} n°{{ loop.index }}</div><br/>
+                                    <div class="num-billet size-subtitle">{{ 'ticket' | trans }} n°{{ loop.index }}</div><br/>
 
                                     {{ form_row(ticket.lastname) }}
                                     {{ form_row(ticket.firstname) }}
@@ -68,11 +59,9 @@
                                 {% endfor %}
 
                                 <div class="row">
-                                    <div class="col-sm-1">
-                                    </div>
 
-                                    <div class="col-sm-11">
-                                        <button type="submit" class="btn btn-success">{{ 'button.validate' | trans }}</button>
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-lg btn-purple upperCase">{{ 'button.validate' | trans }}</button>
                                     </div>
                                 </div>
 

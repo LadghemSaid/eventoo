@@ -42,11 +42,11 @@ gtag('config', 'UA-107718823-2');
 		<div class="container">
 			<div class="text d-flex">
 				<a href="{{ path('index') }}">
-					<h3 class="upperCase size-litleTitle">Accueil</h3>
+					<h3 class="upperCase size-bigText">Accueil</h3>
 				</a>
-				<p class="upperCase size-litleTitle ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
+				<p class="upperCase size-bigText ml-10 mr-10 ml-10Mobile mr-10Mobile">/</p>
 				<a href="{{ path('events.index') }}">
-					<h3 class="upperCase size-litleTitle">Évènements</h3>
+					<h3 class="upperCase size-bigText">Évènements</h3>
 				</a>
 			</div>
 		</div>
@@ -135,7 +135,7 @@ gtag('config', 'UA-107718823-2');
 											</div>
 										</div>
 										<div class="d-flex align-items-center">
-											<a href="" class="d-flex">
+											<a href="{{ path('app_visit_order',{'event':event.id}) }}" class="d-flex">
 												<button class="btn btn-lg btn-purple">
 													Tickets
 												</button>
