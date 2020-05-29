@@ -37,8 +37,7 @@ class EventsController extends AbstractController
             'action' => $this->generateUrl('add.comment', array('id' => $event->getId())),
         ]);
 
-        $comments = $commentsRepository->findArticleComment($event->getId(), 'DESC');
-
+        $comments = $commentsRepository->findEventComment($event->getId(), 'DESC');
         $commentOptions = $event->getAllowComment();
         $allowComment = false;
         if (isset($commentOptions) && array_search('allowComment', $commentOptions) !== false) {

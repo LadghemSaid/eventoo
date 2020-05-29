@@ -57,11 +57,11 @@ class CommentRepository extends ServiceEntityRepository
 
     public function findArticleComment($id, $order)
     {
-        return $this->createQueryBuilder('article')
-            ->andWhere('article.article = :val')
-            ->andWhere('article.approved = 1')
+        return $this->createQueryBuilder('comment')
+            ->andWhere('comment.article = :val')
+            ->andWhere('comment.approved = 1')
             ->setParameter('val', $id)
-            ->orderBy('article.created_at' ,$order)
+            ->orderBy('comment.created_at' ,$order)
             ->getQuery()
             ->getResult();
     }
@@ -78,4 +78,14 @@ class CommentRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findEventComment($id, $order)
+    {
+        return $this->createQueryBuilder('comment')
+        ->andWhere('comment.event = :val')
+        ->andWhere('comment.approved = 1')
+        ->setParameter('val', $id)
+        ->orderBy('comment.created_at' ,$order)
+        ->getQuery()
+        ->getResult();
+    }
 }

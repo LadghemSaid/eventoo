@@ -10,9 +10,9 @@ twig:
         app_path_default_images: '%env(string:UPLOAD_PATH_DEFAULT)%'
         app_path_events_images: '%env(string:UPLOAD_PATH_EVENTS)%'
 
-        site_name: 'Nomdesite'
-        site_mail: 'Nomdesite@domain.fr'
-        site_name_pretty: 'Nom de site'
+        site_name: 'Eventoo'
+        site_mail: 'Eventoo@gmail.fr'
+        site_name_pretty: 'Eventoo'
 
         stripe_publish_key: 'stripe_publish_key'
         stripe_secret_key: 'stripe_secret_key'

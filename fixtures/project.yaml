@@ -26,13 +26,13 @@ App\Entity\Event:
     description: <fr_FR:text(100)>
     text: <fr_FR:text(200)>
     slug: <fr_FR:slug()>
-    thumbnail: <fr_FR:randomElement(['img1.jpg','img3.jpg','img2.jpg'])>
+    thumbnail: <fr_FR:randomElement(['1.png','2.png','3.png','4.png'])>
     imgAlternate: 'Image alternative'
     startDate: <dateTimeBetween('+1 days', '+10 days')>
     endDate: <dateTimeBetween('+ 10 days', '+1 years')>
     price: <fr_FR:numberBetween(10,15)>
     ticketAvailable: <fr_FR:numberBetween(400,1500)>
-    allowComment: ['allowComment','']
+    allowComment: ['allowComment','commentValidatingAuto']
     location: <fr_FR:address()>
     published: 'true'
     expired: <boolean(0)>
@@ -46,7 +46,7 @@ App\Entity\Event:
 App\Entity\Video:
   video_{1..20}:
     title: <fr_FR:catchPhrase()> <current()>
-    text: '<iframe width="560" height="315" src="https://www.youtube.com/embed/YTcL1ldg-nU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    text: <fr_FR:randomElement(['<iframe width="560" height="315" src="https://www.youtube.com/embed/bN_OuTZhyTg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>','<iframe width="560" height="315" src="https://www.youtube.com/embed/bk2TayBLUfU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>','<iframe width="560" height="315" src="https://www.youtube.com/embed/DpxyDPzQZ7E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>','<iframe width="560" height="315" src="https://www.youtube.com/embed/9KUFBEbvCYY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>','<iframe width="560" height="315" src="https://www.youtube.com/embed/hbjzjglpqYg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>','<iframe width="560" height="315" src="https://www.youtube.com/embed/JaPAaeOfVn0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'])>
     published: 'true'
     favorite: 'true'
     categorie: '3x @categorie*'
@@ -57,14 +57,14 @@ App\Entity\Video:
 App\Entity\Article:
   article_{1..20}:
     title: <fr_FR:catchPhrase()> <current()>
-    image: 'img2.jpg'
+    image: <fr_FR:randomElement(['5.png','6.png','7.png','8.png'])>
     imgAlternate: 'Image alternative'
     text: <fr_FR:text(200)>
     tags: '3x @tag*'
     categorie: '3x @categorie*'
     description: <fr_FR:text(100)>
     published: 'true'
-    allowComment: ['allowComment','']
+    allowComment: ['allowComment','commentValidatingAuto']
     slug: <fr_FR:slug()>
     favorite: <boolean(50)>
     createdAt: <dateTime('now')>
@@ -81,7 +81,7 @@ App\Entity\Comment:
   comment_{0..20}:
     text_comment: <fr_FR:text(100)>
     createdAt: <dateTime()>
-    approved: <boolean(50)>
+    approved: <boolean(70)>
     email: <email()>
     username: <username()>
     event: '@event_*'
@@ -98,7 +98,7 @@ App\Entity\Comment:
 
   comment_{40..60}:
     text_comment: <fr_FR:text(100)>
-    approved: <boolean(50)>
+    approved: <boolean(70)>
     email: <email()>
     username: <username()>
     createdAt: <dateTime()>

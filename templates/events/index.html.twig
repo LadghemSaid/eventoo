@@ -101,8 +101,8 @@ gtag('config', 'UA-107718823-2');
 						<div class="event-item mt-10 mb-10 mt-10Mobile mb-10Mobile">
 							<div class="card-event img-hover-zoom pt-40 pb-20 pl-40 pr-40 pt-40Mobile pb-20Mobile pl-40Mobile pr-40Mobile">
 								<a href="{{ path('event.show',{'slug':event.slug}) }}">
-									{# <img class="d-block lazyload " src="{{ asset("img/low_res.jpg") }}" data-src="{{ app_path_events_images }}{{ event.thumbnail }}" alt="{{ event.imgAlternate }}"/> #}
-									<img class="d-block lazyload img-event" src="{{ asset("pho/event-banner.png") }}"/>
+									<img class="d-block lazyload img-event " src="{{ asset("img/low_res.jpg") }}" data-src="{{ app_path_events_images }}{{ event.thumbnail }}" alt="{{ event.imgAlternate }}"/>
+{#									<img class="d-block lazyload img-event" src="{{ asset("pho/event-banner.png") }}"/>#}
 								</a>
 								<div class="text-event">
 									<div>
@@ -161,66 +161,21 @@ gtag('config', 'UA-107718823-2');
 	<div class="events container mt-60 mt-50Mobile fc-white">
 	<h1 class="upperCase size-title text-center mb-30 mb-30Mobile">Tous nos évènements</h1>
 		<div class="row">
+			{% for event in events %}
 			<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
 				<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
 					<a href="/en/events/airbeat-one/" class="general-event__link">
-						<img class="img-event lazyload " src="{{ asset("pho/event.png") }}" alt="image event"> 
+						<img class="d-block lazyload img-event " src="{{ asset("img/low_res.jpg") }}" data-src="{{ app_path_events_images }}{{ event.thumbnail }}" alt="{{ event.imgAlternate }}"/>
+
 						<div class="general-event__logo-container">
-							<h3 class="upperCase size-title fc-white">Titre</h3>
+							<h3 class="upperCase size-title fc-white">{{ event.title|striptags|length >20 ? event.title|striptags|slice(0, 10) ~ '...' : event.title|striptags }}</h3>
 						</div>
 					</a> 
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-				<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
-					<a href="/en/events/airbeat-one/" class="general-event__link">
-						<img class="img-event lazyload " src="{{ asset("pho/event.png") }}" alt="image event"> 
-						<div class="general-event__logo-container">
-							<h3 class="upperCase size-title fc-white">Titre</h3>
-						</div>
-					</a> 
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-				<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
-					<a href="/en/events/airbeat-one/" class="general-event__link">
-						<img class="img-event lazyload " src="{{ asset("pho/event.png") }}" alt="image event"> 
-						<div class="general-event__logo-container">
-							<h3 class="upperCase size-title fc-white">Titre</h3>
-						</div>
-					</a> 
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-				<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
-					<a href="/en/events/airbeat-one/" class="general-event__link">
-						<img class="img-event lazyload " src="{{ asset("pho/event.png") }}" alt="image event"> 
-						<div class="general-event__logo-container">
-							<h3 class="upperCase size-title fc-white">Titre</h3>
-						</div>
-					</a> 
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-				<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
-					<a href="/en/events/airbeat-one/" class="general-event__link">
-						<img class="img-event lazyload " src="{{ asset("pho/event.png") }}" alt="image event"> 
-						<div class="general-event__logo-container">
-							<h3 class="upperCase size-title fc-white">Titre</h3>
-						</div>
-					</a> 
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-4 mt-10 mb-10 mt-10Mobile mb-10Mobile">
-				<div class="card--general-event img-hover-zoom img-hover-zoom--brightness">
-					<a href="/en/events/airbeat-one/" class="general-event__link">
-						<img class="img-event lazyload " src="{{ asset("pho/event.png") }}" alt="image event"> 
-						<div class="general-event__logo-container">
-							<h3 class="upperCase size-title fc-white">Titre</h3>
-						</div>
-					</a> 
-				</div>
-			</div>
+			{% endfor %}
+
+
 		</div>
 	</div>
 	<script>

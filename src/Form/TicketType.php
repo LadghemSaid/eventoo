@@ -36,10 +36,11 @@ class TicketType extends AbstractType
                 'label' => 'label.birthday.visitor',
                 'required' => true))
 
-            ->add('discount', CheckboxType::class, array(
+       /*     ->add('discount', CheckboxType::class, array(
                 'label' => 'label.discount.visitor',
-                'required' => false
-            ));
+                'required' => false))
+        */
+        ;
     }
 
 

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Form\CommentType;
+use App\Repository\EventRepository;
 use App\Repository\JobRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\ProjectRepository;
@@ -31,7 +32,7 @@ class CommentsController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @throws \Exception
      */
-    public function add(Request $req,$id, ArticleRepository $articleRepo)
+    public function add(Request $req,$id, ArticleRepository $articleRepo,EventRepository $eventRepository)
     {
         //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $comment = new Comment();
@@ -41,14 +42,16 @@ class CommentsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $referer = explode('/', $req->headers->get('referer'));
             $com = $form->getData();
-            //dd($jobRepo->find($id));
 
-             if ($referer[3] === "article" ) {
-                $post = $articleRepo->find($id);
+             if ($referer[4] === "article" ) {
+
+                 $post = $articleRepo->find($id);
                 $commentValidatingAuto = false;
                 if (array_search('commentValidatingAuto', $post->getAllowComment())) {
                     $commentValidatingAuto = true;
                 }
+
+
                 $com->setArticle($post)
                     ->setCreatedAt(new \DateTime())
                     ->setApproved($commentValidatingAuto);
@@ -56,11 +59,29 @@ class CommentsController extends AbstractController
                 $this->em->flush();
 
 
-                $this->addFlash('succes',"Commentaire ajouté avec succés :)");
+                $this->addFlash('success',"Commentaire ajouté avec succés :)");
 
                 return $this->redirectToRoute('article.show', array('slug' => $post->getSlug()));
 
-            }else{
+            }else  if ($referer[4] === "event" ) {
+                 $post = $eventRepository->findBy(['id'=>$id])[0];
+                 $commentValidatingAuto = false;
+                 if (array_search('commentValidatingAuto', $post->getAllowComment())) {
+                     $commentValidatingAuto = true;
+                 }
+
+
+                 $com->setEvent($post)
+                     ->setCreatedAt(new \DateTime())
+                     ->setApproved($commentValidatingAuto);
+                 $this->em->persist($com);
+                 $this->em->flush();
+
+                 $this->addFlash('success',"Commentaire ajouté avec succés :)");
+
+                 return $this->redirectToRoute('event.show', array('slug' => $post->getSlug()));
+
+             } else{
                $this->addFlash('error',"Un problème est survenu nous y travaillons ! :)");
             }
 

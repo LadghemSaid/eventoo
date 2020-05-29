@@ -92,7 +92,12 @@
                                 alt="{{ article.imgAlternate }}"
                             /> #}
                             <div class="img-hover-zoom mb-3">
-                                <img class="d-block lazyload image-cover" src="{{ asset("pho/article.png") }}"/>
+                                <img class="d-block lazyload  image-cover"
+                                     src="{{ asset("img/low_res.jpg") }}"
+                                     data-src="{{ app_path_articles_images }}{{ article.image }}"
+                                     alt="{{ article.imgAlternate }}"
+                                />
+
                             </div>
                         </a>
                         <p class="p-description">{{ article.description|striptags|length > 100 ? article.description|striptags|slice(0, 100) ~ '...' : article.description|striptags }}</p>

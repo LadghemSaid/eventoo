@@ -164,12 +164,12 @@ class Comment
 
     public function getEvent(): ?Event
     {
-        return $this->events;
+        return $this->event;
     }
 
     public function setEvent(?Event $event): self
     {
-        $this->events = $event;
+        $this->event = $event;
 
         return $this;
     }

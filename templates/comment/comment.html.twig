@@ -2,6 +2,7 @@
 	<section class="comments">
 		{% for comment in comments %}
 
+
 			<article class="comment" id="commentId-{{ comment.id }}">
 				<div class="container d-flex">
 					<p class="comment__img">
@@ -47,9 +48,9 @@
 	<div class="container">
 		<p class="text-left upperCase text-bigText mb-30 mb-30Mobile mt-3">Laisser un commentraire</p>
 
-		{{ form_row(formComment.email, {'attr': {'placeholder':"Email"}, 'label_attr': {'class': 'sr-only'}})}}
-		{{ form_row(formComment.username , {'attr': {'placeholder':"Pseudo"}, 'label_attr': {'class': 'sr-only'}})}}
-		{{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea', 'placeholder':"Votre commentaire ..."},'label_attr': {'class': 'sr-only'}}) }}
+		{{ form_row(formComment.email, {'attr': {'placeholder':"Email" ,'type':'email','minlength':'5','maxlength':'500'}, 'label_attr': {'class': 'sr-only'}})}}
+		{{ form_row(formComment.username , {'attr': {'placeholder':"Pseudo",'minlength':'5','maxlength':'500'}, 'label_attr': {'class': 'sr-only'}})}}
+		{{ form_row(formComment.textComment,{'attr': {'class': 'commentForm__textarea', 'placeholder':"Votre commentaire ..." ,'minlength':'5','maxlength':'500'},'label_attr': {'class': 'sr-only'}}) }}
 		<div class="d-flex">{{ form_row(formComment.submit,{'attr': {'class': 'btn btn-lg btn-purple'},'label': 'Envoyer'}) }}</div>
 		{{ form_end(formComment) }}
 	</div>

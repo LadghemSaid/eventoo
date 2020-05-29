@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -17,7 +18,7 @@ class CommentType extends AbstractType
         $builder
 
             ->add('username', TextType::class)
-            ->add('email', TextType::class)
+            ->add('email', EmailType::class)
             ->add('textComment', TextareaType::class)
             ->add('submit', SubmitType::class)
         ;
