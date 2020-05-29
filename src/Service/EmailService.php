@@ -55,7 +55,7 @@ class EmailService
         $img = $message->embed(\Swift_Image::fromPath('img/logo.png')); // j'ajoute l'image que je souhaite afficher
         //$qrCode = $message->embed(\Swift_Image::fromPath()); // j'ajoute l'image que je souhaite afficher
 
-        $message->setBody($this->templating->render('Emails/registration.html.twig', ['visit' => $visit, 'img' => $img]));
+        $message->setBody($this->templating->render('emails/registration.html.twig', ['visit' => $visit, 'img' => $img]));
         /* dans les variables à afficher, en plus de la visite, j'affiche l'image que j'appelerai dans Twig en {{ img }}*/
 
         return $this->mailer->send($message);
