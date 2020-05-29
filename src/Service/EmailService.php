@@ -52,7 +52,7 @@ class EmailService
             ->setFrom($this->emailfrom) // je récupère l'adresse que j'ai enregistré dans parameters.yml grâce à cet argument
             ->setTo($email);
 
-        $img = $message->embed(\Swift_Image::fromPath('img/icon.png')); // j'ajoute l'image que je souhaite afficher
+        $img = $message->embed(\Swift_Image::fromPath('img/logo.png')); // j'ajoute l'image que je souhaite afficher
         //$qrCode = $message->embed(\Swift_Image::fromPath()); // j'ajoute l'image que je souhaite afficher
 
         $message->setBody($this->templating->render('Emails/registration.html.twig', ['visit' => $visit, 'img' => $img]));

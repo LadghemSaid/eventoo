@@ -96,7 +96,7 @@ class Ticket
 
     /**
      * @var bool
-     * @ORM\Column(name="discount", type="boolean")
+     * @ORM\Column(name="discount", type="boolean",nullable=true)
      */
     private $discount;
 

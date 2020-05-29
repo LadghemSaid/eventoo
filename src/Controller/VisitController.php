@@ -210,6 +210,30 @@ class VisitController extends Controller
 
     }
 
+    /**
+     * page 7 Bypass confirmation
+     * @Route("/confirmationPassed", name="app_visit_confirmation_bypassed")
+     * @throws InvalidVisitSessionException
+     */
+    public function confirmationActionByPassed(VisitManager $visitManager)
+    {
+        $visit = $visitManager->getCurrentVisit(Visit::IS_VALID_WITH_CUSTOMER);
+
+        // Création du booking code
+        $visitManager->generateBookingCodeWithEmail($visit);
+
+        // enregistrement dans la base
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist($visit);
+        $em->flush();
+        $this->addFlash('notice', 'flash.payment.success');
+
+        return $this->redirect($this->generateUrl('app_visit_confirmation'));
+
+    }
+
+
 
     /**
      * page 6 confirmation

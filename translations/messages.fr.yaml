@@ -91,7 +91,7 @@ unique.bookingcode.visit: 'le code de réservation de votre visite'
 
 prepare.your.visit: 'Préparez votre visite'
 exhibitions: 'Les expositions'
-guided.tour: 'Les visites guidées'
+guided.tour: 'Les ShowCase'
 informations.museum: "Les informations pratiques (plan d'accès, horaires)"
 have.a.good.visit: 'Bonne visite'
 
@@ -117,9 +117,12 @@ registration.paragraph0: "Le festival vous accueille de 8h à 20h."
 registration.paragraph1: "Le billet acheté en ligne est nominatif. Un document d’identité peut vous être demandé à votre arrivée."
 comments.guided_tour: "Que vous veniez pour la première fois ou que vous soyez un habitué, trouvez la visite qui vous correspond, parmi le large choix de thématiques proposées."
 pratical.informations: "Infos pratiques"
-comments.pratical.informations: "Les horaires du musée, les heures d'ouverture et de fermeture des salles, les rendez-vous des visites guidées, les informations pour y accéder..."
-comments.exhibitions: "Découvrez les expositions permanentes et temporaires du Musée du louvre. Chaque saison, nous vous proposons des expositions temporaires, fruits des dernières recherches des spécialistes."
-workshops: "Les ateliers"
+comments.pratical.informations: "Les horaires du festival, les heures d'ouverture et de fermeture des scenes, les rendez-vous des visites guidées, les informations pour y accéder..."
+comments.exhibitions: "Découvrez les differentes scene permanentes et temporaires du festivale. Chaque saison, nous vous proposons des festival temporaires."
+workshops: "Les genre musicaux"
+comments.workshops: "Le Pop’ Cornes Festival, est-ce un festival culinaire ? Oui mais uniquement pour les gourmands de… MUSIQUE !
+                     Cet évènement n’a donc rien à voir avec cette petite friandise que vous pouvez savourer pendant votre séance de cinéma… Quoique… rien ne dit que vous n’en trouverez pas sur le site du Festival...
+                     Plus sérieusement, le Pop’Cornes Festival est un festival open-air, qui se déroule le week-end de la Pentecôte dans la commune du Russey, dans le Haut-Doubs."
 
 #Emails/contact.html.twig
 title.email.contact: "Page Contact - Eventoo"
