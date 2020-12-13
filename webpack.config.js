@@ -12,7 +12,7 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     .setOutputPath('public/build/')
-    .setPublicPath('/eventoo/build')
+    .setPublicPath('/build')
     .setManifestKeyPrefix('build/')
     .addEntry('app', './assets/js/app.js')
     .addEntry('ajax', './assets/js/ajax.js')
